@@ -16,7 +16,7 @@ function index() {
             <button className={`btn ${ styles.button } `}>Log In</button>
           </div>
           <div className="col-md-6">
-            <Image src="/./svg/landing.svg" width={1000} height={500} />
+            <Image src="/./svg/landing.svg" alt="" width={1000} height={500} />
           </div>
         </div>
       </div>
