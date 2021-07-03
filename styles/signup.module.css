@@ -1,0 +1,30 @@
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.celingSection1 {
+  margin-top: -50px;
+}
+.celingImagehContainer {
+  display: flex;
+}
+.celingSection2 {
+  margin-top: -60px;
+}
+.formContainer {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 3fr 7fr 3fr;
+}
+.tabSection {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+}
