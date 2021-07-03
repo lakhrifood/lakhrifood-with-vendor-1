@@ -28,3 +28,10 @@
   align-items: flex-end;
   justify-content: center;
 }
+.formSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.formFirst {
+  padding: 10px;
+}
