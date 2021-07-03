@@ -124,6 +124,11 @@ const signup = () => {
                 />
               </div>
             </div>
+            <input
+              className={`btn ${styles.submitBtn}`}
+              type="submit"
+              value="Submit"
+            />
           </div>
           <div className={styles.tabSection}>
             {" "}
