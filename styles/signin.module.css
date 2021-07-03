@@ -1,0 +1,44 @@
+.welcomeText {
+    color: rgba(141, 42, 211, 0.8);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    padding-bottom: 30px;
+}
+
+.signinFrom {
+    width: 50%;
+}
+
+.signinFrom input {
+    background: #F5F5F5;
+    border-radius: 10px;
+}
+
+.signinFrom .submitBtn {
+    width: fit-content;
+    padding: 0px 20px;
+    margin: 25px auto;
+    background: rgba(141, 42, 211, 0.8);
+    border-radius: 10px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 42px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 480px) {
+    .signinFrom {
+        width: 100%;
+    }
+    .welcomeText {
+        font-size: 30px;
+        padding-bottom: 10px;
+        margin-bottom: 0px !important;
+    }
+}
