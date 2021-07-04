@@ -4,7 +4,7 @@ function AllProducts() {
     return (
         <div className={styles.allProductsWrapper}>
             <div className="text-end">
-                <h4 className={styles.aProTitle}>All Products</h4>
+                <h4 className={styles.aProTitle}>All Products </h4>
                 <div className={`d-flex flex-wrap justify-content-between ${ styles.cardWrapper }`} >
                     {/* first product card */}
                     <div className={styles.productCard}>
