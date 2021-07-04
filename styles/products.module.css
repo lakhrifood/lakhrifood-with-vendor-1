@@ -1,0 +1,237 @@
+.title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    color: rgba(141, 42, 211, 0.8);
+}
+
+.pProTitle {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    color: #24BB22;
+}
+
+.cProTitle {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    color: #FC9B0A;
+}
+
+.aProTitle {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    color: rgba(141, 42, 211, 0.8);
+}
+
+.popularProductsWrapper .cardWrapper {
+    position: relative;
+}
+
+.popularProductsWrapper .cardWrapper:before {
+    position: absolute;
+    content: " ";
+    right: -15px;
+    height: 100%;
+    width: 5px;
+    background: #24BB22;
+    border-radius: 4px;
+}
+
+.clickedProductsWrapper .cardWrapper {
+    position: relative;
+}
+
+.clickedProductsWrapper .cardWrapper:before {
+    position: absolute;
+    content: " ";
+    left: -15px;
+    height: 100%;
+    width: 5px;
+    background: #FC9B0A;
+    border-radius: 4px;
+}
+
+.allProductsWrapper .cardWrapper {
+    position: relative;
+}
+
+.allProductsWrapper .cardWrapper:before {
+    position: absolute;
+    content: " ";
+    right: -15px;
+    height: 100%;
+    width: 5px;
+    background: rgba(141, 42, 211, 0.8);
+    border-radius: 4px;
+}
+
+/* product card css */
+
+.productCard {
+    width: 270px;
+    height: 332px;
+    background-image: url("../public/Rectangle\ 31.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 8px;
+    transition: .5s;
+    margin-bottom: 20px;
+}
+
+.cardOverlay {
+    width: 270px;
+    height: 332px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000;
+    opacity: .3;
+    border-radius: 8px;
+}
+
+.cardContent {
+    width: 270px;
+    height: 332px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 8px;
+}
+
+.proInfo {
+    padding: 20px;
+    text-align: left;
+}
+
+.proAction {
+    background: rgba(141, 42, 211, 0.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0px 0px 8px 8px;
+    padding: 10px 15px;
+    display: none;
+    transition: .5s;
+}
+
+.productCard:hover .proAction {
+    display: flex;
+    animation: productAction .5s;
+}
+
+@keyframes productAction {
+    0% {
+        margin-bottom: -50px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    70% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    95% {
+        opacity: .5;
+        visibility: visible;
+    }
+    100% {
+        margin-bottom: 0px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* switch input css start */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: transparent;
+    border: 1px solid;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background: #fff;
+    border: 2px solid #fff;
+}
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* switch input css end */
