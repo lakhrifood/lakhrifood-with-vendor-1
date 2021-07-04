@@ -1,4 +1,5 @@
 import styles from '../../styles/products.module.css';
+import EditProduct from './Modal/EditProduct';
 
 function MostClickedProducts() {
     return (
@@ -16,7 +17,7 @@ function MostClickedProducts() {
                                 <h2>300 Tk</h2>
                             </div>
                             <div className={styles.proAction} >
-                                <h3><i className="far fa-edit"></i></h3>
+                                <EditProduct />
                                 <label className={styles.switch}>
                                     <input type="checkbox" />
                                     <span className={`${ styles.slider } ${ styles.round } `}></span>
@@ -34,7 +35,7 @@ function MostClickedProducts() {
                                 <h2>300 Tk</h2>
                             </div>
                             <div className={styles.proAction} >
-                                <h3><i className="far fa-edit"></i></h3>
+                                <EditProduct />
                                 <label className={styles.switch}>
                                     <input type="checkbox" />
                                     <span className={`${ styles.slider } ${ styles.round } `}></span>
@@ -52,7 +53,7 @@ function MostClickedProducts() {
                                 <h2>300 Tk</h2>
                             </div>
                             <div className={styles.proAction} >
-                                <h3><i className="far fa-edit"></i></h3>
+                                <EditProduct />
                                 <label className={styles.switch}>
                                     <input type="checkbox" />
                                     <span className={`${ styles.slider } ${ styles.round } `}></span>
@@ -70,7 +71,7 @@ function MostClickedProducts() {
                                 <h2>300 Tk</h2>
                             </div>
                             <div className={styles.proAction} >
-                                <h3><i className="far fa-edit"></i></h3>
+                                <EditProduct />
                                 <label className={styles.switch}>
                                     <input type="checkbox" />
                                     <span className={`${ styles.slider } ${ styles.round } `}></span>
