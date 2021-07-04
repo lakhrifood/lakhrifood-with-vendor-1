@@ -9,7 +9,17 @@ const signup = () => {
     <Layout>
       <div className={styles.signupContainer}>
         <div className={styles.header}>
-          <div>Lakhrifood logo</div>
+          <div>
+            {" "}
+            <div className={`${styles.logo}`}>
+              <Image
+                src="/./Lakhri food logo.svg"
+                width={140}
+                height={120}
+                alt=""
+              />
+            </div>
+          </div>
           <div className={styles.celingImagehContainer}>
             <div className={styles.celingSection1}>
               <Image

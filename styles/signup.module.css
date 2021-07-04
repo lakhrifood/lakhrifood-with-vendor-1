@@ -3,6 +3,14 @@
   flex-direction: column;
   height: 100vh;
 }
+.logo {
+  padding: 10px 50px !important;
+}
+@media screen and (max-width: 480px) {
+  .logo {
+    padding: 10px 50px !important;
+  }
+}
 .header {
   display: flex;
   justify-content: space-between;

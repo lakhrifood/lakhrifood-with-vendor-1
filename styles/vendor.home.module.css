@@ -1,0 +1,11 @@
+.mainScreen {
+  display: grid;
+  grid-template-columns: 1;
+  align-items: center;
+  justify-content: center;
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
