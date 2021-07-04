@@ -3,19 +3,10 @@ import Navbar from "../../components/vendor/Navbar";
 import Image from "next/image";
 import hero from "../../public/svg/hero.svg";
 import styles from "../../styles/vendor.home.module.css";
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  chakra,
-  useTab,
-  useStyles,
-  Box,
-} from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import React from "react";
 import OrderCard from "../../components/vendor/OrderCard";
+import OnProcessingCard from "../../components/vendor/OnProcessingCard";
 const hime = () => {
   return (
     <Layout>
@@ -43,7 +34,9 @@ const hime = () => {
               <OrderCard status="accepted" />
               <OrderCard status="accepted" />
             </TabPanel>
-            <TabPanel>asdasd</TabPanel>
+            <TabPanel>
+              <OnProcessingCard />
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </div>
