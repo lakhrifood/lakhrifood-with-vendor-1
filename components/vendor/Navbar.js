@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styles from '../../styles/vendorNavbar.module.css';
+import Link from "next/link"
 
 function Navbar() {
     return (

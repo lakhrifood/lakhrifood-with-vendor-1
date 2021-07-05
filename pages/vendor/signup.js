@@ -51,85 +51,85 @@ const signup = () => {
           </div>
           <div className={styles.formSection}>
             <div className={styles.formFirst}>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="htmlForm-label">
                   Vendor Owner Full Name
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Vendor Name
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Business Type
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Email
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Phone Number
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
             </div>
             <div className={styles.formFirst}>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Location
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   NID Number
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />
               </div>
