@@ -1,0 +1,4 @@
+.contentWrapper {
+    display: grid;
+    grid: auto / auto 1fr;
+}
