@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
+import Catagories from "../components/FoodHome/Catagories";
 import Cover from "../components/FoodHome/Cover";
+import Promotion from "../components/FoodHome/Promotion";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
       </Head>
 
       <Cover />
+      <Catagories />
+      <Promotion />
     </div>
   );
 }

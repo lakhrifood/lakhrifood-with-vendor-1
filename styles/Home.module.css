@@ -3,10 +3,10 @@
 .headerContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 800px;
+  height: 600px;
 }
 .textCon {
-  height: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,11 +27,81 @@
   color: #179bd7;
 }
 .imgSection {
-  height: 70%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .searchField {
   margin-top: 30px;
+}
+.cataContainer > h1 {
+  margin-left: 50px;
+  font-size: 32px;
+  font-weight: bold;
+}
+.cataCon {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.pizzaIn {
+  margin-left: -120px;
+  height: 329px;
+}
+.Items {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.item {
+  height: 180px;
+  width: 70%;
+  background-color: #b2d6e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.item > h1 {
+  color: #179bd7;
+  margin-top: 20px;
+  font-weight: 900;
+}
+.promotionsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.Proitems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Proitem {
+  height: 390px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 5px 3px 7px 2px #e8e8e8;
+}
+.Proitem > h1 {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.Proitem > p {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.headingpro {
+  font-size: 33px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  color: #179bd7;
 }
