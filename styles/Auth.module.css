@@ -1,0 +1,59 @@
+.container {
+  background-image: url("../public//cala-w6ftFbPCs9I-unsplash.png");
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardLog {
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  padding: 40px;
+}
+
+.header > h1 {
+  font-size: 32px;
+}
+.header > p {
+  font-size: 19px;
+}
+.cardInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  height: 85%;
+}
+.btnTxt {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 402px) {
+  .cardLog {
+    width: 250px;
+    height: 600px;
+    background-color: white;
+    padding: 40px;
+  }
+  .header > h1 {
+    font-size: 19px;
+  }
+  .header > p {
+    font-size: 14px;
+  }
+  .btnTxt {
+    font-size: 11px;
+  }
+  .cardLog {
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    padding: 40px;
+  }
+}
