@@ -6,6 +6,7 @@
     line-height: 48px;
     /* identical to box height */
     color: rgba(141, 42, 211, 0.8);
+    display: inline-flex;
 }
 
 .pProTitle {
@@ -16,6 +17,7 @@
     line-height: 48px;
     /* identical to box height */
     color: #24BB22;
+    padding-bottom: 10px;
 }
 
 .cProTitle {
@@ -26,6 +28,7 @@
     line-height: 48px;
     /* identical to box height */
     color: #FC9B0A;
+    padding-bottom: 10px;
 }
 
 .aProTitle {
@@ -36,6 +39,7 @@
     line-height: 48px;
     /* identical to box height */
     color: rgba(141, 42, 211, 0.8);
+    padding-bottom: 10px;
 }
 
 .popularProductsWrapper .cardWrapper {
@@ -129,6 +133,16 @@
     text-align: left;
 }
 
+.proInfo h2 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 38px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
 .proAction {
     background: rgba(141, 42, 211, 0.8);
     display: flex;
@@ -164,6 +178,43 @@
         opacity: 1;
         visibility: visible;
     }
+}
+
+/* Add product modal styles */
+
+.uploadImg {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+    color: rgba(141, 42, 211, 0.8);
+}
+
+.uploadImg .imgIcon {
+    font-size: 75px;
+    margin-right: 25px;
+}
+
+.submitBtn {
+    background: rgba(141, 42, 211, 0.8);
+    border-radius: 8px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    color: #FFFFFF;
+    width: fit-content;
+    padding: 5px 20px;
+    transition: .5s;
+}
+
+.submitBtn:hover {
+    background-color: #ffffff;
+    color: rgba(141, 42, 211, 0.8);
+    border: 1px solid rgba(141, 42, 211, 0.8);
 }
 
 /* switch input css start */
