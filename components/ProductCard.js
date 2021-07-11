@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import { useState } from 'react';
 import styles from '../styles/ProductCard.module.css';
 
 function ProductCard() {
+
     return (
         <div className={`card ${ styles.productCard }`}>
             <Image

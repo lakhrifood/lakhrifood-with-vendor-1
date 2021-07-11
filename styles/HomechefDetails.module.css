@@ -1,0 +1,109 @@
+.headerImage {
+    height: 400px;
+    background-image: url("../public/Home\ chef_1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 10;
+}
+
+.overlay {
+    height: 400px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #179BD7;
+    opacity: .5;
+    z-index: 10;
+}
+
+.content {
+    height: 400px;
+    position: absolute;
+    left: 0;
+    bottom: -296px;
+    right: 0;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.checked {
+    color: orange;
+}
+
+.starIcon {
+    margin-right: 2px;
+}
+
+.pTitle {
+    font-size: 36px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.pReting {
+    padding: 5px 0px;
+}
+
+.pDetails {
+    font-size: 18px;
+    padding: 5px 0px;
+}
+
+.pAmountOfCalPro {
+    font-size: 20px;
+    padding: 5px 0px;
+}
+
+.subTitle {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 0px;
+}
+
+.seeHomechefProductBtn {
+    padding: 10px 60px;
+    font-size: 24px;
+    margin-top: 45px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid #179BD7;
+    transition: .5s;
+}
+
+.seeHomechefProductBtn:hover {
+    background-color: #fff;
+    color: #179BD7;
+    border: 2px solid #179BD7;
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        text-align: center;
+    }
+    .homechefDetailsWrapper {
+        padding-top: 150px !important;
+    }
+    .headerImage {
+        height: 250px;
+    }
+    .overlay {
+        height: 250px;
+    }
+    .content {
+        height: 250px;
+        bottom: -146px;
+    }
+    .seeHomechefProductBtn {
+        font-size: 18px;
+        padding: 10px 20px !important;
+        font-weight: 500;
+    }
+}
