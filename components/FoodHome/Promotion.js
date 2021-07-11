@@ -18,7 +18,7 @@ const Promotion = () => {
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" class="btn btn-primary">
+            <button type="button" className="btn btn-primary">
               Promo Code
             </button>
           </div>
@@ -35,7 +35,7 @@ const Promotion = () => {
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" class="btn btn-primary">
+            <button type="button" className="btn btn-primary">
               Promo Code
             </button>
           </div>
@@ -52,7 +52,7 @@ const Promotion = () => {
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" class="btn btn-primary">
+            <button type="button" className="btn btn-primary">
               Promo Code
             </button>
           </div>

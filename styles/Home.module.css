@@ -105,3 +105,19 @@
   margin-bottom: 30px;
   color: #179bd7;
 }
+.mostOrdered {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.mostORderTitle {
+  font-size: 32px;
+  margin-left: 80px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+.mostContainer {
+  margin-top: 60px;
+}
+.headingproClr {
+  color: #179bd7;
+}
