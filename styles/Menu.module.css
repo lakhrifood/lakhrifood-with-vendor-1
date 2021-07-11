@@ -1,0 +1,5 @@
+.contentWrapper {
+    display: grid;
+    grid: auto / auto 1fr;
+    column-gap: 20px;
+}

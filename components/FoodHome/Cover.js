@@ -12,13 +12,13 @@ const Cover = () => {
         <div className={`input-group mb-3 ${styles.searchField}`}>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Enter Your Area"
             aria-label="Enter Your Area"
             aria-describedby="basic-addon2"
           />
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
+          <div className="input-group-append">
+            <button className="btn btn-primary" type="button">
               Search
             </button>
           </div>

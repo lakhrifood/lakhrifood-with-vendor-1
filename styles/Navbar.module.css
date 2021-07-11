@@ -1,0 +1,59 @@
+.mainMenu li a {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+    /* identical to box height */
+    color: black !important;
+}
+
+.mainMenu li {
+    margin: 0px 15px;
+}
+
+.mainMenuIcon li a i {
+    font-size: 20px;
+    line-height: 36px;
+}
+
+.btnSeller {
+    background-color: #179BD7;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.navbarShadow {
+    box-shadow: 1px 1px 9px 4px lightgrey;
+    padding: 15px 10px;
+}
+
+.mainMenu li:hover a {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    position: relative;
+}
+
+.mainMenu li:hover a::before {
+    position: absolute;
+    content: " ";
+    height: 2px;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: Black;
+    animation: manuHover 1s;
+}
+
+@keyframes manuHover {
+    from {
+        width: 0px;
+    }
+    to {
+        width: 100%;
+    }
+}

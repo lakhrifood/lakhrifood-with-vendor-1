@@ -1,0 +1,41 @@
+.productsWrapper {
+    padding: 50px 0px 50px 10px;
+}
+
+.searchField {
+    width: 50%;
+}
+
+.productCard {
+    width: 340px;
+    border-radius: 20px;
+    box-shadow: 3px 4px 10px -1px lightgrey;
+    margin-bottom: 20px;
+}
+
+.cardImage {
+    border-radius: 20px;
+}
+
+.productCard h5 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.productCard p {
+    padding: 4px 0px;
+}
+
+.checked {
+    color: orange;
+}
+
+.starIcon {
+    margin-right: 2px;
+}
+
+.productCard h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #179BD7;
+}
