@@ -1,0 +1,30 @@
+.JoinAsVendorOrRiderWrapper {
+    background-color: #179BD7;
+    height: fit-content;
+    padding: 50px 30px;
+}
+
+.rider h2 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 45px;
+    padding-bottom: 20px;
+    line-height: 62px;
+}
+
+.homechef h2 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 45px;
+    padding-bottom: 20px;
+    line-height: 62px;
+}
+
+.homechef {
+    text-align: right;
+}
+
+.riderWrapper {
+    display: grid;
+    grid: auto / auto auto;
+}
