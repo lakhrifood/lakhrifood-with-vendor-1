@@ -7,6 +7,9 @@ import Image from 'next/image';
 import styles from '../styles/ProductDetails.module.css'
 import JoinAsVendorOrRider from './../components/JoinAsVendorOrRider';
 import Footer from './../components/Footer/Footer';
+import RecommendedProduct from './../components/FoodHome/RecommendedProduct';
+import MostOrdered from './../components/FoodHome/MostOrdered';
+import RecommendedHomeChef from './../components/FoodHome/RecommendedHomeChef';
 
 
 
@@ -21,12 +24,13 @@ function Productdetails() {
     return (
         <Layout>
             <Navbar />
-            <div className="container pt-5">
+            <div className="container pt-5 pb-5">
                 <div className="row">
                     <div className="col-md-6">
                         <Carousel
                             showThumbs={true}
                             thumbWidth={80}
+                            showStatus={false}
                             showIndicators={false}
                             showArrows={false}
                             autoPlay
@@ -67,6 +71,8 @@ function Productdetails() {
                         </div>
                     </div>
                 </div>
+                <MostOrdered />
+                <RecommendedHomeChef />
             </div>
             <JoinAsVendorOrRider />
             <Footer />
