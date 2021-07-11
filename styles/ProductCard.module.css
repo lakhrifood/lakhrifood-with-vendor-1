@@ -31,3 +31,12 @@
     font-weight: bold;
     color: #179BD7;
 }
+
+@media screen and (max-width: 480px) {
+    .productCard {
+        width: 95%;
+    }
+    .cardImage {
+        height: 150px !important;
+    }
+}
