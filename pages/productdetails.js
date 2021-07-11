@@ -5,6 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 import styles from '../styles/ProductDetails.module.css'
+import JoinAsVendorOrRider from './../components/JoinAsVendorOrRider';
+import Footer from './../components/Footer/Footer';
 
 
 
@@ -54,18 +56,20 @@ function Productdetails() {
                             <h4 className={styles.subTitle}>Description</h4>
                             <p className={styles.pDetails}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ipsam doloribus dolores quibusdam ex? Assumenda.</p>
                             <div className={styles.priceAndQuantityWrapper}>
-                            <h4 className={styles.pPrice}>150.00 BDT</h4>
-                            <div className={styles.quantityWrapper}>
-                                <input type="submit" className={styles.decrement} value="-" />
-                                <input type="number" value="1" name="" id="" />
-                                <input type="submit" className={styles.increment} value="+" />
+                                <h4 className={styles.pPrice}>150.00 BDT</h4>
+                                <div className={styles.quantityWrapper}>
+                                    <input type="submit" className={styles.decrement} value="-" />
+                                    <input type="number" value="1" name="" id="" />
+                                    <input type="submit" className={styles.increment} value="+" />
+                                </div>
                             </div>
-                            </div>
-                            <button className={`btn btn-bg ${styles.addCartBtn}`}>Add To Cart</button>
+                            <button className={`btn btn-bg ${ styles.addCartBtn }`}>Add To Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <JoinAsVendorOrRider />
+            <Footer />
         </Layout>
     )
 }
