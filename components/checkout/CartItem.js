@@ -7,14 +7,18 @@ const CartItem = () => {
       <Image
         src="/../public/biriyani.png"
         alt="Picture of the author"
-        width={120}
-        height={120}
+        width={90}
+        height={90}
       />
-      <div>
-        <h1>pizza</h1>
-        <p>this is a desc</p>
+      <div className={styles.detItemSection}>
+        <h1>pizza with peparoni</h1>
       </div>
-      <div></div>
+      <div className={styles.quantity}>
+        <button className={`btn`}>-</button>
+        <h1>2</h1>
+        <button className={`btn`}>+</button>
+      </div>
+      <i className={`fas fa-times ${styles.iconx}`}></i>
     </div>
   );
 };

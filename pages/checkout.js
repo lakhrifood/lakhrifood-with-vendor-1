@@ -7,6 +7,18 @@ const checkout = () => {
       <Navbar />
       <div className={styles.cartContainer}>
         <CartItem />
+        <CartItem />
+        <CartItem />
+        <CartItem />
+        <CartItem />
+        <div className={styles.paymentSec}>
+          <h1>Qty 3</h1>
+          <div className={styles.qty}>
+            <h1>Total: 625.00 BDT</h1>
+            <p>Including Delivery Charge : 25.00 BDT</p>
+          </div>
+          <button className="btn btn-primary">Checkout</button>
+        </div>
       </div>
     </div>
   );
