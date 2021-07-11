@@ -1,0 +1,60 @@
+.containersConfirm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 40px;
+}
+.headline {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.paymentSection {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.payItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  border: 1px solid rgb(216, 216, 216);
+  margin: 3px;
+  border-radius: 4px;
+}
+.payItem > h5 {
+  font-size: 12px;
+  margin-left: 10px;
+}
+.containerBill {
+  display: flex;
+  margin-left: 40px;
+  flex-direction: column;
+}
+.containeritems {
+  box-shadow: 3px 4px 5px 2px rgb(230, 230, 230);
+  padding: 20px;
+}
+.itemCheck {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+}
+.btnGhor {
+  width: 100%;
+}
+@media screen and (max-width: 692px) {
+  .containersConfirm {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .containerBill {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+  }
+  .paymentSection {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
