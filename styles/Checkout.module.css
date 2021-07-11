@@ -1,0 +1,10 @@
+.cartContainer {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.itemContainer {
+  height: 90px;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+}
