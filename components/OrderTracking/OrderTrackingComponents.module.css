@@ -25,6 +25,8 @@ svg.MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active {
     color: '#179BD7' !important;
 }
 
+
+
 @media screen and (max-width: 480px) {
     .statusTime {
         top: 0px;

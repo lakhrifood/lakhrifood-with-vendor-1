@@ -17,3 +17,11 @@ a {
   background-color: #179BD7;
   color: #fff;
 }
+
+.page-bg {
+  background-color: #f6f6f6;
+}
+
+.MuiPaper-root {
+  background-color: #f6f6f6 !important;
+}
