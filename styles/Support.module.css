@@ -1,0 +1,25 @@
+.container {
+  background: rgb(247, 247, 247);
+  min-height: 100vh;
+}
+.infoContainer {
+  margin-left: 60px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  padding-bottom: 20px;
+}
+.infoContainer > h1 {
+  padding-top: 26px;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+}
+.infoContainer > p {
+  padding-top: 16px;
+  font-size: 17px;
+}
+.formControl {
+  width: 60%;
+}
+.query {
+  width: 90%;
+}

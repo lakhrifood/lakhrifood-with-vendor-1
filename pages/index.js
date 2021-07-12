@@ -25,7 +25,6 @@ export default function Home() {
       <Promotion />
       <MostOrdered />
       <RecommendedHomeChef />
-
       <RecommendedProduct />
       <Questions />
       <JoinAsVendorOrRider />

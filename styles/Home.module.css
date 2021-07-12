@@ -1,5 +1,3 @@
-.container {
-}
 .headerContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -149,4 +147,78 @@
 .icon {
   font-size: 22px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .headerContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 600px;
+  }
+  .cataCon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .Proitem {
+    height: 390px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 5px 3px 7px 2px #e8e8e8;
+  }
+  .Proitem > h1 {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .promotionsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+  .mostOrdered {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .textCon {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 30px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .mostOrdered {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .promotionsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+  .cataCon {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cataContainer {
+    margin-top: 60px;
+  }
+  .textCon {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 30px;
+  }
+  .QuestionsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

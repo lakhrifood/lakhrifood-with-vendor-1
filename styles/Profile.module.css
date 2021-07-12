@@ -1,0 +1,22 @@
+.container {
+  background: rgb(247, 247, 247);
+  min-height: 100vh;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.container > h1 {
+  font-size: 32px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.container > p {
+  font-size: 19px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.containerspan {
+  font-weight: 500;
+  margin-right: 10px;
+}
+.profilePic {
+}
