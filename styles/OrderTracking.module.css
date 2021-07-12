@@ -1,0 +1,20 @@
+.title {
+    padding: 50px 0px 0px 0px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.orderID {
+    padding: 10px 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.orderData {
+    padding: 2px 0px;
+}
+
+.cancelBTN {
+    width: fit-content;
+    padding: 10px 30px;
+}
