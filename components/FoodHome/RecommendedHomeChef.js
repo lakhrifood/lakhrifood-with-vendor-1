@@ -2,6 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import React from "react";
 import styles from "../../styles/Home.module.css";
 import ProductCard from "../ProductCard";
+import HomechefCard from './../HomechefCard';
 const RecommendedHomeChef = () => {
   return (
     <div className={styles.mostContainer}>
@@ -10,13 +11,13 @@ const RecommendedHomeChef = () => {
       </h1>
       <div className={styles.mostOrdered}>
         <Flex alignItems="center" justifyContent="center">
-          <ProductCard />
+          <HomechefCard />
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <ProductCard />
+          <HomechefCard />
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <ProductCard />
+          <HomechefCard />
         </Flex>
       </div>
     </div>
