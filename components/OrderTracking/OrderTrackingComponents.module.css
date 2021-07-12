@@ -1,0 +1,34 @@
+.statusTitle {
+    font-size: 20px;
+    padding: 0px 0px;
+    position: relative;
+    font-weight: 600;
+}
+
+.statusTime {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -35px;
+}
+
+.orderTimelineWrapper {
+    height: fit-content;
+    padding: 50px 0px;
+}
+
+.MuiStepIcon-root.MuiStepIcon-completed {
+    color: '#179BD7' !important;
+}
+
+svg.MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active {
+    color: '#179BD7' !important;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .statusTime {
+        top: 0px;
+    }
+}
