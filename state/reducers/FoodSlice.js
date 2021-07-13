@@ -6,11 +6,11 @@ export const FoodSlice = createSlice({
         foods: [],
     },
     reducers: {
-        getRooms: (state, { payload }) => {
+        getFoods: (state, { payload }) => {
             state.rooms = payload;
         },
     },
 });
 
-export const { getRooms } = FoodSlice.actions;
+export const { getFoods } = FoodSlice.actions;
 export default FoodSlice.reducer;
