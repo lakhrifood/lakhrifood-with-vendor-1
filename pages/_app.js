@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../state/store";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -39,7 +40,7 @@ function MyApp({ Component, pageProps }) {
           />
         </Head>
         <Component {...pageProps} />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></Script>
       </ChakraProvider>
     </Provider>
   );
