@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Products from '../components/FoodMenu/Products';
 import SideBar from '../components/FoodMenu/SideBar';
 import Navbar from '../components/Navbar'
-import Layout from './../components/Layout';
+import Layout from '../components/Layout';
 import styles from '../styles/Menu.module.css'
 import JoinAsVendorOrRider from '../components/JoinAsVendorOrRider';
 import Footer from '../components/Footer/Footer';
+import { getAndSetFoodAction } from '../state/action/FoodActions';
+import { useDispatch } from 'react-redux';
 
-function menu() {
+function Menu() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAndSetFoodAction());
+    }, []);
+
     return (
         <Layout>
             <Navbar></Navbar>
@@ -15,10 +23,10 @@ function menu() {
                 <SideBar></SideBar>
                 <Products />
             </div>
-            <JoinAsVendorOrRider/>
-            <Footer/>
+            <JoinAsVendorOrRider />
+            <Footer />
         </Layout>
     )
 }
 
-export default menu
+export default Menu
