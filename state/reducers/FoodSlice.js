@@ -7,10 +7,16 @@ export const FoodSlice = createSlice({
     },
     reducers: {
         getFoods: (state, { payload }) => {
-            state.rooms = payload;
+            state.foods = payload;
         },
+        getFoodsByCategory: (state, { payload }) => {
+            state.foods = payload;
+        },
+        getFoodByRating: (state, { payload }) => {
+            state.foods = payload;
+        }
     },
 });
 
-export const { getFoods } = FoodSlice.actions;
+export const { getFoods, getFoodsByCategory, getFoodByRating } = FoodSlice.actions;
 export default FoodSlice.reducer;

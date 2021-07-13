@@ -9,11 +9,11 @@
 }
 
 .priceSlector {
-    color: #179BD7 !important;
+    color: #179bd7 !important;
 }
 
 .priceMenu input {
-    border: 1px solid #179BD7;
+    border: 1px solid #179bd7;
     padding: 2px;
     text-align: center;
     border-radius: 5px;
@@ -69,15 +69,17 @@
     flex: 1 1;
     align-items: center;
     padding: 15px 0;
-    color: white;
     border-radius: 0px;
 }
 
-/* .sidebar .sideMenu li.active {
+.sidebar .sideMenu li:target {
+}
+
+.sidebar .sideMenu li.active {
     background-color: #179bd7;
     color: black;
     cursor: pointer;
-} */
+}
 
 .sideMenu li.active a {
     color: #179bd7;
@@ -92,7 +94,7 @@
     .sideMenu {
         display: block;
         padding: 10px 20px;
-        animation: filterDropdown .5s;
+        animation: filterDropdown 0.5s;
     }
     .sideMenuLarge {
         display: none;
@@ -113,7 +115,7 @@
         margin-top: -50px;
     }
     90% {
-        opacity: .3;
+        opacity: 0.3;
         visibility: visible;
     }
     100% {

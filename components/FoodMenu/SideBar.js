@@ -3,9 +3,11 @@ import Link from 'next/link'
 import styles from '../../styles/SideBar.module.css';
 import { makeStyles, Slider } from '@material-ui/core';
 import FilterOptions from './FilterOptions';
+import { useDispatch } from 'react-redux';
 
 function SideBar() {
     const [filterVisible, setFilterVisible] = useState(null);
+    const dispatch = useDispatch();
 
     return (
         <div className={`${ styles.sidebar }`}>
