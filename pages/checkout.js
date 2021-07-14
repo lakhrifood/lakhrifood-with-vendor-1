@@ -1,5 +1,5 @@
-import CartItem from "../components/checkout/CartItem";
-import Navbar from "../components/Navbar";
+import CartItem from "../components/checkout/cartitem";
+import Navbar from "../components/navbar";
 import styles from "../styles/Checkout.module.css";
 import { useSelector } from "react-redux";
 const Checkout = () => {

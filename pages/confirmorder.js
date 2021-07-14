@@ -1,5 +1,5 @@
 import styles from "../styles/ConfirmOrder.module.css";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 const confirmorder = () => {
   return (
     <div>

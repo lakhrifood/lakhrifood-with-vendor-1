@@ -1,12 +1,12 @@
 import React from 'react'
-import HomechefCard from '../../components/HomechefCard';
-import HomechefDetails from '../../components/HomechefDetails';
+import HomechefCard from '../../components/homechefcard';
+import HomechefDetails from '../../components/homechefdetails';
 import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
-import JoinAsVendorOrRider from '../../components/JoinAsVendorOrRider';
-import Footer from '../../components/Footer/Footer';
-import RecommendedHomeChef from '../../components/FoodHome/RecommendedHomeChef';
-import RecommendedProduct from '../../components/FoodHome/RecommendedProduct';
+import Navbar from '../../components/navbar';
+import JoinAsVendorOrRider from '../../components/joinasvendororrider';
+import Footer from '../../components/Footer/footer';
+import RecommendedHomeChef from '../../components/FoodHome/recommendedhomechef';
+import RecommendedProduct from '../../components/FoodHome/recommendedproduct';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAndSetHomechefAction } from '../../state/action/HomechefAction';

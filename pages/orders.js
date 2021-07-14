@@ -1,8 +1,8 @@
-import OrderCard from '../components/OrderCard';
+import OrderCard from '../components/ordercard';
 import styles from '../styles/OrderLIst.module.css';
 import Layout from './../components/Layout';
-import Navbar from './../components/Navbar';
-import Footer from './../components/Footer/Footer';
+import Navbar from './../components/navbar';
+import Footer from './../components/Footer/footer';
 
 function orders() {
     return (
