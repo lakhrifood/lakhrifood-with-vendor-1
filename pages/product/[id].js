@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/navbar';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 import styles from '../../styles/ProductDetails.module.css'
-import JoinAsVendorOrRider from '../../components/JoinAsVendorOrRider';
-import Footer from '../../components/Footer/Footer';
-import RecommendedProduct from '../../components/FoodHome/RecommendedProduct';
-import MostOrdered from '../../components/FoodHome/MostOrdered';
-import RecommendedHomeChef from '../../components/FoodHome/RecommendedHomeChef';
+import JoinAsVendorOrRider from '../../components/joinasvendororrider';
+import Footer from '../../components/Footer/footer';
+import RecommendedProduct from '../../components/FoodHome/recommendedproduct';
+import MostOrdered from '../../components/FoodHome/mostordered';
+import RecommendedHomeChef from '../../components/FoodHome/recommendedhomechef';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

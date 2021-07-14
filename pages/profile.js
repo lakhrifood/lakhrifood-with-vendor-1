@@ -1,5 +1,5 @@
 import styles from "../styles/Profile.module.css";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import Image from "next/image";
 
 const profile = () => {
