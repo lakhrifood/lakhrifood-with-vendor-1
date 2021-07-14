@@ -9,7 +9,9 @@ import Footer from '../components/Footer/Footer';
 import { getAndSetFoodAction } from '../state/action/FoodActions';
 import { useDispatch } from 'react-redux';
 
+
 function Menu() {
+
     const dispatch = useDispatch();
 
     useEffect(() => {

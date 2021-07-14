@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { FoodSlice } from "../reducers/FoodSlice";
+import FoodSlice from "../reducers/FoodSlice";
 
 
 export default configureStore({

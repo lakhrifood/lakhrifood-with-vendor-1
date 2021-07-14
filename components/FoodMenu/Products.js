@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './Products.module.css';
 import Image from 'next/image'
 import ProductCard from '../ProductCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAndSetFoodAction } from '../../state/action/FoodActions';
 
 function Products() {
+    const dispatch = useDispatch();
+    const { foods } = useSelector((state) => state.food)
+    console.log(foods)
+
+    useEffect(() => {
+        dispatch(getAndSetFoodAction());
+    }, []);
     return (
         <div className={styles.productsWrapper}>
             <div className="d-flex justify-content-between">
@@ -35,25 +44,10 @@ function Products() {
                 </div>
             </div>
 
-            <div className="d-flex flex-wrap justify-content-between pt-3">
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
-                <ProductCard />
-                {/* Another one */}
+            <div className="d-flex flex-wrap justify-content-around pt-3">
+                {
+                    foods && foods.map((food, index) => <ProductCard key={index} product={food} />)
+                }
             </div>
         </div>
     )
