@@ -23,7 +23,7 @@ const support = () => {
           <h1>Do you Face any Problem?</h1>
           <form className={styles.formControl}>
             <div className="mb-3">
-              <label for="exampleInputEmail1" className="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label">
                 Subject Of Problem
               </label>
               <input
@@ -34,7 +34,7 @@ const support = () => {
               />
             </div>
             <div className="form-group">
-              <label for="exampleFormControlTextarea1">
+              <label htmlFor="exampleFormControlTextarea1">
                 Details Message of Problem
               </label>
               <textarea
@@ -44,7 +44,7 @@ const support = () => {
               ></textarea>
             </div>
             <div className="mb-3">
-              <label for="formFile" className="form-label">
+              <label htmlFor="formFile" className="form-label">
                 Upload A Screenshot Of Your Problem
               </label>
               <input className="form-control" type="file" id="formFile" />
@@ -63,7 +63,7 @@ const support = () => {
                 <blockquote className="blockquote mb-0">
                   <p>
                     ext of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the
+                    has been the industrys standard dummy text ever since the
                     1500s, when an unknown printer took a galley of type and
                     scrambled it to make a type specimen book.
                   </p>
