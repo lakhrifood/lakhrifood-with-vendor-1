@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export const getAllFood = async () =>
-  await axios.get("https://peaceful-citadel-48843.herokuapp.com/food/all");
+    await axios.get("https://peaceful-citadel-48843.herokuapp.com/food/all");
 
 export const getByCategoryFood = async (category) =>
-  await axios.get(`https://peaceful-citadel-48843.herokuapp.com/food/category/${category}`);
+    await axios.get(`https://peaceful-citadel-48843.herokuapp.com/food/category/${ category }`);
 
 export const getByRatingFood = async (rating) =>
 
