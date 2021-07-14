@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import MostOrdered from "../components/FoodHome/MostOrdered";
 import RecommendedHomeChef from "../components/FoodHome/RecommendedHomeChef";
 import RecommendedProduct from "../components/FoodHome/RecommendedProduct";
+
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar";
 import JoinAsVendorOrRider from "../components/JoinAsVendorOrRider";

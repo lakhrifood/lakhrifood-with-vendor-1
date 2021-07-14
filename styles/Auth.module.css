@@ -10,11 +10,31 @@
   align-items: center;
   justify-content: center;
 }
+.containerSignup {
+  background-image: url("../public//cala-w6ftFbPCs9I-unsplash.png");
+
+  background-color: #cccccc;
+  height: 1200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .cardLog {
   width: 400px;
   height: 600px;
   background-color: white;
   padding: 40px;
+}
+.cardLogSignup {
+  width: 400px;
+  height: 1200px;
+  background-color: white;
+  padding: 40px;
+  margin-top: 200px;
 }
 
 .header > h1 {
