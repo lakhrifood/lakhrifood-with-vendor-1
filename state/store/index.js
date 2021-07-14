@@ -11,6 +11,7 @@ export default configureStore({
 
   reducer: {
     food: FoodSlice,
+    homechef: HomechefSlice,
     userAuth: authSlice,
     order: orderSlice,
   },

@@ -1,10 +1,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link';
-import { useState ,useEffect} from 'react';
-import styles from '../styles/ProductCard.module.css';
-
-
+import { useState, useEffect } from 'react';
 import styles from "../styles/ProductCard.module.css";
 import { AddOrderCartAction } from "../state/action/OrderAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,9 +24,9 @@ function ProductCard({ product }) {
     );
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return (
-    <div className={`card ${styles.productCard}`}>
+    <div className={`card ${ styles.productCard }`}>
       <Image
         src={
           (product && product.imgURL) ||
@@ -37,41 +34,36 @@ function ProductCard({ product }) {
         }
         width="100%"
         height="280px"
-        className={`card-img-top ${styles.cardImage}`}
+        className={`card-img-top ${ styles.cardImage }`}
         alt="..."
       />
       <div className="card-body">
         <h5>
           {product && product.name}
           <span
-            className={`ms-2 fa fa-star ${styles.starIcon} ${
-              Math.round(product && product.averageRating) >= 1 &&
+            className={`ms-2 fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 1 &&
               styles.checked
-            }`}
+              }`}
           ></span>
           <span
-            className={`fa fa-star ${styles.starIcon} ${
-              Math.round(product && product.averageRating) >= 2 &&
+            className={`fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 2 &&
               styles.checked
-            }`}
+              }`}
           ></span>
           <span
-            className={`fa fa-star ${styles.starIcon} ${
-              Math.round(product && product.averageRating) >= 3 &&
+            className={`fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 3 &&
               styles.checked
-            }`}
+              }`}
           ></span>
           <span
-            className={`fa fa-star ${styles.starIcon} ${
-              Math.round(product && product.averageRating) >= 4 &&
+            className={`fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 4 &&
               styles.checked
-            }`}
+              }`}
           ></span>
           <span
-            className={`me-2 fa fa-star ${styles.starIcon} ${
-              Math.round(product && product.averageRating) >= 5 &&
+            className={`me-2 fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 5 &&
               styles.checked
-            }`}
+              }`}
           ></span>
           ({product && product.allRatings.length})
         </h5>
