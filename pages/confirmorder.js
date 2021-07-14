@@ -7,19 +7,19 @@ const confirmorder = () => {
       <div className={`container ${styles.containersConfirm}`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleInputEmail1" className="form-label">
               Email address
             </label>
-            <input type="email" class="form-control" />
+            <input type="email" className="form-control" />
           </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
@@ -29,7 +29,7 @@ const confirmorder = () => {
             <div className={styles.paymentSection}>
               <div className={`${styles.payItem}`}>
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -40,7 +40,7 @@ const confirmorder = () => {
 
               <div className={`${styles.payItem}`}>
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -51,7 +51,7 @@ const confirmorder = () => {
 
               <div className={`${styles.payItem}`}>
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -62,7 +62,7 @@ const confirmorder = () => {
 
               <div className={`${styles.payItem}`}>
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -73,7 +73,7 @@ const confirmorder = () => {
 
               <div className={`${styles.payItem}`}>
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -90,7 +90,7 @@ const confirmorder = () => {
               Tracking ID #ansdnj
             </h6>
           </h5>
-          <div class={` ${styles.containeritems}`}>
+          <div className={` ${styles.containeritems}`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
               <h5> 3</h5>
