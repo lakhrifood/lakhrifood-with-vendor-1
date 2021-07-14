@@ -12,9 +12,11 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenu } `}>
-                        <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="#">Menu</a>
-                        </li>
+                        <Link href="/menu">
+                            <li className="nav-item">
+                                <a className="nav-link" aria-current="page" href="#">Menu</a>
+                            </li>
+                        </Link>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Order</a>
                         </li>

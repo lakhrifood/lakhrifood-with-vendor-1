@@ -8,3 +8,6 @@ export const getByCategoryFood = async (category) =>
 
 export const getByRatingFood = async (rating) =>
     await axios.get(`http://localhost:5000/food/rating?rating=${ rating }`);
+
+export const getByIDFood = async (id) =>
+    await axios.get(`http://localhost:5000/food/${ id }`);

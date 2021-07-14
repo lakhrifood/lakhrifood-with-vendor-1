@@ -8,7 +8,6 @@ import { getAndSetFoodAction } from '../../state/action/FoodActions';
 function Products() {
     const dispatch = useDispatch();
     const { foods } = useSelector((state) => state.food)
-    console.log(foods)
 
     useEffect(() => {
         dispatch(getAndSetFoodAction());
