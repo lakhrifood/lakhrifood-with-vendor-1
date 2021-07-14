@@ -14,7 +14,7 @@ const Catagories = () => {
               width={90}
               height={110}
             />
-            <h1>Home Chef's</h1>
+            <h1>Home Chefs</h1>
           </div>
         </div>
         <div className={styles.Items}>
@@ -25,7 +25,7 @@ const Catagories = () => {
               width={90}
               height={110}
             />
-            <h1>Home Chef's</h1>
+            <h1>Home Chefs</h1>
           </div>
         </div>
         <div className={styles.Items}>
@@ -36,7 +36,7 @@ const Catagories = () => {
               width={90}
               height={110}
             />
-            <h1>Home Chef's</h1>
+            <h1>Home Chefs</h1>
           </div>
         </div>
         <div className={styles.Items}>
@@ -47,7 +47,7 @@ const Catagories = () => {
               width={90}
               height={110}
             />
-            <h1>Home Chef's</h1>
+            <h1>Home Chefs</h1>
           </div>
         </div>
         <div className={styles.Items}>
@@ -58,7 +58,7 @@ const Catagories = () => {
               width={90}
               height={110}
             />
-            <h1>Home Chef's</h1>
+            <h1>Home Chefs</h1>
           </div>
         </div>
       </div>

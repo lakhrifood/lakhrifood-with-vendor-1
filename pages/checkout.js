@@ -2,7 +2,7 @@ import CartItem from "../components/checkout/CartItem";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Checkout.module.css";
 import { useSelector } from "react-redux";
-const checkout = () => {
+const Checkout = () => {
   const cartList = useSelector((state) => state.order);
   let quantity = 0;
   cartList.map((item) => {
@@ -33,4 +33,4 @@ const checkout = () => {
   );
 };
 
-export default checkout;
+export default Checkout;
