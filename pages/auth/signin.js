@@ -1,8 +1,9 @@
 import styles from "../../styles/Auth.module.css";
-import { signinAction } from "../../state/action/AuthAction";
+
 import { useState, useEffect } from "react";
 import { signinAuthApi } from "../../state/Api/Auth";
-import { setAuthTrue, setAuthFalse } from "../../state/reducers/UserAuth";
+import { setAuthTrue } from "../../state/reducers/UserAuth";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 const Signin = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const Signin = () => {
     email: "",
     password: "",
   });
+  const router = useRouter();
   const [token, settoken] = useState("");
   const [id, setid] = useState("");
   const [username, setusername] = useState("");
@@ -19,14 +21,12 @@ const Signin = () => {
     try {
       const { data } = await signinAuthApi(cred);
       console.log(data.user._id);
-
       settoken(data.token);
       setid(data.user._id);
       setusername(data.user.name);
       setemail(data.user.email);
-      console.log(id, token, username, email, "username");
-
       dispatch(setAuthTrue());
+      router.push("/");
     } catch (error) {
       console.log(error.message);
     }

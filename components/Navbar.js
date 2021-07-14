@@ -1,8 +1,26 @@
 import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
-import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import { setAuthTrue, setAuthFalse } from "../state/reducers/UserAuth";
+import { useDispatch, useSelector } from "react-redux";
 function Navbar() {
+  const dispatch = useDispatch();
+  const [email, setemail] = useState("");
+  const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+
+  const checkLogin = () => {
+    const token = localStorage.getItem("token");
+    const getEmail = localStorage.getItem("userEmail");
+    setemail(getEmail);
+    if (token) {
+      dispatch(setAuthTrue());
+    } else {
+      dispatch(setAuthFalse());
+    }
+  };
+  useEffect(() => {
+    checkLogin();
+  }, []);
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-light bg-transparent ${styles.navbarShadow}`}
@@ -49,11 +67,6 @@ function Navbar() {
                 Contact Us
               </a>
             </li>
-            <li className="nav-item">
-              <button className={`btn ${styles.btnSeller}`}>
-                Login/Sign Up as{" "}
-              </button>
-            </li>
           </ul>
 
           <div className="d-flex flex-w">
@@ -66,9 +79,18 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
-                  <i className="fas fa-user-circle"></i>
-                </a>
+                {isAuthenticated ? (
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="#">
+                      <i className="fas fa-user-circle"></i>
+                      {email}
+                    </a>
+                  </li>
+                ) : (
+                  <button className={`btn ${styles.btnSeller}`}>
+                    Login/Sign Up as{" "}
+                  </button>
+                )}
               </li>
             </ul>
           </div>
