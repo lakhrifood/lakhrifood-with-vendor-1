@@ -4,6 +4,7 @@ export const FoodSlice = createSlice({
     name: "room",
     initialState: {
         foods: [],
+        food: null,
     },
     reducers: {
         getFoods: (state, { payload }) => {
@@ -14,9 +15,12 @@ export const FoodSlice = createSlice({
         },
         getFoodByRating: (state, { payload }) => {
             state.foods = payload;
+        },
+        getFoodByID: (state, { payload }) => {
+            state.food = payload;
         }
     },
 });
 
-export const { getFoods, getFoodsByCategory, getFoodByRating } = FoodSlice.actions;
+export const { getFoods, getFoodsByCategory, getFoodByRating, getFoodByID } = FoodSlice.actions;
 export default FoodSlice.reducer;

@@ -1,5 +1,5 @@
-import { getAllFood, getByCategoryFood, getByRatingFood } from "../api/food";
-import { getFoodByRating, getFoods, getFoodsByCategory } from "../reducers/FoodSlice";
+import { getAllFood, getByCategoryFood, getByIDFood, getByRatingFood } from "../api/food";
+import { getFoodByID, getFoodByRating, getFoods, getFoodsByCategory } from "../reducers/FoodSlice";
 
 export const getAndSetFoodAction = () => async (dispatch) => {
   try {
@@ -23,6 +23,15 @@ export const getAndSetFoodActionByRating = (rating) => async (dispatch) => {
     try {
         const { data } = await getByRatingFood(rating);
         dispatch(getFoodByRating(data));
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+export const getAndSetFoodActionByID = (id) => async (dispatch) => {
+    try {
+        const { data } = await getByIDFood(id);
+        dispatch(getFoodByID(data));
     } catch (error) {
         console.error(error.message);
     }

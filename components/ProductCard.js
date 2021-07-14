@@ -1,5 +1,9 @@
-import Image from "next/image";
-import { useEffect } from "react";
+
+import Image from 'next/image'
+import Link from 'next/link';
+import { useState ,useEffect} from 'react';
+import styles from '../styles/ProductCard.module.css';
+
 
 import styles from "../styles/ProductCard.module.css";
 import { AddOrderCartAction } from "../state/action/OrderAction";
@@ -8,6 +12,7 @@ function ProductCard({ product }) {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.order);
   const found = cartList.find((element) => element.productId === product._id);
+
 
   const addToCart = () => {
     dispatch(
@@ -101,6 +106,7 @@ function ProductCard({ product }) {
       </div>
     </div>
   );
+
 }
 
 export default ProductCard;

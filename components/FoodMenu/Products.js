@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAndSetFoodAction } from "../../state/action/FoodActions";
 
 function Products() {
-  const dispatch = useDispatch();
-  const { foods } = useSelector((state) => state.food);
+
+    const dispatch = useDispatch();
+    const { foods } = useSelector((state) => state.food)
 
   useEffect(() => {
     dispatch(getAndSetFoodAction());

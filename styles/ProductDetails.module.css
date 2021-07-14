@@ -1,9 +1,10 @@
 .checked {
-    color: orange;
+    color: orange !important;
 }
 
 .starIcon {
     margin-right: 2px;
+    color: #d8d5d5;
 }
 
 .productDetailsWrapper {
@@ -21,7 +22,7 @@
 }
 
 .pReting small {
-    color: #04091C;
+    color: #04091c;
 }
 
 .pAmountOfCalPro {
@@ -51,14 +52,14 @@
     padding: 5px 0px;
 }
 
-.quantityWrapper input[type=submit] {
+.quantityWrapper input[type="submit"] {
     background-color: #000;
     color: #fff;
     padding: 0px 20px;
     font-size: 22px;
 }
 
-.quantityWrapper input[type=number] {
+.quantityWrapper input[type="number"] {
     text-align: center;
     font-size: 21px;
     border: 1px solid black;
@@ -84,12 +85,12 @@
     margin-top: 15px;
     text-transform: uppercase;
     font-weight: 700;
-    border: 2px solid #179BD7;
-    transition: .5s;
+    border: 2px solid #179bd7;
+    transition: 0.5s;
 }
 
 .addCartBtn:hover {
     background-color: #fff;
-    color: #179BD7;
-    border: 2px solid #179BD7;
+    color: #179bd7;
+    border: 2px solid #179bd7;
 }
