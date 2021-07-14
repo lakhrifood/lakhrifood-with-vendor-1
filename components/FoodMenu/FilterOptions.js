@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import styles from '../../styles/SideBar.module.css';
 import { makeStyles, Slider } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { getByCategoryFood } from '../../state/api/food';
+import { getAndSetByCategoryFoodAction, getAndSetFoodActionByRating } from '../../state/action/FoodActions';
 
 const useStyles = makeStyles({
     root: {
@@ -14,6 +17,7 @@ function valuetext(value) {
 }
 
 function FilterOptions({ mobile }) {
+    const dispatch = useDispatch();
 
     const classes = useStyles();
     const [value, setValue] = useState([0, 1000]);
@@ -44,114 +48,88 @@ function FilterOptions({ mobile }) {
             <div>
                 <h3 className="pt-3">Categories</h3>
                 <li className="active">
-                    <Link href="/">
+                    <Link href="/homechefs">
                         <a>Home Chefs</a>
                     </Link>
                 </li>
-                <li className="target">
-                    <Link href="/appointments">
-                        <a>Combo Meals</a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))} >Combo Meals</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Cooked Meals</a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))} >Cooked Meals</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Frozen Food Item</a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))}>Frozen Food Item</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Desserts Item</a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))}>Desserts Item</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Organic Product</a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))}>Organic Product</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Fast Food Item</a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))}>Fast Food Item</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Catering Service </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))}>Catering Service</a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>Office Meals </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={(e) => dispatch(getAndSetByCategoryFoodAction(e.target.innerText))}>Office Meals</a>
                 </li>
             </div>
 
 
             <div>
                 <h3>Rating & Review</h3>
-                <li className="target">
-                    <Link href="/users">
-                        <a>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            5 Star
-                        </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={() => dispatch(getAndSetFoodActionByRating(5))}>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        5 Star
+                    </a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            4 Star
-                        </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={() => dispatch(getAndSetFoodActionByRating(4))}>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        4 Star
+                    </a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            3 Star
-                        </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={() => dispatch(getAndSetFoodActionByRating(3))}>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        3 Star
+                    </a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            2 Star
-                        </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={() => dispatch(getAndSetFoodActionByRating(2))}>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        2 Star
+                    </a>
                 </li>
-                <li className="target">
-                    <Link href="/users">
-                        <a>
-                            <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            <span className={`fa fa-star ${ styles.starIcon }`}></span>
-                            1 Star
-                        </a>
-                    </Link>
+                <li className={styles.targetMenu}>
+                    <a onClick={() => dispatch(getAndSetFoodActionByRating(1))}>
+                        <span className={`fa fa-star ${ styles.starIcon } ${ styles.checked }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        <span className={`fa fa-star ${ styles.starIcon }`}></span>
+                        1 Star
+                    </a>
                 </li>
             </div>
         </ul>
