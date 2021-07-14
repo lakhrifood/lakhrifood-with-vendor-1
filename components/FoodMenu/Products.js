@@ -3,7 +3,7 @@ import styles from './Products.module.css';
 import Image from 'next/image'
 import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAndSetFoodAction } from '../../state/action/FoodActions';
+import { getAndSetFoodAction, getAndSetFoodActionBySearch } from '../../state/action/FoodActions';
 
 function Products() {
     const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function Products() {
                         placeholder={"Search For Food"}
                         aria-label="Enter Your Area"
                         aria-describedby="basic-addon2"
+                        onChange={(e) => dispatch(getAndSetFoodActionBySearch(e.target.value))}
                     />
                     <div className="input-group-append">
                         <button className="btn btn-bg" type="button">

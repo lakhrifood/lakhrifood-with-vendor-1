@@ -1,10 +1,11 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 export const FoodSlice = createSlice({
-    name: "room",
+    name: "food",
     initialState: {
         foods: [],
         food: null,
+        popularFoods: [],
     },
     reducers: {
         getFoods: (state, { payload }) => {
@@ -16,11 +17,20 @@ export const FoodSlice = createSlice({
         getFoodByRating: (state, { payload }) => {
             state.foods = payload;
         },
+        getFoodsByPriceFilter: (state, { payload }) => {
+            state.foods = payload;
+        },
+        getFoodsBySearch: (state, { payload }) => {
+            state.foods = payload;
+        },
         getFoodByID: (state, { payload }) => {
             state.food = payload;
+        },
+        getPopularFoods: (state, { payload }) => {
+            state.popularFoods = payload;
         }
     },
 });
 
-export const { getFoods, getFoodsByCategory, getFoodByRating, getFoodByID } = FoodSlice.actions;
+export const { getFoods, getPopularFoods, getFoodsByCategory, getFoodByRating, getFoodByID, getFoodsByPriceFilter, getFoodsBySearch } = FoodSlice.actions;
 export default FoodSlice.reducer;

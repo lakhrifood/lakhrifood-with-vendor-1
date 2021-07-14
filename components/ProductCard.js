@@ -24,7 +24,10 @@ function ProductCard({ product }) {
                         ({product && product.allRatings.length})</h5>
                     <p>{product && product.description.slice(0, 60)}...</p>
                     <div className="d-flex justify-content-between align-items-center">
-                        <h3>{product && product.price} BDT</h3>
+                        <h3>
+                            {product && product.price} BDT
+                            {product && product.discountPrice && <del className="ms-3">{product.discountPrice} BDT</del>}
+                        </h3>
                         <button className="btn btn-bg">
                             <i className="fas fa-cart-plus"></i>
                         </button>
