@@ -20,3 +20,6 @@ export const getBySearch = async (params) =>
 
 export const getPopularProduct = async () =>
     await axios.get("http://localhost:5000/food/popular/items");
+
+export const getRecommendedProduct = async () =>
+    await axios.get("http://localhost:5000/food/recommended/items");

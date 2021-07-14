@@ -6,6 +6,7 @@ export const FoodSlice = createSlice({
         foods: [],
         food: null,
         popularFoods: [],
+        recommendedFoods: [],
     },
     reducers: {
         getFoods: (state, { payload }) => {
@@ -28,9 +29,12 @@ export const FoodSlice = createSlice({
         },
         getPopularFoods: (state, { payload }) => {
             state.popularFoods = payload;
+        },
+        setRecommendedFoods: (state, { payload }) => {
+            state.recommendedFoods = payload;
         }
     },
 });
 
-export const { getFoods, getPopularFoods, getFoodsByCategory, getFoodByRating, getFoodByID, getFoodsByPriceFilter, getFoodsBySearch } = FoodSlice.actions;
+export const { getFoods, setRecommendedFoods, getPopularFoods, getFoodsByCategory, getFoodByRating, getFoodByID, getFoodsByPriceFilter, getFoodsBySearch } = FoodSlice.actions;
 export default FoodSlice.reducer;

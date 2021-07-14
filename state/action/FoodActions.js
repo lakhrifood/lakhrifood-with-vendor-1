@@ -1,5 +1,5 @@
-import { getAllFood, getByCategoryFood, getByIDFood, getByPriceFilter, getByRatingFood, getBySearch, getPopularProduct } from "../api/food";
-import { getFoodByID, getFoodByRating, getFoods, getFoodsByCategory, getFoodsByPriceFilter, getFoodsBySearch, getPopularFoods } from "../reducers/FoodSlice";
+import { getAllFood, getByCategoryFood, getByIDFood, getByPriceFilter, getByRatingFood, getBySearch, getPopularProduct, getRecommendedProduct } from "../api/food";
+import { getFoodByID, getFoodByRating, getFoods, getFoodsByCategory, getFoodsByPriceFilter, getFoodsBySearch, getPopularFoods, setRecommendedFoods } from "../reducers/FoodSlice";
 
 
 export const getAndSetFoodAction = () => async (dispatch) => {
@@ -67,3 +67,13 @@ export const getAndSetPopularFoodAction = () => async (dispatch) => {
         console.error(error.message);
     }
 }
+
+// get and set recommended food
+export const getAndSetRecommendedFoodAction = () => async (dispatch) => {
+    try {
+        const { data } = await getRecommendedProduct();
+        dispatch(setRecommendedFoods(data));
+    } catch (error) {
+        console.error(error.message);
+    }
+};
