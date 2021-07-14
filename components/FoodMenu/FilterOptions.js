@@ -4,7 +4,8 @@ import styles from '../../styles/SideBar.module.css';
 import { makeStyles, Slider } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { getByCategoryFood } from '../../state/api/food';
-import { getAndSetByCategoryFoodAction, getAndSetFoodActionByRating } from '../../state/action/FoodActions';
+import { getAndSetByCategoryFoodAction, getAndSetFoodActionByPrice, getAndSetFoodActionByRating } from '../../state/action/FoodActions';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles({
     root: {
@@ -24,6 +25,9 @@ function FilterOptions({ mobile }) {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    useEffect(() => {
+        dispatch(getAndSetFoodActionByPrice(value[0], value[1]));
+    }, [value])
     return (
         <ul className={`${ styles.sideMenu } ${ !mobile && styles.sideMenuLarge } list-unstyled`}>
             <div>
