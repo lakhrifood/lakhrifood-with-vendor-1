@@ -3,10 +3,12 @@ import styles from "../styles/Navbar.module.css";
 import { useEffect, useState } from "react";
 import { setAuthTrue, setAuthFalse } from "../state/reducers/UserAuth";
 import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 function Navbar() {
   const dispatch = useDispatch();
   const [email, setemail] = useState("");
   const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+  const cartList = useSelector((state) => state.order);
 
   const checkLogin = () => {
     const token = localStorage.getItem("token");
@@ -73,18 +75,18 @@ function Navbar() {
             <ul
               className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenuIcon} `}
             >
-              <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
-                  <i className="fas fa-cart-plus"></i>
-                </a>
+              <li className={`${styles.userSection}`}>
+                <Link href="/checkout">
+                  <i className={`${styles.logoUser} fas fa-cart-plus `}></i>
+                </Link>
+                <p className={styles.numberProduct}>{cartList.length}</p>
               </li>
               <li className="nav-item">
                 {isAuthenticated ? (
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="#">
-                      <i className="fas fa-user-circle"></i>
-                      {email}
-                    </a>
+                  <li className={` ${styles.userSection}`}>
+                    <i className={`fas ${styles.logoUser} fa-user-circle`}> </i>
+
+                    <p className={styles.Email}>{email}</p>
                   </li>
                 ) : (
                   <button className={`btn ${styles.btnSeller}`}>
