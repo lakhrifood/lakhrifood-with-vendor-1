@@ -1,5 +1,44 @@
 import styles from "../../styles/Auth.module.css";
-const signin = () => {
+
+import { useState, useEffect } from "react";
+import { signinAuthApi } from "../../state/Api/Auth";
+import { setAuthTrue } from "../../state/reducers/UserAuth";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+const Signin = () => {
+  const dispatch = useDispatch();
+  const [cred, setcred] = useState({
+    email: "",
+    password: "",
+  });
+  const router = useRouter();
+  const [token, settoken] = useState("");
+  const [id, setid] = useState("");
+  const [username, setusername] = useState("");
+  const [email, setemail] = useState("");
+
+  const handleSignin = async () => {
+    try {
+      const { data } = await signinAuthApi(cred);
+      console.log(data.user._id);
+      settoken(data.token);
+      setid(data.user._id);
+      setusername(data.user.name);
+      setemail(data.user.email);
+      dispatch(setAuthTrue());
+      router.push("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("token", token);
+    localStorage.setItem("userId", id);
+    localStorage.setItem("userName", username);
+    localStorage.setItem("userEmail", email);
+  }, [token, id, username, email]);
+
   return (
     <div className={styles.container}>
       <div className={`card ${styles.cardLog}`}>
@@ -16,6 +55,10 @@ const signin = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              value={cred.email}
+              onChange={(e) => {
+                setcred({ ...cred, email: e.target.value });
+              }}
             />
           </div>
           <div className="form-group">
@@ -25,10 +68,20 @@ const signin = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              value={cred.password}
+              onChange={(e) => {
+                setcred({ ...cred, password: e.target.value });
+              }}
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={() => {
+              handleSignin();
+            }}
+          >
             Submit
           </button>
           <button type="button" className="btn btn-outline-primary">
@@ -51,4 +104,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default Signin;

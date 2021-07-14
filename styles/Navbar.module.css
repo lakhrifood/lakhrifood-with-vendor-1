@@ -1,59 +1,81 @@
 .mainMenu li a {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 36px;
-    /* identical to box height */
-    color: black !important;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  /* identical to box height */
+  color: black !important;
 }
-
+.userSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  margin-right: 20px;
+}
+.Email {
+  font-size: 22px;
+}
+.numberProduct {
+  font-size: 21px;
+  margin-left: -16px;
+  margin-top: -41px;
+}
+.logoUser {
+  font-size: 28px;
+  margin-right: 10px;
+}
 .mainMenu li {
-    margin: 0px 15px;
+  margin: 0px 15px;
 }
-
+.mainMenuIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
 .mainMenuIcon li a i {
-    font-size: 20px;
-    line-height: 36px;
+  font-size: 20px;
+  line-height: 36px;
 }
 
 .btnSeller {
-    background-color: #179BD7;
-    color: #fff;
-    margin-top: 10px;
+  background-color: #179bd7;
+  color: #fff;
+  margin-top: 10px;
 }
 
 .navbarShadow {
-    box-shadow: 1px 1px 9px 4px lightgrey;
-    padding: 15px 10px;
+  box-shadow: 1px 1px 9px 4px lightgrey;
+  padding: 15px 10px;
 }
 
 .mainMenu li:hover a {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    color: black;
-    position: relative;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+  position: relative;
 }
 
 .mainMenu li:hover a::before {
-    position: absolute;
-    content: " ";
-    height: 2px;
-    margin: 0px auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: Black;
-    animation: manuHover 1s;
+  position: absolute;
+  content: " ";
+  height: 2px;
+  margin: 0px auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: Black;
+  animation: manuHover 1s;
 }
 
 @keyframes manuHover {
-    from {
-        width: 0px;
-    }
-    to {
-        width: 100%;
-    }
+  from {
+    width: 0px;
+  }
+  to {
+    width: 100%;
+  }
 }
