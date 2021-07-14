@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAndSetPopularHomechefsAction } from "../../state/action/HomechefAction";
 import styles from "../../styles/Home.module.css";
-import ProductCard from "../ProductCard";
 import HomechefCard from './../HomechefCard';
 
 const RecommendedHomeChef = () => {

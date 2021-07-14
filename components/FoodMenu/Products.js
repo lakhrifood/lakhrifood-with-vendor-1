@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react'
-import styles from './Products.module.css';
+import styles from '../../styles/products.module.css';
 import Image from 'next/image'
 import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,46 +41,47 @@ function Products() {
                     </a>
 
 
-        <div className="dropdown">
-          <a
-            className="btn btn-transparent dropdown-toggle"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Short: By popularity
-          </a>
+                    <div className="dropdown">
+                        <a
+                            className="btn btn-transparent dropdown-toggle"
+                            href="#"
+                            role="button"
+                            id="dropdownMenuLink"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Short: By popularity
+                        </a>
 
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-          </ul>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li>
+                                <a className="dropdown-item" href="#">
+                                    Action
+                                </a>
+                            </li>
+                            <li>
+                                <a className="dropdown-item" href="#">
+                                    Another action
+                                </a>
+                            </li>
+                            <li>
+                                <a className="dropdown-item" href="#">
+                                    Something else here
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="d-flex flex-wrap justify-content-around pt-3">
+                    {foods &&
+                        foods.map((food, index) => (
+                            <ProductCard key={index} product={food} />
+                        ))}
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div className="d-flex flex-wrap justify-content-around pt-3">
-        {foods &&
-          foods.map((food, index) => (
-            <ProductCard key={index} product={food} />
-          ))}
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Products;
