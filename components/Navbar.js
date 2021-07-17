@@ -45,14 +45,18 @@ function Navbar() {
             className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenu} `}
           >
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#">
-                Menu
-              </a>
+              <Link href="/menu">
+                <a className="nav-link" aria-current="page" href="#">
+                  Menu
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Order
-              </a>
+              <Link href="/orders">
+                <a className="nav-link" href="#">
+                  Order
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">

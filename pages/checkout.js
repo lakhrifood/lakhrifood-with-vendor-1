@@ -2,11 +2,15 @@ import CartItem from "../components/checkout/CartItem";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Checkout.module.css";
 import { useSelector } from "react-redux";
+import Link from "next/link";
+
 const checkout = () => {
   const cartList = useSelector((state) => state.order);
   let quantity = 0;
+  let totalPrice = 0;
   cartList.map((item) => {
     quantity += item.quantity;
+    totalPrice += item.price * item.quantity;
   });
   return (
     <div>
@@ -15,18 +19,16 @@ const checkout = () => {
         {cartList.map((item, index) => {
           return <CartItem key={index} item={item} index={index} />;
         })}
-        {/* <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem /> */}
+
         <div className={styles.paymentSec}>
           <h1>Total quantity {quantity}</h1>
           <div className={styles.qty}>
-            <h1>Total: 625.00 BDT</h1>
+            <h1>Total: {totalPrice + 25} BDT</h1>
             <p>Including Delivery Charge : 25.00 BDT</p>
           </div>
-          <button className="btn btn-primary">Checkout</button>
+          <Link href="/confirmorder">
+            <button className="btn btn-primary">Checkout</button>
+          </Link>
         </div>
       </div>
     </div>

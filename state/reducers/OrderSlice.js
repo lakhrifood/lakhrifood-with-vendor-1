@@ -21,8 +21,13 @@ const OrderSlice = createSlice({
       state[index].quantity -= 1;
       console.log(payload);
     },
+    removeOrder: (state, { payload }) => {
+      const index = state.findIndex((o) => o.id === payload.id);
+      state.splice(index, 1);
+    },
   },
 });
 
-export const { addOrder, addQuantity, reduceQuantity } = OrderSlice.actions;
+export const { addOrder, addQuantity, reduceQuantity, removeOrder } =
+  OrderSlice.actions;
 export default OrderSlice.reducer;

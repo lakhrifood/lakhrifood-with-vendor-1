@@ -1,7 +1,11 @@
 import styles from "../../styles/Checkout.module.css";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
-import { addQuantity, reduceQuantity } from "../../state/reducers/OrderSlice";
+import {
+  addQuantity,
+  reduceQuantity,
+  removeOrder,
+} from "../../state/reducers/OrderSlice";
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   console.log(item);
@@ -10,6 +14,9 @@ const CartItem = ({ item }) => {
   };
   const minus = () => {
     dispatch(reduceQuantity({ id: item.productId }));
+  };
+  const remove = () => {
+    dispatch(removeOrder({ id: item.productId }));
   };
   return (
     <div className={styles.itemContainer}>
@@ -23,14 +30,27 @@ const CartItem = ({ item }) => {
         <h1>{item.productName}</h1>
       </div>
       <div className={styles.quantity}>
-        <button
-          className={`btn`}
-          onClick={() => {
-            minus();
-          }}
-        >
-          -
-        </button>
+        {item.quantity <= 0 ? (
+          <button
+            className={`btn`}
+            onClick={() => {
+              minus();
+            }}
+            disabled
+          >
+            -
+          </button>
+        ) : (
+          <button
+            className={`btn`}
+            onClick={() => {
+              minus();
+            }}
+          >
+            -
+          </button>
+        )}
+
         <h1>{item.quantity}</h1>
         <button
           className={`btn`}
@@ -41,7 +61,12 @@ const CartItem = ({ item }) => {
           +
         </button>
       </div>
-      <i className={`fas fa-times ${styles.iconx}`}></i>
+      <i
+        className={`fas fa-times ${styles.iconx}`}
+        onClick={() => {
+          remove();
+        }}
+      ></i>
     </div>
   );
 };

@@ -16,6 +16,7 @@ const Signin = () => {
   const [id, setid] = useState("");
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
 
   const handleSignin = async () => {
     try {
@@ -23,6 +24,7 @@ const Signin = () => {
       console.log(data.user._id);
       settoken(data.token);
       setid(data.user._id);
+      setphoneNumber(data.phoneNumber);
       setusername(data.user.name);
       setemail(data.user.email);
       dispatch(setAuthTrue());
@@ -37,7 +39,8 @@ const Signin = () => {
     localStorage.setItem("userId", id);
     localStorage.setItem("userName", username);
     localStorage.setItem("userEmail", email);
-  }, [token, id, username, email]);
+    localStorage.setItem("phoneNumber", phoneNumber);
+  }, [token, id, username, email, phoneNumber]);
 
   return (
     <div className={styles.container}>

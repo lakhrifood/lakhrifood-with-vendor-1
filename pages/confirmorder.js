@@ -1,6 +1,62 @@
 import styles from "../styles/ConfirmOrder.module.css";
 import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
+import { createOrderAction } from "../state/action/OrderAction";
 const confirmorder = () => {
+  const cartList = useSelector((state) => state.order);
+  const dispatch = useDispatch();
+  let quantity = 0;
+  let totalPrice = 0;
+  let deliveryCharge = 25;
+  const [address, setaddress] = useState("");
+  const [phone, setphone] = useState("");
+  const [payment, setpayment] = useState("");
+  const [userId, setuserId] = useState("");
+  let productInfo = [];
+  cartList.map((item) => {
+    quantity += item.quantity;
+    totalPrice += item.price * item.quantity;
+  });
+  console.log(cartList, "cartList");
+  const checkoutOrder = async () => {
+    cartList.map((item) => {
+      productInfo.push({
+        productId: item.productId,
+
+        price: item.price,
+        quantity: item.quantity,
+        discount: item.discount,
+      });
+    });
+    dispatch(
+      createOrderAction({
+        deliveryAddress: address,
+        paymentType: payment,
+        userId: userId,
+        userPhone: phone,
+        productInfo,
+      })
+    );
+    console.log({
+      deliveryAddress: address,
+      paymentType: payment,
+      userId: userId,
+      userPhone: phone,
+      productInfo,
+    });
+  };
+  const checkCred = () => {
+    const phoneNumber = localStorage.getItem("phoneNumber");
+    const uid = localStorage.getItem("userId");
+    setphone(phoneNumber);
+    setuserId(uid);
+  };
+  useEffect(() => {
+    checkCred();
+  }, []);
   return (
     <div>
       <Navbar />
@@ -9,19 +65,25 @@ const confirmorder = () => {
           <h1 className={styles.headline}>Confirm Order</h1>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
-              Email address
+              Address
             </label>
-            <input type="email" class="form-control" />
+            <input
+              type="text"
+              class="form-control"
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
+            />
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
-              Email address
+              Phone Number{" "}
             </label>
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              value={phone}
             />
           </div>
           <div>
@@ -33,6 +95,7 @@ const confirmorder = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => setpayment("Bkash")}
                 />
 
                 <h5>Bkash</h5>
@@ -44,6 +107,7 @@ const confirmorder = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => setpayment("DBBL")}
                 />
 
                 <h5>DBBL</h5>
@@ -55,9 +119,10 @@ const confirmorder = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => setpayment("NAGAD")}
                 />
 
-                <h5>Paytm</h5>
+                <h5>NAGAD</h5>
               </div>
 
               <div className={`${styles.payItem}`}>
@@ -66,6 +131,7 @@ const confirmorder = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => setpayment("Rocket")}
                 />
 
                 <h5>Rocket</h5>
@@ -77,6 +143,7 @@ const confirmorder = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => setpayment("Cash")}
                 />
                 <h5>Cash on delivery</h5>
               </div>
@@ -93,15 +160,15 @@ const confirmorder = () => {
           <div class={` ${styles.containeritems}`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
-              <h5> 3</h5>
+              <h5> {quantity}</h5>
             </div>
             <div className={styles.itemCheck}>
               <h5>Price </h5>
-              <h5> 400BDT</h5>
+              <h5> {totalPrice} BDT</h5>
             </div>
             <div className={styles.itemCheck}>
               <h5>Delivery Charge </h5>
-              <h5> 30BDT</h5>
+              <h5> {deliveryCharge}BDT</h5>
             </div>
             <div className={styles.itemCheck}></div>
             <div className={styles.itemCheck}>
@@ -120,15 +187,22 @@ const confirmorder = () => {
             </div>
             <div className={styles.itemCheck}>
               <h5 className={styles.headline}>Total </h5>
-              <h5 className={styles.headline}> 3033BDT</h5>
+              <h5 className={styles.headline}>
+                {totalPrice + deliveryCharge}BDT
+              </h5>
             </div>
             <div>
-              <button
-                type="button"
-                className={`btn btn-lg btn-primary ${styles.btnGhor}`}
-              >
-                Checkout
-              </button>
+              <Link href="/orders">
+                <button
+                  type="button"
+                  className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                  onClick={() => {
+                    checkoutOrder();
+                  }}
+                >
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>
