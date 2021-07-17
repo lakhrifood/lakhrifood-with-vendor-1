@@ -1,23 +1,17 @@
 import React, { useEffect } from 'react'
-import Products from '../components/FoodMenu/Products';
-import SideBar from '../components/FoodMenu/SideBar';
-import Navbar from '../components/Navbar'
+import Products from '../components/FoodMenu/products';
+import SideBar from '../components/FoodMenu/sideBar';
+import Navbar from '../components/navbar'
 import Layout from '../components/Layout';
 import styles from '../styles/Menu.module.css'
-import JoinAsVendorOrRider from '../components/JoinAsVendorOrRider';
-import Footer from '../components/Footer/Footer';
+import JoinAsVendorOrRider from '../components/joinasvendororrider';
+import Footer from '../components/Footer/footer';
 import { getAndSetFoodAction } from '../state/action/FoodActions';
 import { useDispatch } from 'react-redux';
+import { getAndSetHomechefsAction } from '../state/action/HomechefAction';
 
 
 function Menu() {
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getAndSetFoodAction());
-    }, []);
-
     return (
         <Layout>
             <Navbar></Navbar>

@@ -1,4 +1,4 @@
-import { signUpAuth, signinAuthApi } from "../Api/Auth";
+import { signUpAuth, signinAuthApi } from "../api/auth";
 import { setAuthTrue, setAuthFalse } from "../reducers/UserAuth";
 
 export const SignupAction = (userData) => async (dispatch) => {

@@ -1,17 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
-import Catagories from "../components/FoodHome/Catagories";
-import Cover from "../components/FoodHome/Cover";
-import Promotion from "../components/FoodHome/Promotion";
+import Catagories from "../components/FoodHome/catagories";
+import Cover from "../components/FoodHome/cover";
+import Promotion from "../components/FoodHome/promotion";
 import styles from "../styles/Home.module.css";
-import MostOrdered from "../components/FoodHome/MostOrdered";
-import RecommendedHomeChef from "../components/FoodHome/RecommendedHomeChef";
-import RecommendedProduct from "../components/FoodHome/RecommendedProduct";
+import MostOrdered from "../components/FoodHome/mostordered";
+import RecommendedHomeChef from "../components/FoodHome/recommendedhomechef";
+import RecommendedProduct from "../components/FoodHome/recommendedproduct";
 
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar";
-import JoinAsVendorOrRider from "../components/JoinAsVendorOrRider";
-import Questions from "../components/FoodHome/Questions";
+import Footer from "../components/Footer/footer";
+import Navbar from "../components/navbar";
+import JoinAsVendorOrRider from "../components/joinasvendororrider";
+import Questions from "../components/FoodHome/questions";
 export default function Home() {
   return (
     <div className={styles.container}>

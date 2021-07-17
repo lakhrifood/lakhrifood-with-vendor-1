@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-function orderhistory() {
-    return (
-        <div>
-            Order History
-        </div>
-    )
-}
+// function orderhistory() {
+//     return (
+//         <div>
+//             Order History
+//         </div>
+//     )
+// }
 
-export default orderhistory
+// export default orderhistory

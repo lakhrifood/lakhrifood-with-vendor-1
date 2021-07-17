@@ -8,6 +8,10 @@
     z-index: 10;
 }
 
+.homechefLogo {
+    border-radius: 30px;
+}
+
 .overlay {
     height: 400px;
     position: absolute;
@@ -15,8 +19,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #179BD7;
-    opacity: .5;
+    background-color: #179bd7;
+    opacity: 0.5;
     z-index: 10;
 }
 
@@ -74,14 +78,14 @@
     margin-top: 45px;
     text-transform: uppercase;
     font-weight: 700;
-    border: 2px solid #179BD7;
-    transition: .5s;
+    border: 2px solid #179bd7;
+    transition: 0.5s;
 }
 
 .seeHomechefProductBtn:hover {
     background-color: #fff;
-    color: #179BD7;
-    border: 2px solid #179BD7;
+    color: #179bd7;
+    border: 2px solid #179bd7;
 }
 
 @media screen and (max-width: 480px) {

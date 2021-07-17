@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import styles from "../styles/Support.module.css";
 
 const support = () => {
@@ -22,34 +22,34 @@ const support = () => {
         <div className={styles.infoContainer}>
           <h1>Do you Face any Problem?</h1>
           <form className={styles.formControl}>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">
                 Subject Of Problem
               </label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
             </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">
                 Details Message of Problem
               </label>
               <textarea
-                class="form-control"
+                className="form-control"
                 id="exampleFormControlTextarea1"
                 rows="3"
               ></textarea>
             </div>
-            <div class="mb-3">
-              <label for="formFile" class="form-label">
+            <div className="mb-3">
+              <label htmlFor="formFile" className="form-label">
                 Upload A Screenshot Of Your Problem
               </label>
-              <input class="form-control" type="file" id="formFile" />
+              <input className="form-control" type="file" id="formFile" />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
@@ -57,13 +57,13 @@ const support = () => {
         <div className={styles.infoContainer}>
           <h1>Query List</h1>
           <div className={styles.query}>
-            <div class="card">
-              <div class="card-header">#UserID_234509</div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-0">
+            <div className="card">
+              <div className="card-header">#UserID_234509</div>
+              <div className="card-body">
+                <blockquote className="blockquote mb-0">
                   <p>
                     ext of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the
+                    has been the industrys standard dummy text ever since the
                     1500s, when an unknown printer took a galley of type and
                     scrambled it to make a type specimen book.
                   </p>

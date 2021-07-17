@@ -2,7 +2,7 @@ import styles from "../../styles/Auth.module.css";
 import { useState } from "react";
 import { SignupAction } from "../../state/action/AuthAction";
 import { useDispatch } from "react-redux";
-const signup = () => {
+const Signup = () => {
   const dispatch = useDispatch();
   const [cred, setcred] = useState({
     name: "",
@@ -24,7 +24,7 @@ const signup = () => {
       <div className={`card ${styles.cardLogSignup}`}>
         <div className={styles.cardInput}>
           <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label htmlFor="exampleInputEmail1">Email address</label>
             <input
               type="email"
               className="form-control"
@@ -38,7 +38,7 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
               className="form-control"
@@ -51,7 +51,7 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="exampleInputEmail1">name</label>
+            <label htmlFor="exampleInputEmail1">name</label>
             <input
               type="text"
               className="form-control"
@@ -65,7 +65,7 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="exampleInputEmail1">phoneNumber</label>
+            <label htmlFor="exampleInputEmail1">phoneNumber</label>
             <input
               type="text"
               className="form-control"
@@ -80,7 +80,7 @@ const signup = () => {
           </div>
 
           <div className="form-group">
-            <label for="exampleInputEmail1">address</label>
+            <label htmlFor="exampleInputEmail1">address</label>
             <input
               type="text"
               className="form-control"
@@ -94,9 +94,9 @@ const signup = () => {
             />
           </div>
           <div className="form-group">
-            <label for="exampleInputEmail1">Gender</label>
+            <label htmlFor="exampleInputEmail1">Gender</label>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               value={cred.gender}
               onChange={(e) => {
@@ -110,9 +110,9 @@ const signup = () => {
           </div>
 
           <div className="form-group">
-            <label for="exampleInputEmail1">Division</label>
+            <label htmlFor="exampleInputEmail1">Division</label>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               value={cred.division}
               onChange={(e) => {
@@ -125,9 +125,9 @@ const signup = () => {
             </select>
           </div>
           <div className="form-group">
-            <label for="exampleInputEmail1">city</label>
+            <label htmlFor="exampleInputEmail1">city</label>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               value={cred.city}
               onChange={(e) => {
@@ -155,4 +155,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

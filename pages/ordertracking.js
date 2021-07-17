@@ -1,11 +1,11 @@
-import OrderedProducts from "../components/OrderTracking/OrderedProducts";
-import OrderTimeline from "../components/OrderTracking/OrderTimeline";
+import OrderedProducts from "../components/OrderTracking/orderedproducts";
+import OrderTimeline from "../components/OrderTracking/ordertimeline";
 import styles from "../styles/OrderTracking.module.css";
 import Layout from './../components/Layout';
-import Navbar from './../components/Navbar';
-import OrderTimelineMobile from './../components/OrderTracking/OrderTimelineMobile';
-import Footer from './../components/Footer/Footer';
-import CancelOrderModal from "../components/OrderTracking/CancelOrderModal";
+import Navbar from './../components/navbar';
+import OrderTimelineMobile from './../components/OrderTracking/ordertimelinemobile';
+import Footer from './../components/Footer/footer';
+import CancelOrderModal from "../components/OrderTracking/cancelordermodal";
 import { useEffect, useState } from "react";
 
 function Ordertracking() {

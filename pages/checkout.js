@@ -1,10 +1,11 @@
-import CartItem from "../components/checkout/CartItem";
-import Navbar from "../components/Navbar";
+import CartItem from "../components/checkout/cartitem";
+import Navbar from "../components/navbar";
 import styles from "../styles/Checkout.module.css";
 import { useSelector } from "react-redux";
+
 import Link from "next/link";
 
-const checkout = () => {
+const Checkout = () => {
   const cartList = useSelector((state) => state.order);
   let quantity = 0;
   let totalPrice = 0;
@@ -35,4 +36,4 @@ const checkout = () => {
   );
 };
 
-export default checkout;
+export default Checkout;
