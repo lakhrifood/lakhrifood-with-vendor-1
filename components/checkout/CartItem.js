@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
         <h1>{item.productName}</h1>
       </div>
       <div className={styles.quantity}>
-        {item.quantity <= 0 ? (
+        {item.quantity <= 1 ? (
           <button
             className={`btn`}
             onClick={() => {

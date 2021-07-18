@@ -5,6 +5,17 @@
   align-items: center;
   flex-direction: column;
 }
+.emptyCard {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.emptyCardH1 {
+  font-size: 33px;
+}
 .itemContainer {
   height: 90px;
   display: flex;

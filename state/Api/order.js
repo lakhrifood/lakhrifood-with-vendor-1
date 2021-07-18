@@ -7,3 +7,6 @@ export const CreateOrderApi = async (orderinfo) => {
 
 export const getOrderByUserID = async (userID) =>
   await axios.get(`${baseUrl}/user/${userID}`);
+
+export const getOrderByID = async (ID) =>
+  await axios.get(`${baseUrl}/by/order/${ID}`);

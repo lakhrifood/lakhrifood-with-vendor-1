@@ -2,9 +2,8 @@ import CartItem from "../components/checkout/cartitem";
 import Navbar from "../components/navbar";
 import styles from "../styles/Checkout.module.css";
 import { useSelector } from "react-redux";
-
+import Image from "next/image";
 import Link from "next/link";
-
 const Checkout = () => {
   const cartList = useSelector((state) => state.order);
   let quantity = 0;
@@ -16,22 +15,34 @@ const Checkout = () => {
   return (
     <div>
       <Navbar />
-      <div className={styles.cartContainer}>
-        {cartList.map((item, index) => {
-          return <CartItem key={index} item={item} index={index} />;
-        })}
-
-        <div className={styles.paymentSec}>
-          <h1>Total quantity {quantity}</h1>
-          <div className={styles.qty}>
-            <h1>Total: {totalPrice + 25} BDT</h1>
-            <p>Including Delivery Charge : 25.00 BDT</p>
-          </div>
-          <Link href="/confirmorder">
-            <button className="btn btn-primary">Checkout</button>
-          </Link>
+      {quantity == 0 ? (
+        <div className={styles.emptyCard}>
+          <Image
+            src="/../public/empty.png"
+            alt="empty card"
+            width={390}
+            height={270}
+          />
+          <h1 className={styles.emptyCardH1}>Empty Cart</h1>
         </div>
-      </div>
+      ) : (
+        <div className={styles.cartContainer}>
+          {cartList.map((item, index) => {
+            return <CartItem key={index} item={item} index={index} />;
+          })}
+
+          <div className={styles.paymentSec}>
+            <h1>Total quantity {quantity}</h1>
+            <div className={styles.qty}>
+              <h1>Total: {totalPrice + 25} BDT</h1>
+              <p>Including Delivery Charge : 25.00 BDT</p>
+            </div>
+            <Link href="/confirmorder">
+              <button className="btn btn-primary">Checkout</button>
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

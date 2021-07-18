@@ -1,8 +1,7 @@
 import styles from "../styles/ConfirmOrder.module.css";
-
+import Router from "next/router";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { createOrderAction } from "../state/action/OrderAction";
@@ -22,12 +21,11 @@ const confirmorder = () => {
     quantity += item.quantity;
     totalPrice += item.price * item.quantity;
   });
-  console.log(cartList, "cartList");
+
   const checkoutOrder = async () => {
     cartList.map((item) => {
       productInfo.push({
         productId: item.productId,
-
         price: item.price,
         quantity: item.quantity,
         discount: item.discount,
@@ -42,19 +40,15 @@ const confirmorder = () => {
         productInfo,
       })
     );
-    console.log({
-      deliveryAddress: address,
-      paymentType: payment,
-      userId: userId,
-      userPhone: phone,
-      productInfo,
-    });
   };
   const checkCred = () => {
     const phoneNumber = localStorage.getItem("phoneNumber");
     const uid = localStorage.getItem("userId");
     setphone(phoneNumber);
     setuserId(uid);
+    if (quantity == 0) {
+      Router.push("/");
+    }
   };
   useEffect(() => {
     checkCred();
@@ -154,12 +148,7 @@ const confirmorder = () => {
           </div>
         </div>
         <div className={styles.containerBill}>
-          <h5 className={styles.headline}>
-            Your Order{" "}
-            <h6 className={`card-subtitle mb-2 text-muted `}>
-              Tracking ID #ansdnj
-            </h6>
-          </h5>
+          <h5 className={styles.headline}>Your Order </h5>
           <div className={` ${styles.containeritems}`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>

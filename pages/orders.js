@@ -22,6 +22,7 @@ function orders() {
   return (
     <Layout>
       <Navbar />
+
       <div className="page-bg">
         <div className="container">
           <div className="row">
@@ -34,6 +35,7 @@ function orders() {
           </div>
         </div>
       </div>
+
       <Footer />
     </Layout>
   );
