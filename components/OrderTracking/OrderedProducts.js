@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 function OrderedProducts({ products }) {
-  console.log(products, "cckk");
+  const total = products && products.productInfo.reduce((acc, curr) => acc + curr.price - curr.discount, 0);
+
   return (
     <div className="pt-3 pb-3">
       <table className="table table-striped">
@@ -30,6 +31,19 @@ function OrderedProducts({ products }) {
               <td className="text-end">{item.price - item.discount} TK</td>
             </tr>
           ))}
+          <tr>
+            <th colSpan="5" className="text-end">Total</th>
+            <th className="text-end">{total} Tk</th>
+          </tr>
+          {products && products.globalDiscount > 0 &&
+            <tr>
+              <th colSpan="5" className="text-end">Vaucher Discount</th>
+              <th className="text-end">{products.globalDiscount} Tk</th>
+            </tr>}
+          <tr>
+            <th colSpan="5" className="text-end">Sub Total</th>
+            <th className="text-end">{total - (products && products.globalDiscount)} Tk</th>
+          </tr>
         </tbody>
       </table>
     </div>
