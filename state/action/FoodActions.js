@@ -2,12 +2,12 @@ import { getAllFood, getByCategoryFood, getByIDFood, getByPriceFilter, getByRati
 import { getFoodByID, getFoodByRating, getFoods, getFoodsByCategory, getFoodsByPriceFilter, getFoodsBySearch, getPopularFoods, setRecommendedFoods } from "../reducers/FoodSlice";
 
 export const getAndSetFoodAction = () => async (dispatch) => {
-  try {
-    const { data } = await getAllFood();
-    dispatch(getFoods(data));
-  } catch (error) {
-    console.error(error.message);
-  }
+    try {
+        const { data } = await getAllFood();
+        dispatch(getFoods(data));
+    } catch (error) {
+        console.error(error.message);
+    }
 };
 
 export const getAndSetByCategoryFoodAction = (category) => async (dispatch) => {

@@ -5,6 +5,7 @@ import { signinAuthApi } from "../../state/api/auth";
 import { setAuthTrue } from "../../state/reducers/UserAuth";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 const Signin = () => {
   const dispatch = useDispatch();
   const [cred, setcred] = useState({
@@ -41,7 +42,7 @@ const Signin = () => {
 
   return (
     <div className={styles.container}>
-      <div className={`card ${styles.cardLog}`}>
+      <div className={`card ${ styles.cardLog }`}>
         <div className={styles.header}>
           <h1>Welcome !</h1>
           <p>Sign Up or Login to Continue.</p>
@@ -98,9 +99,10 @@ const Signin = () => {
               <i className="fab fa-google mr-10"></i>Continue With Google
             </p>
           </button>
+          <p className="text-center">Dont have an account? <strong className="text-color"> <Link href="/auth/signup">Sign up</Link></strong> </p>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

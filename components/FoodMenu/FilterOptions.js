@@ -24,10 +24,8 @@ function FilterOptions({ mobile }) {
     const [value, setValue] = useState([0, 1000]);
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
-    useEffect(() => {
         dispatch(getAndSetFoodActionByPrice(value[0], value[1]));
-    }, [value])
+    };
     return (
         <ul className={`${ styles.sideMenu } ${ !mobile && styles.sideMenuLarge } list-unstyled`}>
             <div>
