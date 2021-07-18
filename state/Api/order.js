@@ -10,3 +10,6 @@ export const getOrderByUserID = async (userID) =>
 
 export const getOrderByID = async (ID) =>
   await axios.get(`${baseUrl}/by/order/${ID}`);
+
+export const getOrderDiscountByPromoCode = async (promoCode) =>
+  await axios.get(`http://localhost:5000/promo/get/byid/${promoCode}`);

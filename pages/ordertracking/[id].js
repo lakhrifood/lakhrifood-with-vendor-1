@@ -35,7 +35,7 @@ function Ordertracking() {
         <div className="container">
           <div className="row pb-5">
             <h1 className={styles.title}>Order Tracking</h1>
-            <h2 className={styles.orderID}>Order ID: {orderFood?._id}</h2>
+            <h2 className={styles.orderID}>Order ID: #{orderFood?._id}</h2>
             {/* {windowSize && windowSize.width < 480 ? (
               <OrderTimelineMobile />
             ) : (
@@ -54,14 +54,14 @@ function Ordertracking() {
               Payment Details:{orderFood?.userPhone}
             </h2>
             {/* <!-- Button trigger modal --> */}
-            <button
+            {/* <button
               type="button"
               className={`btn btn-bg mt-5 ${styles.cancelBTN}`}
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
               Cancel Order
-            </button>
+            </button> */}
             {/* <CancelOrderModal /> */}
           </div>
         </div>

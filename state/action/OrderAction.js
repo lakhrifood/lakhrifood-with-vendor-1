@@ -1,7 +1,21 @@
-import { addOrder } from "../reducers/OrderSlice";
+import { addOrder, emptyOrder } from "../reducers/OrderSlice";
 
-import { CreateOrderApi, getOrderByUserID } from "../Api/order";
+import {
+  CreateOrderApi,
+  getOrderByUserID,
+  getOrderDiscountByPromoCode,
+} from "../Api/order";
+import { setDiscount, removeDiscount } from "../reducers/FoodSlice";
 
+export const setDiscountbyPromoCode = (promoCode) => {
+  return async (dispatch, getState) => {
+    const { data } = await getOrderDiscountByPromoCode(promoCode);
+    console.log(data, "distrpppp");
+    if (data) {
+      dispatch(setDiscount(data.discount));
+    }
+  };
+};
 export const AddOrderCartAction = (orderDetailes) => async (dispatch) => {
   try {
     dispatch(addOrder(orderDetailes));
@@ -12,8 +26,10 @@ export const AddOrderCartAction = (orderDetailes) => async (dispatch) => {
 
 export const createOrderAction = (orderDetailes) => async (dispatch) => {
   try {
-    console.log("calling order");
-    await CreateOrderApi(orderDetailes);
+    await CreateOrderApi(orderDetailes).then(() => {
+      dispatch(removeDiscount());
+      dispatch(emptyOrder());
+    });
   } catch (error) {
     console.error(error.message);
   }

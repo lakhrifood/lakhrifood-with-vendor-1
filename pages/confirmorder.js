@@ -4,11 +4,16 @@ import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
-import { createOrderAction } from "../state/action/OrderAction";
+import {
+  createOrderAction,
+  setDiscountbyPromoCode,
+} from "../state/action/OrderAction";
 
 const confirmorder = () => {
   const cartList = useSelector((state) => state.order);
+  const { globalDiscount } = useSelector((state) => state.food);
   const dispatch = useDispatch();
+  const [promo, setpromo] = useState("");
   let quantity = 0;
   let totalPrice = 0;
   let deliveryCharge = 25;
@@ -21,7 +26,11 @@ const confirmorder = () => {
     quantity += item.quantity;
     totalPrice += item.price * item.quantity;
   });
-
+  const setPromoDiscount = () => {
+    if (promo) {
+      dispatch(setDiscountbyPromoCode(promo));
+    }
+  };
   const checkoutOrder = async () => {
     cartList.map((item) => {
       productInfo.push({
@@ -38,6 +47,7 @@ const confirmorder = () => {
         userId: userId,
         userPhone: phone,
         productInfo,
+        globalDiscount: globalDiscount ? globalDiscount : 0,
       })
     );
   };
@@ -83,69 +93,6 @@ const confirmorder = () => {
               value={phone}
             />
           </div>
-          <div>
-            <h1 className={styles.headline}>Payment section</h1>
-            <div className={styles.paymentSection}>
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  onClick={() => setpayment("Bkash")}
-                />
-
-                <h5>Bkash</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  onClick={() => setpayment("DBBL")}
-                />
-
-                <h5>DBBL</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  onClick={() => setpayment("NAGAD")}
-                />
-
-                <h5>NAGAD</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  onClick={() => setpayment("Rocket")}
-                />
-
-                <h5>Rocket</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  onClick={() => setpayment("Cash")}
-                />
-                <h5>Cash on delivery</h5>
-              </div>
-            </div>
-          </div>
         </div>
         <div className={styles.containerBill}>
           <h5 className={styles.headline}>Your Order </h5>
@@ -162,6 +109,12 @@ const confirmorder = () => {
               <h5>Delivery Charge </h5>
               <h5> {deliveryCharge}BDT</h5>
             </div>
+            {globalDiscount ? (
+              <div className={styles.itemCheck}>
+                <h5>Voucher Discount </h5>
+                <h5> {globalDiscount}BDT</h5>
+              </div>
+            ) : null}
             <div className={styles.itemCheck}></div>
             <div className={styles.itemCheck}>
               <input
@@ -170,9 +123,17 @@ const confirmorder = () => {
                 placeholder="Enter Promo code"
                 aria-label="Enter Promo code"
                 aria-describedby="basic-addon2"
+                value={promo}
+                onChange={(e) => setpromo(e.target.value)}
               />
               <div className="input-group-append">
-                <button className="btn btn-primary" type="button">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={() => {
+                    setPromoDiscount();
+                  }}
+                >
                   check
                 </button>
               </div>
@@ -180,7 +141,10 @@ const confirmorder = () => {
             <div className={styles.itemCheck}>
               <h5 className={styles.headline}>Total </h5>
               <h5 className={styles.headline}>
-                {totalPrice + deliveryCharge}BDT
+                {globalDiscount
+                  ? totalPrice + deliveryCharge - globalDiscount
+                  : totalPrice + deliveryCharge}
+                BDT
               </h5>
             </div>
             <div>

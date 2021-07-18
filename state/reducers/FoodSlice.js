@@ -7,6 +7,7 @@ export const FoodSlice = createSlice({
     popularFoods: [],
     recommendedFoods: [],
     orderFood: null,
+    globalDiscount: 0,
   },
   reducers: {
     getFoods: (state, { payload }) => {
@@ -36,6 +37,12 @@ export const FoodSlice = createSlice({
     setRecommendedFoods: (state, { payload }) => {
       state.recommendedFoods = payload;
     },
+    setDiscount: (state, { payload }) => {
+      state.globalDiscount = payload;
+    },
+    removeDiscount: (state, { payload }) => {
+      state.globalDiscount = 0;
+    },
   },
 });
 
@@ -49,5 +56,7 @@ export const {
   getFoodsByPriceFilter,
   getFoodsBySearch,
   getOrderFoodById,
+  setDiscount,
+  removeDiscount,
 } = FoodSlice.actions;
 export default FoodSlice.reducer;
