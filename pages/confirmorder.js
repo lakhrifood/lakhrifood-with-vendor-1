@@ -1,108 +1,120 @@
 import styles from "../styles/ConfirmOrder.module.css";
-import Navbar from "../components/navbar";
+import Router from "next/router";
+import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
+import {
+  createOrderAction,
+  setDiscountbyPromoCode,
+} from "../state/action/OrderAction";
+
 const confirmorder = () => {
+  const cartList = useSelector((state) => state.order);
+  const { globalDiscount } = useSelector((state) => state.food);
+  const dispatch = useDispatch();
+  const [promo, setpromo] = useState("");
+  let quantity = 0;
+  let totalPrice = 0;
+  let deliveryCharge = 25;
+  const [address, setaddress] = useState("");
+  const [phone, setphone] = useState("");
+  const [payment, setpayment] = useState("");
+  const [userId, setuserId] = useState("");
+  let productInfo = [];
+  cartList.map((item) => {
+    quantity += item.quantity;
+    totalPrice += item.price * item.quantity;
+  });
+  const setPromoDiscount = () => {
+    if (promo) {
+      dispatch(setDiscountbyPromoCode(promo));
+    }
+  };
+  const checkoutOrder = async () => {
+    cartList.map((item) => {
+      productInfo.push({
+        productId: item.productId,
+        price: item.price,
+        quantity: item.quantity,
+        discount: item.discount,
+      });
+    });
+    dispatch(
+      createOrderAction({
+        deliveryAddress: address,
+        paymentType: payment,
+        userId: userId,
+        userPhone: phone,
+        productInfo,
+        globalDiscount: globalDiscount ? globalDiscount : 0,
+      })
+    );
+  };
+  const checkCred = () => {
+    const phoneNumber = localStorage.getItem("phoneNumber");
+    const uid = localStorage.getItem("userId");
+    setphone(phoneNumber);
+    setuserId(uid);
+    if (quantity == 0) {
+      Router.push("/");
+    }
+  };
+  useEffect(() => {
+    checkCred();
+  }, []);
   return (
     <div>
       <Navbar />
       <div className={`container ${styles.containersConfirm}`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
-            </label>
-            <input type="email" className="form-control" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+              Address
             </label>
             <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              type="text"
+              class="form-control"
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
             />
           </div>
-          <div>
-            <h1 className={styles.headline}>Payment section</h1>
-            <div className={styles.paymentSection}>
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                />
-
-                <h5>Bkash</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                />
-
-                <h5>DBBL</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                />
-
-                <h5>Paytm</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                />
-
-                <h5>Rocket</h5>
-              </div>
-
-              <div className={`${styles.payItem}`}>
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                />
-                <h5>Cash on delivery</h5>
-              </div>
-            </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+              Phone Number{" "}
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              value={phone}
+            />
           </div>
         </div>
         <div className={styles.containerBill}>
-          <h5 className={styles.headline}>
-            Your Order{" "}
-            <h6 className={`card-subtitle mb-2 text-muted `}>
-              Tracking ID #ansdnj
-            </h6>
-          </h5>
+          <h5 className={styles.headline}>Your Order </h5>
           <div className={` ${styles.containeritems}`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
-              <h5> 3</h5>
+              <h5> {quantity}</h5>
             </div>
             <div className={styles.itemCheck}>
               <h5>Price </h5>
-              <h5> 400BDT</h5>
+              <h5> {totalPrice} BDT</h5>
             </div>
             <div className={styles.itemCheck}>
               <h5>Delivery Charge </h5>
-              <h5> 30BDT</h5>
+              <h5> {deliveryCharge}BDT</h5>
             </div>
+            {globalDiscount ? (
+              <div className={styles.itemCheck}>
+                <h5>Voucher Discount </h5>
+                <h5> {globalDiscount}BDT</h5>
+              </div>
+            ) : null}
             <div className={styles.itemCheck}></div>
             <div className={styles.itemCheck}>
               <input
@@ -111,24 +123,42 @@ const confirmorder = () => {
                 placeholder="Enter Promo code"
                 aria-label="Enter Promo code"
                 aria-describedby="basic-addon2"
+                value={promo}
+                onChange={(e) => setpromo(e.target.value)}
               />
               <div className="input-group-append">
-                <button className="btn btn-primary" type="button">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={() => {
+                    setPromoDiscount();
+                  }}
+                >
                   check
                 </button>
               </div>
             </div>
             <div className={styles.itemCheck}>
               <h5 className={styles.headline}>Total </h5>
-              <h5 className={styles.headline}> 3033BDT</h5>
+              <h5 className={styles.headline}>
+                {globalDiscount
+                  ? totalPrice + deliveryCharge - globalDiscount
+                  : totalPrice + deliveryCharge}
+                BDT
+              </h5>
             </div>
             <div>
-              <button
-                type="button"
-                className={`btn btn-lg btn-primary ${styles.btnGhor}`}
-              >
-                Checkout
-              </button>
+              <Link href="/orders">
+                <button
+                  type="button"
+                  className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                  onClick={() => {
+                    checkoutOrder();
+                  }}
+                >
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>

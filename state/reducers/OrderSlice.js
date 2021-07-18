@@ -7,10 +7,7 @@ const OrderSlice = createSlice({
   initialState,
   reducers: {
     addOrder: (state, { payload }) => [...state, payload],
-    // editOrder: (state, { payload }) => {
-    //   const index = state.findIndex(o => o.id === payload.id);
-    //     state[index].roomMembers = payload.roomMembers;
-    // },
+    emptyOrder: (state, { payload }) => [],
     addQuantity: (state, { payload }) => {
       const index = state.findIndex((o) => o.productId === payload.id);
       state[index].quantity += 1;
@@ -21,8 +18,18 @@ const OrderSlice = createSlice({
       state[index].quantity -= 1;
       console.log(payload);
     },
+    removeOrder: (state, { payload }) => {
+      const index = state.findIndex((o) => o.id === payload.id);
+      state.splice(index, 1);
+    },
   },
 });
 
-export const { addOrder, addQuantity, reduceQuantity } = OrderSlice.actions;
+export const {
+  addOrder,
+  addQuantity,
+  reduceQuantity,
+  removeOrder,
+  emptyOrder,
+} = OrderSlice.actions;
 export default OrderSlice.reducer;

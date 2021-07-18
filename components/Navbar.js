@@ -44,6 +44,7 @@ function Navbar() {
           <ul
             className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenu } `}
           >
+
             <Link href="/menu">
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#">
@@ -65,6 +66,11 @@ function Navbar() {
                 </a>
               </li>
             </Link>
+
+         
+         
+           
+
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Promotion

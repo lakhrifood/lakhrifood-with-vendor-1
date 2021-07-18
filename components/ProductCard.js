@@ -1,7 +1,6 @@
-
-import Image from 'next/image'
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 import styles from "../styles/ProductCard.module.css";
 import { AddOrderCartAction } from "../state/action/OrderAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,12 +9,11 @@ function ProductCard({ product }) {
   const cartList = useSelector((state) => state.order);
   const found = cartList.find((element) => element.productId === product._id);
 
-
   const addToCart = () => {
     dispatch(
       AddOrderCartAction({
         productId: product._id,
-        businessName: product.vendorID.organizationName,
+
         productName: product.name,
         price: product.price,
         quantity: 1,
@@ -24,10 +22,12 @@ function ProductCard({ product }) {
     );
   };
 
-  useEffect(() => { }, []);
+  useEffect(() => {}, []);
   return (
-    <Link href={`/product/${ product && product.name }?id=${ product && product._id }`}>
-      <div className={`card ${ styles.productCard }`}>
+    <Link
+      href={`/product/${product && product.name}?id=${product && product._id}`}
+    >
+      <div className={`card ${styles.productCard}`}>
         <Image
           src={
             (product && product.imgURL) ||
@@ -35,50 +35,49 @@ function ProductCard({ product }) {
           }
           width="100%"
           height="280px"
-          className={`card-img-top ${ styles.cardImage }`}
+          className={`card-img-top ${styles.cardImage}`}
           alt="..."
         />
         <div className="card-body">
           <h5>
             {product && product.name}
             <span
-              className={`ms-2 fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 1 &&
+              className={`ms-2 fa fa-star ${styles.starIcon} ${
+                Math.round(product && product.averageRating) >= 1 &&
                 styles.checked
-                }`}
+              }`}
             ></span>
             <span
-              className={`fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 2 &&
+              className={`fa fa-star ${styles.starIcon} ${
+                Math.round(product && product.averageRating) >= 2 &&
                 styles.checked
-                }`}
+              }`}
             ></span>
             <span
-              className={`fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 3 &&
+              className={`fa fa-star ${styles.starIcon} ${
+                Math.round(product && product.averageRating) >= 3 &&
                 styles.checked
-                }`}
+              }`}
             ></span>
             <span
-              className={`fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 4 &&
+              className={`fa fa-star ${styles.starIcon} ${
+                Math.round(product && product.averageRating) >= 4 &&
                 styles.checked
-                }`}
+              }`}
             ></span>
             <span
-              className={`me-2 fa fa-star ${ styles.starIcon } ${ Math.round(product && product.averageRating) >= 5 &&
+              className={`me-2 fa fa-star ${styles.starIcon} ${
+                Math.round(product && product.averageRating) >= 5 &&
                 styles.checked
-                }`}
+              }`}
             ></span>
             ({product && product.allRatings.length})
           </h5>
           <p>{product && product.description.slice(0, 60)}...</p>
           <div className="d-flex justify-content-between align-items-center">
             <h3>{product && product.price} BDT</h3>
-            {found ? (
-              <button
-                className="btn btn-bg disable"
-                disabled
-                onClick={() => {
-                  addToCart();
-                }}
-              >
+            {/* {found ? (
+              <button className="btn btn-bg disable" disabled>
                 <i className="fas fa-cart-plus"></i>
               </button>
             ) : (
@@ -90,7 +89,7 @@ function ProductCard({ product }) {
               >
                 <i className="fas fa-cart-plus"></i>
               </button>
-            )}
+            )} */}
           </div>
           <p>
             <i className="far fa-clock me-1"></i> Delivery Time :{" "}
@@ -100,8 +99,6 @@ function ProductCard({ product }) {
       </div>
     </Link>
   );
-
-
 }
 
 export default ProductCard;
