@@ -4,7 +4,7 @@ import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
     return (
-        <nav className={`navbar navbar-expand-lg navbar-transparent bg-transparent ${ styles.forVendorManu }`}>
+        <nav className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.forVendorManu }`}>
             <div className="container">
                 <Image src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +38,11 @@ function Navbar() {
                         </li>
                         {/* drop down end */}
                     </ul >
+
+                    <div className="ms-auto">
+                        <i className={`fas ${ styles.logoUser } fa-user-circle`}> </i>
+                    </div>
                 </div >
-                <div className="ms-auto">
-                    <i className={`fas ${ styles.logoUser } fa-user-circle`}> </i>
-                </div>
             </div >
         </nav >
     )
