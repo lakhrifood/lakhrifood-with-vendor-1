@@ -2,7 +2,13 @@ import styles from "../../styles/Auth.module.css";
 import { useState } from "react";
 import { SignupAction } from "../../state/action/AuthAction";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { signUpAuth } from "state/api/auth";
 const Signup = () => {
+  // const history = useHistory();
+  const router = useRouter();
+  const { error, setError } = useState(null);
   const dispatch = useDispatch();
   const [cred, setcred] = useState({
     name: "",
@@ -17,14 +23,19 @@ const Signup = () => {
     country: "bangladesh",
   });
   const handleSignup = async () => {
-    dispatch(SignupAction(cred));
+    try {
+      const { data } = await signUpAuth(cred);
+      router.push("/auth/signin")
+    } catch (e) {
+      setError(e);
+    }
   };
   return (
     <div className={styles.containerSignup}>
-      <div className={`card ${styles.cardLogSignup}`}>
+      <div className={`card ${ styles.cardLogSignup }`}>
         <div className={styles.cardInput}>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">Email address</label>
             <input
               type="email"
               className="form-control"
@@ -38,7 +49,7 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
+            <label className={styles.labels} htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
               className="form-control"
@@ -51,13 +62,13 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">name</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">Name</label>
             <input
               type="text"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter name"
+              placeholder="Enter your name"
               value={cred.name}
               onChange={(e) => {
                 setcred({ ...cred, name: e.target.value });
@@ -65,13 +76,13 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">phoneNumber</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">Phone Number</label>
             <input
               type="text"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter phoneNumber"
+              placeholder="Enter your phoneNumber"
               value={cred.phoneNumber}
               onChange={(e) => {
                 setcred({ ...cred, phoneNumber: e.target.value });
@@ -80,13 +91,13 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">address</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">Address</label>
             <input
               type="text"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter address"
+              placeholder="Enter your address"
               value={cred.address}
               onChange={(e) => {
                 setcred({ ...cred, address: e.target.value });
@@ -94,7 +105,7 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Gender</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">Gender</label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -110,7 +121,7 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Division</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">Division</label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -119,13 +130,13 @@ const Signup = () => {
                 setcred({ ...cred, division: e.target.value });
               }}
             >
-              <option value="Khulna">Khulna </option>
+              <option selected value="Khulna">Khulna </option>
               <option value="Dhaka">Dhaka</option>
               <option value="Rajshahi">Rajshahi</option>
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">city</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">City</label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -134,7 +145,7 @@ const Signup = () => {
                 setcred({ ...cred, city: e.target.value });
               }}
             >
-              <option value="Khulna">Khulna </option>
+              <option selected value="Khulna">Khulna </option>
               <option value="Dhaka">Dhaka</option>
               <option value="Rajshahi">Rajshahi</option>
             </select>
@@ -142,13 +153,19 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary mt-3"
             onClick={() => {
               handleSignup();
             }}
           >
             Submit
           </button>
+          <div className="mt-3 text-center">
+            {error ? <p className={styles.error}>{error}</p> : null}
+            <p>Already member?
+              <strong className="text-color"> <Link href="/auth/signin">Login </Link></strong>
+              here.</p>
+          </div>
         </div>
       </div>
     </div>
