@@ -1,0 +1,49 @@
+.title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.addProductBtn {
+    background-color: #8d2ad3;
+    padding: 5px 35px;
+    color: white;
+}
+
+.paymentTable {
+    background-color: #fff;
+    padding: 30px 10px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.moneyCard {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    width: 380px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.moneyCard h1 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #8d2ad3;
+    padding: 10px 0px;
+}
+
+.moneyCard p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+    .moneyCard {
+        width: 279px;
+        height: 187px;
+    }
+}
