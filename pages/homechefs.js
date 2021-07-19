@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Footer from "../components/Footer/footer";
+import Footer from "../components/vendor/Footer/footer";
 import HomechefCard from "../components/homechefcard";
 import JoinAsVendorOrRider from "../components/joinasvendororrider";
 import Navbar from "../components/navbar";

@@ -4,7 +4,7 @@ import HomechefDetails from "../../components/homechefdetails";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/navbar";
 import JoinAsVendorOrRider from "../../components/joinasvendororrider";
-import Footer from "../../components/Footer/footer";
+import Footer from "../../components/vendor/Footer/footer";
 import RecommendedHomeChef from "../../components/FoodHome/recommendedhomechef";
 import RecommendedProduct from "../../components/FoodHome/recommendedproduct";
 import { useDispatch, useSelector } from "react-redux";

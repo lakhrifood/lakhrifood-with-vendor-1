@@ -5,7 +5,7 @@ import Navbar from '../components/navbar'
 import Layout from '../components/Layout';
 import styles from '../styles/Menu.module.css'
 import JoinAsVendorOrRider from '../components/joinasvendororrider';
-import Footer from '../components/Footer/footer';
+import Footer from '../components/vendor/Footer/footer';
 import { getAndSetFoodAction } from '../state/action/FoodActions';
 import { useDispatch } from 'react-redux';
 import { getAndSetHomechefsAction } from '../state/action/HomechefAction';
