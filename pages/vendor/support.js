@@ -1,5 +1,5 @@
-import Navbar from "../components/navbar";
-import styles from "../styles/Support.module.css";
+import Navbar from "../../components/vendor/Navbar";
+import styles from "../../styles/Support.module.css";
 
 const support = () => {
   return (

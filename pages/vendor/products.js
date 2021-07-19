@@ -1,7 +1,7 @@
 import styles from '../../styles/VendorProducts.module.css';
 import Navbar from '../../components/vendor/Navbar';
 import Footer from '../../components/vendor/Footer/Footer';
-import ProductCard from '../../components/ProductCard';
+import ProductCard from '../../components/vendor/ProductCard';
 import { getAndSetFoodAction } from '../../state/action/FoodActions';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,7 +41,6 @@ function Index() {
                         foods.map((food, index) => (
                             <ProductCard key={index} product={food} />
                         ))}
-
                 </div>
             </div>
             <Footer />
