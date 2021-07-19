@@ -8,7 +8,7 @@ import MostOrdered from "../components/FoodHome/mostordered";
 import RecommendedHomeChef from "../components/FoodHome/recommendedhomechef";
 import RecommendedProduct from "../components/FoodHome/recommendedproduct";
 
-import Footer from "../components/Footer/footer";
+import Footer from "../components/vendor/Footer/footer";
 import Navbar from "../components/navbar";
 import JoinAsVendorOrRider from "../components/joinasvendororrider";
 import Questions from "../components/FoodHome/questions";

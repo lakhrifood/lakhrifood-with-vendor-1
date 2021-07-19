@@ -2,7 +2,7 @@ import OrderCard from "../components/OrderCard";
 import styles from "../styles/OrderLIst.module.css";
 import Layout from "./../components/Layout";
 import Navbar from "./../components/Navbar";
-import Footer from "./../components/Footer/Footer";
+import Footer from "../components/vendor/Footer/Footer";
 
 import { getOrderByUserID } from "../state/Api/order";
 import { useState, useEffect } from "react";

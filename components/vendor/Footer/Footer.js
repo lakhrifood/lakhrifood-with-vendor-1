@@ -9,10 +9,14 @@ function Footer() {
     ]
 
     const quickLink = [
-        { name: "Menu", link: "#about" },
-        { name: "Order", link: "#service" },
-        { name: "Vendor", link: "#blog" },
-        { name: "Promotion", link: "#contact" },
+        { name: "Dashboard", link: "#about" },
+        { name: "Food Section", link: "#service" },
+        { name: "Order History", link: "#blog" },
+        { name: "Product", link: "#contact" },
+        { name: "Shop setting", link: "#contact" },
+        { name: "Money Withdraws", link: "#contact" },
+        { name: "Contact support", link: "#contact" },
+        { name: "Manage Profile", link: "#contact" },
     ]
 
     const getInTouch = [
@@ -25,16 +29,16 @@ function Footer() {
                 <div className="container pt-5">
                     <div className="row py-5">
                         <FooterCol key={1} menuLogo={"/./Lakhri food logo.svg"} menuItems={noNamed} />
-                        <FooterCol key={2} menuTitle="For Customer" menuItems={quickLink} />
+                        <FooterCol key={2} menuTitle="For Vendor" menuItems={quickLink} />
                         <FooterCol key={3} menuTitle="Get In Touch" menuItems={getInTouch} >
-                            <div className="col-md-6">
+                            <div className="col-md-8">
                                 <p className={styles.contactDetails}>+0362747568688</p>
                                 <p className={styles.contactDetails}>brainboxbd@gmail.com</p>
                                 <p className={styles.contactDetails}>24,KemalAtaturkAve,Banani,Dhaka-1213</p>
                             </div>
                         </FooterCol>
                         <FooterCol key={3} menuTitle="Social Media" menuItems={getInTouch} >
-                            <div className="col-md-6">
+                            <div className="col-md-9">
                                 <p className={styles.contactDetails}></p>
                                 <p className={styles.contactDetails}></p>
                                 <p className={styles.contactDetails}></p>

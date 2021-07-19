@@ -5,7 +5,7 @@ import styles from "../../styles/OrderTracking.module.css";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import OrderTimelineMobile from "../../components/OrderTracking/ordertimelinemobile";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/vendor/Footer/Footer";
 import CancelOrderModal from "../../components/OrderTracking/CancelOrderModal";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";

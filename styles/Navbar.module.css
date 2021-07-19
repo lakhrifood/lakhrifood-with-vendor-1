@@ -7,6 +7,7 @@
   /* identical to box height */
   color: black !important;
 }
+
 .userSection {
   display: flex;
   align-items: center;
@@ -69,6 +70,10 @@
   bottom: 0;
   background-color: Black;
   animation: manuHover 1s;
+}
+
+.forVendorManu {
+  box-shadow: 1px 1px 6px 1px lightgray;
 }
 
 @keyframes manuHover {
