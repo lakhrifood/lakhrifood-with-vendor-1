@@ -1,8 +1,6 @@
 .container {
   background: rgb(247, 247, 247);
   min-height: 100vh;
-  padding-left: 10%;
-  padding-right: 10%;
 }
 .container > h1 {
   font-size: 32px;

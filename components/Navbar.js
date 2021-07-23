@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 function Navbar() {
   const dispatch = useDispatch();
-  const [email, setemail] = useState("");
+  const [name, setname] = useState("");
   const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
   const cartList = useSelector((state) => state.order);
 
   const checkLogin = () => {
     const token = localStorage.getItem("token");
-    const getEmail = localStorage.getItem("userEmail");
-    setemail(getEmail);
+    const getName = localStorage.getItem("userName");
+    setname(getName);
     if (token) {
       dispatch(setAuthTrue());
     } else {
@@ -25,7 +25,7 @@ function Navbar() {
   }, []);
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent ${styles.navbarShadow}`}
+      className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.navbarShadow }`}
     >
       <div className="container">
         <Image src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
@@ -42,60 +42,73 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
-            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenu} `}
+            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenu } `}
           >
-            <li className="nav-item">
-              <Link href="/menu">
+
+            <Link href="/menu">
+              <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#">
                   Menu
                 </a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/orders">
+              </li>
+            </Link>
+            <Link href="/orders">
+              <li className="nav-item">
                 <a className="nav-link" href="#">
                   Order
                 </a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Vendor
-              </a>
-            </li>
+              </li>
+            </Link>
+            <Link href="/homechefs">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Our Homechefs
+                </a>
+              </li>
+            </Link>
+
+         
+         
+           
+
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Promotion
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact Us
-              </a>
-            </li>
+            <Link href="/support">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Contact Us
+                </a>
+              </li>
+            </Link>
           </ul>
 
           <div className="d-flex flex-w">
             <ul
-              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenuIcon} `}
+              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenuIcon } `}
             >
-              <li className={`${styles.userSection}`}>
+              <li className={`${ styles.userSection }`}>
                 <Link href="/checkout">
-                  <i className={`${styles.logoUser} fas fa-cart-plus `}></i>
+                  <i className={`${ styles.logoUser } fas fa-cart-plus `}></i>
                 </Link>
                 <p className={styles.numberProduct}>{cartList.length}</p>
               </li>
               <li className="nav-item">
                 {isAuthenticated ? (
-                  <li className={` ${styles.userSection}`}>
-                    <i className={`fas ${styles.logoUser} fa-user-circle`}> </i>
-
-                    <p className={styles.Email}>{email}</p>
-                  </li>
+                  <Link href="/profile">
+                    <li className={` ${ styles.userSection }`}>
+                      <i className={`fas ${ styles.logoUser } fa-user-circle`}> </i>
+                      <p className={styles.Email}>{name}</p>
+                    </li>
+                  </Link>
                 ) : (
-                  <button className={`btn ${styles.btnSeller}`}>
-                    Login/Sign Up as{" "}
-                  </button>
+                  <Link href="/auth/signin">
+                    <a className={`btn ${ styles.btnSeller }`}>
+                      Login/Sign Up as{" "}
+                    </a>
+                  </Link>
                 )}
               </li>
             </ul>

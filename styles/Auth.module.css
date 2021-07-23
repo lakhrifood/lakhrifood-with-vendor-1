@@ -14,11 +14,10 @@
   background-image: url("../public//cala-w6ftFbPCs9I-unsplash.png");
 
   background-color: #cccccc;
-  height: 1200px;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,11 +29,21 @@
   padding: 40px;
 }
 .cardLogSignup {
-  width: 400px;
-  height: 1200px;
+  width: 500px;
+  height: fit-content;
+  padding: 50px 40px 50px 40px;
   background-color: white;
-  padding: 40px;
-  margin-top: 200px;
+  margin: auto;
+}
+
+.error {
+  color: red;
+  margin: 5px auto;
+  text-align: center;
+}
+
+.labels {
+  margin: 10px 0px 5px 0px;
 }
 
 .header > h1 {

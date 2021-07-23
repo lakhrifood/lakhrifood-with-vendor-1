@@ -9,9 +9,12 @@ import Footer from '../components/vendor/Footer/footer';
 import { getAndSetFoodAction } from '../state/action/FoodActions';
 import { useDispatch } from 'react-redux';
 import { getAndSetHomechefsAction } from '../state/action/HomechefAction';
+import { useRouter } from 'next/router';
 
 
 function Menu() {
+    const router = useRouter();
+    const id = (route.asPath.split('id=')[1]);
     return (
         <Layout>
             <Navbar></Navbar>
