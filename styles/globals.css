@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 a {
@@ -51,4 +51,11 @@ a {
 
 .MuiPaper-root {
   background-color: #f6f6f6 !important;
+}
+
+/* global css for homechef */
+
+.btn-bg-for-homechef {
+  background-color: #8d2ad3;
+  color: #fff;
 }

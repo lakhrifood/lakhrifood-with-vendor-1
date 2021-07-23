@@ -1,39 +1,100 @@
-// import Image from "next/image";
-// import Layout from "../../components/Layout"
-// import SellerHeader from "../../components/vendor/SellerHeader"
-// import styles from "../../styles/signin.module.css";
+import styles from "../../styles/VendorSignin.module.css";
 
-// function signin() {
-//     return (
-//         <Layout>
-//             <SellerHeader></SellerHeader>
-//             <div className="container-fluid">
-//                 <div className="row p-5 flex-column-reverse flex-lg-row">
-//                     <div className="col-md-6 ">
-//                         <h4 className={`${ styles.welcomeText } mb-5`}>Welcome to <br /> LAKHRI <span className="text-success" >Foods</span> </h4>
+import { useState, useEffect } from "react";
+import { signinAuthApi, signinAuthApiForVendor } from "../../state/api/auth";
+import { setAuthTrue } from "../../state/reducers/UserAuth";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import Link from "next/link";
+const Signin = () => {
+    const dispatch = useDispatch();
+    const [cred, setcred] = useState({
+        email: "",
+        password: "",
+    });
+    const router = useRouter();
+    const [token, settoken] = useState("");
+    const [id, setid] = useState("");
+    const [username, setusername] = useState("");
+    const [email, setemail] = useState("");
+    const [phoneNumber, setphoneNumber] = useState("");
 
-//                         <form className={`${ styles.signinFrom }`} action="">
-//                             <label className="pt-4 pb-2" htmlFor="email">
-//                                 <h6>Email</h6>
-//                             </label>
-//                             <input className="form-control" type="email" name="email" id="email" />
-//                             <label className="pt-4 pb-2" htmlFor="password">
-//                                 <h6>Password</h6>
-//                             </label>
-//                             <input className="form-control" type="password" name="password" id="password" />
+    const handleSignin = async () => {
+        console.log(cred)
+        try {
+            const { data } = await signinAuthApiForVendor(cred);
+            console.log(data)
+            console.log(data.user._id);
+            settoken(data.token);
+            setid(data.user._id);
+            setphoneNumber(data.phoneNumber);
+            setusername(data.user.ownerName);
+            setemail(data.user.email);
+            dispatch(setAuthTrue());
+            router.push("/vendor/");
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 
-//                             <div className="form-group text-center">
-//                                 <input className={`${ styles.submitBtn } btn`} type="submit" value="Submit" />
-//                             </div>
-//                         </form>
-//                     </div>
-//                     <div className="col-md-6">
-//                         <Image src="/./svg/landing.svg" alt="" width={1000} height={500} />
-//                     </div>
-//                 </div>
-//             </div>
-//         </Layout>
-//     )
-// }
+    useEffect(() => {
+        localStorage.setItem("token", token);
+        localStorage.setItem("vendorID", id);
+        localStorage.setItem("userName", username);
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("phoneNumber", phoneNumber);
+    }, [token, id, username, email, phoneNumber]);
 
-// export default signin
+    return (
+        <div className={styles.container}>
+            <div className={`card ${ styles.cardLog }`}>
+                <div className={styles.header}>
+                    <h1>Welcome !</h1>
+                    <p>Sign Up or Login to Continue.</p>
+                </div>
+                <div className={styles.cardInput}>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter email"
+                            value={cred.email}
+                            onChange={(e) => {
+                                setcred({ ...cred, email: e.target.value });
+                            }}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="exampleInputPassword1"
+                            placeholder="Password"
+                            value={cred.password}
+                            onChange={(e) => {
+                                setcred({ ...cred, password: e.target.value });
+                            }}
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="btn btn-bg-for-homechef"
+                        onClick={() => {
+                            handleSignin();
+                        }}
+                    >
+                        Submit
+                    </button>
+                    <p className="text-center">Dont have an account? <strong className="text-color"> <Link href="/vendor/signup">Sign up</Link></strong> </p>
+                </div>
+            </div>
+        </div >
+    );
+};
+
+export default Signin;
