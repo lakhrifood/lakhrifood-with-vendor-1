@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -14,7 +14,28 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.photodp {
+  height: 200px;
+  width: 200px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.backgroundAsh {
+  background-color: #f7f7f7;
+}
+.container100vh {
+  height: 100vh;
+}
+.pt-40 {
+  padding-top: 40px;
+}
+.cstmFlexstart {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
 .btn-bg {
   background-color: #179bd7;
   color: #fff;
