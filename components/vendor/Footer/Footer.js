@@ -42,7 +42,6 @@ function Footer() {
                                 <p className={styles.contactDetails}></p>
                                 <p className={styles.contactDetails}></p>
                                 <p className={styles.contactDetails}></p>
-                                <h3 className="text-light">We Accept for Payment</h3>
                             </div>
                         </FooterCol>
 

@@ -1,0 +1,46 @@
+.title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.addProductBtn {
+    background-color: #8d2ad3;
+    padding: 5px 35px;
+    color: white;
+}
+
+.productImage {
+    border-radius: 30px;
+}
+
+.productTitle {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px 0px;
+}
+
+.productTitle small {
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+.productDescription {
+    font-size: 18px;
+    max-width: 580px;
+    padding: 5px 0px;
+}
+.category {
+    padding: 5px 0px;
+    font-size: 18px;
+}
+.ratingWrapper {
+    padding: 5px 0px;
+}
+
+.starIcon {
+    color: azure;
+}
+
+.checked {
+    color: orange !important;
+}
