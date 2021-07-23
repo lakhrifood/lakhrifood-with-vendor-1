@@ -7,43 +7,48 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 const Signin = () => {
-  const dispatch = useDispatch();
-  const [cred, setcred] = useState({
-    email: "",
-    password: "",
-  });
-  const router = useRouter();
-  const [token, settoken] = useState("");
-  const [id, setid] = useState("");
-  const [username, setusername] = useState("");
-  const [email, setemail] = useState("");
-  const [phoneNumber, setphoneNumber] = useState("");
 
-  const handleSignin = async () => {
-    console.log(cred);
-    try {
-      const { data } = await signinAuthApiForVendor(cred);
-      console.log(data);
-      console.log(data.user._id);
-      settoken(data.token);
-      setid(data.user._id);
-      setphoneNumber(data.phoneNumber);
-      setusername(data.user.ownerName);
-      setemail(data.user.email);
-      dispatch(setAuthTrue());
-      router.push("/vendor/dashboard");
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+    const dispatch = useDispatch();
+    const [cred, setcred] = useState({
+        email: "",
+        password: "",
+    });
+    const router = useRouter();
+    const [token, settoken] = useState("");
+    const [id, setid] = useState("");
+    const [username, setusername] = useState("");
+    const [email, setemail] = useState("");
+    const [phoneNumber, setphoneNumber] = useState("");
+    const [isVendor, setisVendor] = useState("");
 
-  useEffect(() => {
-    localStorage.setItem("token", token);
-    localStorage.setItem("vendorID", id);
-    localStorage.setItem("userName", username);
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("phoneNumber", phoneNumber);
-  }, [token, id, username, email, phoneNumber]);
+    const handleSignin = async () => {
+        console.log(cred)
+        try {
+            const { data } = await signinAuthApiForVendor(cred);
+            console.log(data)
+            console.log(data.user._id);
+            settoken(data.token);
+            setid(data.user._id);
+            setphoneNumber(data.phoneNumber);
+            setusername(data.user.ownerName);
+            setemail(data.user.email);
+            setisVendor(data.user.status);
+            { data.user.status === "false" && router.push("/vendor/waiting") }
+            // router.push("/vendor/");
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
+    useEffect(() => {
+        localStorage.setItem("token", token);
+        localStorage.setItem("vendorID", id);
+        localStorage.setItem("userName", username);
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("phoneNumber", phoneNumber);
+        localStorage.setItem("status", isVendor);
+    }, [token, id, username, email, phoneNumber, isVendor]);
+
 
   return (
     <div className={styles.container}>
