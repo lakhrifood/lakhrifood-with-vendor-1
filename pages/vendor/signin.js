@@ -18,6 +18,7 @@ const Signin = () => {
     const [username, setusername] = useState("");
     const [email, setemail] = useState("");
     const [phoneNumber, setphoneNumber] = useState("");
+    const [isVendor, setisVendor] = useState("");
 
     const handleSignin = async () => {
         console.log(cred)
@@ -30,8 +31,9 @@ const Signin = () => {
             setphoneNumber(data.phoneNumber);
             setusername(data.user.ownerName);
             setemail(data.user.email);
-            dispatch(setAuthTrue());
-            router.push("/vendor/");
+            setisVendor(data.user.status);
+            { data.user.status === "false" && router.push("/vendor/waiting") }
+            // router.push("/vendor/");
         } catch (error) {
             console.log(error.message);
         }
@@ -43,7 +45,8 @@ const Signin = () => {
         localStorage.setItem("userName", username);
         localStorage.setItem("userEmail", email);
         localStorage.setItem("phoneNumber", phoneNumber);
-    }, [token, id, username, email, phoneNumber]);
+        localStorage.setItem("status", isVendor);
+    }, [token, id, username, email, phoneNumber, isVendor]);
 
     return (
         <div className={styles.container}>
