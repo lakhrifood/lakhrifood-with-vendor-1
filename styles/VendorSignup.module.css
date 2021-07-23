@@ -1,0 +1,141 @@
+.signupContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.logo {
+    padding: 10px 50px !important;
+}
+@media screen and (max-width: 480px) {
+    .logo {
+        padding: 10px 50px !important;
+    }
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.celingSection1 {
+    margin-top: -50px;
+}
+.celingImagehContainer {
+    display: flex;
+}
+.celingSection2 {
+    margin-top: -60px;
+}
+.formContainer {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 3fr 7fr 3fr;
+}
+.tabSection {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+}
+.formSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.formFirst {
+    padding: 10px;
+}
+.submitBtn {
+    background-color: blueviolet !important;
+    color: white !important;
+    margin-bottom: 10px;
+}
+.container {
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerSignup {
+    background-color: #cccccc;
+    height: fit-content;
+    padding: 150px 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardLog {
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    padding: 40px;
+}
+.cardLogSignup {
+    width: 600px;
+    height: fit-content;
+    padding: 50px 40px 50px 40px;
+    background-color: white;
+    margin: auto;
+}
+
+.error {
+    color: red;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.labels {
+    margin: 10px 0px 5px 0px;
+}
+
+.header > h1 {
+    font-size: 32px;
+}
+.header > p {
+    font-size: 19px;
+}
+.cardInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 85%;
+}
+.btnTxt {
+    font-size: 15px;
+}
+
+@media screen and (max-width: 402px) {
+    .cardLog {
+        width: 250px;
+        height: 600px;
+        background-color: white;
+        padding: 40px;
+    }
+    .header > h1 {
+        font-size: 19px;
+    }
+    .header > p {
+        font-size: 14px;
+    }
+    .btnTxt {
+        font-size: 11px;
+    }
+    .cardLog {
+        width: 400px;
+        height: 600px;
+        background-color: white;
+        padding: 40px;
+    }
+}
+
+.regTitle {
+    font-size: 30px;
+    font-weight: bold;
+}

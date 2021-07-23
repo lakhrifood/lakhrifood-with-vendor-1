@@ -1,158 +1,211 @@
-// import styles from "../../styles/signup.module.css";
-// import Layout from "../../components/Layout";
-// import Image from "next/image";
-// import seling from "../../public/svg/reg celing.svg";
-// import treeTub from "../../public/svg/reg tob.svg";
-// import regWomen from "../../public/svg/reg woman.svg";
-// const signup = () => {
-//   return (
-//     <Layout>
-//       <div className={styles.signupContainer}>
-//         <div className={styles.header}>
-//           <div>
-//             {" "}
-//             <div className={`${styles.logo}`}>
-//               <Image
-//                 src="/./Lakhri food logo.svg"
-//                 width={140}
-//                 height={120}
-//                 alt=""
-//               />
-//             </div>
-//           </div>
-//           <div className={styles.celingImagehContainer}>
-//             <div className={styles.celingSection1}>
-//               <Image
-//                 src={seling}
-//                 alt="signup lakhri celing"
-//                 width={250}
-//                 height={250}
-//               />
-//             </div>
-//             <div className={styles.celingSection2}>
-//               <Image
-//                 src={seling}
-//                 alt="signup lakhri celing"
-//                 width={350}
-//                 height={350}
-//               />
-//             </div>
-//           </div>
-//         </div>
-//         <div className={styles.formContainer}>
-//           <div className={styles.tabSection}>
-//             {" "}
-//             <Image
-//               src={treeTub}
-//               alt="signup lakhri celing"
-//               width={250}
-//               height={250}
-//             />
-//           </div>
-//           <div className={styles.formSection}>
-//             <div className={styles.formFirst}>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="htmlForm-label">
-//                   Vendor Owner Full Name
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   Vendor Name
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   Business Type
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   Email
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   Phone Number
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//             </div>
-//             <div className={styles.formFirst}>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   Location
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   NID Number
-//                 </label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//               <div className="mb-3">
-//                 <label htmlFor="exampleInputEmail1" className="form-label">
-//                   Password
-//                 </label>
-//                 <input
-//                   type="password"
-//                   className="form-control"
-//                   aria-describedby="emailHelp"
-//                 />
-//               </div>
-//             </div>
-//             <input
-//               className={`btn ${styles.submitBtn}`}
-//               type="submit"
-//               value="Submit"
-//             />
-//           </div>
-//           <div className={styles.tabSection}>
-//             {" "}
-//             <Image
-//               src={regWomen}
-//               alt="signup lakhri women"
-//               width={450}
-//               height={450}
-//             />{" "}
-//           </div>
-//         </div>
-//       </div>
-//     </Layout>
-//   );
-// };
+import styles from "../../styles/VendorSignup.module.css";
+import { useState } from "react";
+import { SignupAction } from "../../state/action/AuthAction";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { signUpAuth, signUpAuthForVendor } from "state/api/auth";
+const Signup = () => {
+    // const history = useHistory();
+    const router = useRouter();
+    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const [cred, setcred] = useState({
+        ownerName: "",
+        organizationName: "",
+        organizationAddress: "",
+        nidNumber: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+        authenticationType: "normal",
+        Type: "Vendor",
+        OwnerGender: "",
+        division: "",
+        city: "",
+        country: "Bangladesh",
+    });
+    const handleSignup = async () => {
+        console.log(cred);
+        try {
+            const { data } = await signUpAuthForVendor(cred);
+            router.push("/vendor/signin")
+        } catch (e) {
+            console.log(e);
+            setError(e);
+        }
+    };
+    return (
+        <div className={styles.containerSignup}>
+            <div className={`card ${ styles.cardLogSignup }`}>
+                <div className={styles.cardInput}>
+                    <div className="form-group">
+                        <h4 className={styles.regTitle}>Registration</h4>
+                        <label className={styles.labels} htmlFor="ownerName">Vendor Owner Full Name</label>
+                        <input
+                            type="name"
+                            className="form-control"
+                            id="ownerName"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter Your Name"
+                            value={cred.ownerName}
+                            onChange={(e) => {
+                                setcred({ ...cred, ownerName: e.target.value });
+                            }}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="shopName">Shop Name</label>
+                        <input
+                            type="name"
+                            className="form-control"
+                            id="shopName"
+                            placeholder="Shop Name"
+                            value={cred.organizationName}
+                            onChange={(e) => {
+                                setcred({ ...cred, organizationName: e.target.value });
+                            }}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="shopLocation">Shop Location</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="shopLocation"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter Shop Location"
+                            value={cred.organizationAddress}
+                            onChange={(e) => {
+                                setcred({ ...cred, organizationAddress: e.target.value });
+                            }}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="number">Phone Number</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="number"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter your phoneNumber"
+                            value={cred.phoneNumber}
+                            onChange={(e) => {
+                                setcred({ ...cred, phoneNumber: e.target.value });
+                            }}
+                        />
+                    </div>
 
-// export default signup;
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter your email"
+                            value={cred.email}
+                            onChange={(e) => {
+                                setcred({ ...cred, email: e.target.value });
+                            }}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="pass">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="pass"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter your password"
+                            value={cred.password}
+                            onChange={(e) => {
+                                setcred({ ...cred, password: e.target.value });
+                            }}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="nid">National ID Card Number</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="nid"
+                            aria-describedby="emailHelp"
+                            placeholder="Enter your National ID Card Number"
+                            value={cred.nidNumber}
+                            onChange={(e) => {
+                                setcred({ ...cred, nidNumber: e.target.value });
+                            }}
+                        />
+                    </div>
+
+
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="exampleInputEmail1">Gender</label>
+                        <select
+                            className="form-select"
+                            aria-label="Default select example"
+                            value={cred.OwnerGender}
+                            onChange={(e) => {
+                                setcred({ ...cred, OwnerGender: e.target.value });
+                            }}
+                        >
+                            <option selected>Choose </option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="exampleInputEmail1">Division</label>
+                        <select
+                            className="form-select"
+                            aria-label="Default select example"
+                            value={cred.division}
+                            onChange={(e) => {
+                                setcred({ ...cred, division: e.target.value });
+                            }}
+                        >
+                            <option selected value="Khulna">Khulna </option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label className={styles.labels} htmlFor="exampleInputEmail1">City</label>
+                        <select
+                            className="form-select"
+                            aria-label="Default select example"
+                            value={cred.city}
+                            onChange={(e) => {
+                                setcred({ ...cred, city: e.target.value });
+                            }}
+                        >
+                            <option selected value="Khulna">Khulna </option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                        </select>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="btn btn-bg-for-homechef mt-3"
+                        onClick={() => {
+                            handleSignup();
+                        }}
+                    >
+                        Register
+                    </button>
+                    <div className="mt-3 text-center">
+                        {error ? <p className={styles.error}>{error}</p> : null}
+                        <p>Already member?
+                            <strong className="text-color"> <Link href="/auth/signin">Login </Link></strong>
+                            here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Signup;
