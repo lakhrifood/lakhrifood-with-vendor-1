@@ -1,0 +1,44 @@
+.background {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+.header {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+}
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+}
+.headicon {
+  font-size: 42px;
+  margin: 20px;
+  color: #8d2ad3;
+}
+.h1 {
+  font-size: 33px;
+  margin-left: 20px;
+}
+.cardOrderSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.firstCard {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.cardOrder {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: white;
+  padding: 30px;
+  margin: 20px;
+}
+.prosec {
+  margin-right: 20px;
+}
