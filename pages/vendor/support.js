@@ -5,7 +5,7 @@ const support = () => {
   return (
     <div>
       <Navbar />
-      <div className={` ${ styles.container }`}>
+      <div className={` ${styles.container}`}>
         <div className="container">
           <div className={styles.infoContainer}>
             <h1>Support Policy</h1>

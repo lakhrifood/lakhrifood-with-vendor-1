@@ -1,11 +1,25 @@
-const { default: Footer } = require("@/components/vendor/Footer/footer");
-const { default: Navbar } = require("@/components/vendor/Navbar");
+import Navbar from "../../components/vendor/Navbar";
+import Footer from "../../components/vendor/Footer/Footer";
 import Image from "next/image";
 import styles from "../../styles/vendor/Dashboard.module.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 const dashboard = () => {
+  const [orders, setorders] = useState([]);
+  const getAllVendorOrders = async () => {
+    const vid = localStorage.getItem("vendorID");
+
+    const { data } = await axios.get(
+      `http://localhost:5000/order/business/${vid}`
+    );
+    setorders(data);
+    console.log(data, "axios");
+  };
+  useEffect(() => {
+    getAllVendorOrders();
+  }, []);
   return (
     <div>
-      {" "}
       <Navbar />
       <div className={styles.background}>
         <div className="container">
@@ -51,102 +65,40 @@ const dashboard = () => {
           <div className="activerOrder">
             <h1 className={styles.h1}>Orders</h1>
             <div className={styles.cardOrderSection}>
-              <div className={styles.cardOrder}>
-                <div className={styles.firstCard}>
-                  <div>
-                    <Image
-                      src="/../public/profile.png"
-                      alt="Picture of the author"
-                      width={50}
-                      height={50}
-                      className={styles.profilePic}
-                    />
-                    <h1>Rakib islam</h1>
-                  </div>
-                  <div>
-                    <h4 className="h5">Order ID:#adsnlasdn</h4>
-                    <Image
-                      src="/../public/9-2-food-png-file.png"
-                      alt="Picture of the author"
-                      width={50}
-                      height={50}
-                      className={styles.profilePic}
-                    />
-                    <h3 className="h5">Chicken Wings</h3>
-                    <h2 className="h6"> Qty:5pc</h2>
-                    <div className="row">
-                      <div className="col">
-                        <button className="btn btn-success">Accept</button>
-                        <button className="btn btn-danger">Reject</button>
+              {orders.map((order, index) => (
+                <div className={styles.cardOrder}>
+                  <div className={styles.firstCard}>
+                    <div>
+                      <Image
+                        src="/../public/profile.png"
+                        alt="Picture of the author"
+                        width={50}
+                        height={50}
+                        className={styles.profilePic}
+                      />
+                      <h1>Rakib islam</h1>
+                    </div>
+                    <div>
+                      <h4 className="h5">Order ID:#{order._id}</h4>
+                      <Image
+                        src="/../public/9-2-food-png-file.png"
+                        alt="Picture of the author"
+                        width={50}
+                        height={50}
+                        className={styles.profilePic}
+                      />
+                      <h3 className="h5">{order.productId.name}</h3>
+                      <h2 className="h6"> Qty:{order.quantity}</h2>
+                      <div className="row">
+                        <div className="d-flex align-content-center">
+                          <button className="btn btn-success">Accept</button>
+                          <button className="btn btn-danger">Reject</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={styles.cardOrder}>
-                <div className={styles.firstCard}>
-                  <div>
-                    <Image
-                      src="/../public/profile.png"
-                      alt="Picture of the author"
-                      width={50}
-                      height={50}
-                      className={styles.profilePic}
-                    />
-                    <h1>Rakib islam</h1>
-                  </div>
-                  <div>
-                    <h4 className="h5">Order ID:#adsnlasdn</h4>
-                    <Image
-                      src="/../public/9-2-food-png-file.png"
-                      alt="Picture of the author"
-                      width={50}
-                      height={50}
-                      className={styles.profilePic}
-                    />
-                    <h3 className="h5">Chicken Wings</h3>
-                    <h2 className="h6"> Qty:5pc</h2>
-                    <div className="row">
-                      <div className="col">
-                        <button className="btn btn-success">Accept</button>
-                        <button className="btn btn-danger">Reject</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.cardOrder}>
-                <div className={styles.firstCard}>
-                  <div className={styles.prosec}>
-                    <Image
-                      src="/../public/profile.png"
-                      alt="Picture of the author"
-                      width={50}
-                      height={50}
-                      className={styles.profilePic}
-                    />
-                    <h1>Rakib islam</h1>
-                  </div>
-                  <div>
-                    <h4 className="h5">Order ID:#adsnlasdn</h4>
-                    <Image
-                      src="/../public/9-2-food-png-file.png"
-                      alt="Picture of the author"
-                      width={50}
-                      height={50}
-                      className={styles.profilePic}
-                    />
-                    <h3 className="h5">Chicken Wings</h3>
-                    <h2 className="h6"> Qty:5pc</h2>
-                    <div className="row">
-                      <div className="col">
-                        <button className="btn btn-success">Accept</button>
-                        <button className="btn btn-danger">Reject</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

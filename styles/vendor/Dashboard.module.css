@@ -26,11 +26,11 @@
 }
 .cardOrderSection {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 .firstCard {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 4fr;
 }
 .cardOrder {
   display: grid;
