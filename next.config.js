@@ -1,5 +1,3 @@
-// next.config.js
-
 const withImages = require("next-images");
 module.exports = withImages({
   webpack(config, options) {
@@ -13,6 +11,6 @@ module.exports = {
 
 module.exports = {
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "res.cloudinary.com"],
   },
 };

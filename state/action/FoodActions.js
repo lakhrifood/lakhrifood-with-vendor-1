@@ -5,6 +5,7 @@ import {
   getByPriceFilter,
   getByRatingFood,
   getBySearch,
+  getByVendorIDFood,
   getPopularProduct,
   getRecommendedProduct,
 } from "../api/food";
@@ -22,12 +23,12 @@ import {
 } from "../reducers/FoodSlice";
 
 export const getAndSetFoodAction = () => async (dispatch) => {
-    try {
-        const { data } = await getAllFood();
-        dispatch(getFoods(data));
-    } catch (error) {
-        console.error(error.message);
-    }
+  try {
+    const { data } = await getAllFood();
+    dispatch(getFoods(data));
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 export const getOrderbyidAction = (id) => async (dispatch) => {
@@ -106,3 +107,13 @@ export const getAndSetRecommendedFoodAction = () => async (dispatch) => {
     console.error(error.message);
   }
 };
+
+// get food by vendor id
+export const getAndSetFoodActionByVendorID = (vendorID) => async (dispatch) => {
+  try {
+    const { data } = await getByVendorIDFood(vendorID);
+    dispatch(getFoods(data));
+  } catch (error) {
+    console.error(error.message);
+  }
+}
