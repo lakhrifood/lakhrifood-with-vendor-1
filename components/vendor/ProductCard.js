@@ -11,7 +11,7 @@ function ProductCard({ product }) {
   useEffect(() => { }, []);
   return (
     <Link
-      href={`/product/${ product && product.name }?id=${ product && product._id }`}
+      href={`/vendor/product/${ product && product.name }?id=${ product && product._id }`}
     >
       <div className={`card ${ styles.productCard }`}>
         <Image

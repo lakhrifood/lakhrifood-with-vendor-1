@@ -1,10 +1,10 @@
-const { default: Footer } = require("@/components/vendor/Footer/footer");
-const { default: Navbar } = require("@/components/vendor/Navbar");
+import Navbar from "../../components/vendor/Navbar";
+import Footer from '../../components/vendor/Footer/Footer';
 import { Switch } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FormControl, FormLabel, Flex } from "@material-ui/core";
-const addproducts = () => {
+const Addproducts = () => {
   const [product, setproduct] = useState({
     name: "",
     category: "",
@@ -64,13 +64,13 @@ const addproducts = () => {
       <div className="backgroundAsh ">
         <div className="container">
           <h1 className={`h3`}>Add products</h1>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
               Name
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleFormControlInput1"
               placeholder="Enter here..."
               onChange={(e) => {
@@ -78,9 +78,9 @@ const addproducts = () => {
               }}
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               onChange={(e) => {
                 setproduct({ ...product, category: e.target.value });
@@ -92,13 +92,13 @@ const addproducts = () => {
               ))}
             </select>
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
               unit
             </label>
             <input
               type="number"
-              class="form-control"
+              className="form-control"
               id="exampleFormControlInput1"
               placeholder="Enter here..."
               onChange={(e) => {
@@ -106,12 +106,12 @@ const addproducts = () => {
               }}
             />
           </div>
-          <div class="mb-3">
-            <label for="formFile" class="form-label">
+          <div className="mb-3">
+            <label for="formFile" className="form-label">
               Photo
             </label>
             <input
-              class="form-control"
+              className="form-control"
               type="file"
               id="formFile"
               onChange={(e) => {
@@ -119,13 +119,13 @@ const addproducts = () => {
               }}
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleFormControlInput1" className="form-label">
               Price
             </label>
             <input
               type="number"
-              class="form-control"
+              className="form-control"
               id="exampleFormControlInput1"
               placeholder="Enter here..."
               onChange={(e) => {
@@ -142,12 +142,12 @@ const addproducts = () => {
             </FormControl>
           </div> */}
 
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleFormControlTextarea1" className="form-label">
               Description
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
               onChange={(e) => {
@@ -155,10 +155,10 @@ const addproducts = () => {
               }}
             ></textarea>
           </div>
-          <div class="col-auto">
+          <div className="col-auto">
             <button
               type="submit"
-              class="btn btn-primary mb-3"
+              className="btn btn-primary mb-3"
               onClick={handleSubmit}
             >
               Save
@@ -171,4 +171,4 @@ const addproducts = () => {
   );
 };
 
-export default addproducts;
+export default Addproducts;

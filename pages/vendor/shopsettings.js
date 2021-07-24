@@ -1,5 +1,5 @@
-const { default: Footer } = require("@/components/vendor/Footer/footer");
-const { default: Navbar } = require("@/components/vendor/Navbar");
+import Navbar from "../../components/vendor/Navbar";
+import Footer from '../../components/vendor/Footer/Footer';
 const shopsettings = () => {
   return (
     <div>
@@ -8,53 +8,55 @@ const shopsettings = () => {
       <div className={`container`}>
         <h1 className={`h3`}>Shop Settings</h1>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Shop name
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="Enter here..."
           />
         </div>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="formFile" className="form-label">
             Default file input example
           </label>
-          <input class="form-control" type="file" id="formFile" />
+          <input className="form-control" type="file" id="formFile" />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Shop Address
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="Enter here..."
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlTextarea1" className="form-label">
             Product Description
           </label>
           <textarea
-            class="form-control"
+            className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
         </div>
-        <h1 className={`h3 `}>Banner Settings</h1>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">
+        {/* <h1 className={`h3 `}>Banner Settings</h1> */}
+        {/* <div className="mb-3">
+          <label htmlFor="formFile" className="form-label">
             Banner (1500 x 450)
           </label>
-          <input class="form-control" type="file" id="formFile" />
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">
+          <input className="form-control" type="file" id="formFile" />
+        </div> */}
+
+
+        <div className="col-auto">
+          <button type="submit" className="btn btn-primary mb-3">
             Save
           </button>
         </div>
