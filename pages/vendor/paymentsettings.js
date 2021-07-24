@@ -1,5 +1,5 @@
-const { default: Footer } = require("@/components/vendor/Footer/footer");
-const { default: Navbar } = require("@/components/vendor/Navbar");
+import Navbar from "../../components/vendor/Navbar";
+import Footer from "../../components/vendor/Footer/Footer";
 import { Switch } from "@chakra-ui/react";
 import { FormControl, FormLabel, Flex } from "@material-ui/core";
 const paymentsettings = () => {
@@ -28,13 +28,13 @@ const paymentsettings = () => {
           </div>
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Bank acoount holder name
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="Enter here..."
           />

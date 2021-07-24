@@ -39,3 +39,11 @@ export const getRecommendedProduct = async () =>
 
 export const getByVendorIDFood = async (vendorID) =>
   await axios.get(`http://localhost:5000/food/vendor/${ vendorID }`);
+
+// delete food by id
+export const deleteFood = async (id) =>
+  await axios.delete(`http://localhost:5000/food/delete/${ id }`);
+
+// publish or unpublish food by id
+export const publishFood = async (id) =>
+  await axios.patch(`http://localhost:5000/food/publish/or/unpublish?productID=${ id }`);
