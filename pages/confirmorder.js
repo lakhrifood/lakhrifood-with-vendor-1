@@ -23,6 +23,7 @@ const confirmorder = () => {
   const [userId, setuserId] = useState("");
   let productInfo = [];
   cartList.map((item) => {
+    console.log(item.vendorID, "the item");
     quantity += item.quantity;
     totalPrice += item.price * item.quantity;
   });
@@ -33,9 +34,11 @@ const confirmorder = () => {
   };
   const checkoutOrder = async () => {
     cartList.map((item) => {
+      console.log(item.vendorID._id, "the item");
       productInfo.push({
         productId: item.productId,
         price: item.price,
+        vendorID: item.vendorID,
         quantity: item.quantity,
         discount: item.discount,
       });

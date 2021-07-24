@@ -37,10 +37,12 @@ function Productdetails() {
   const found = cartList.find((element) => element.productId === food._id);
 
   const addToCart = () => {
+    console.log(food.vendorID, "food.vendorID._id");
     dispatch(
       AddOrderCartAction({
         productId: food._id,
         productName: food.name,
+        vendorID: food.vendorID,
         price: food.price,
         quantity: 1,
         discount: 200,
@@ -149,9 +151,6 @@ function Productdetails() {
                   <button
                     className={`btn btn-bg ${styles.addCartBtn}`}
                     disabled
-                    onClick={() => {
-                      addToCart();
-                    }}
                   >
                     added to cart
                   </button>
