@@ -1,5 +1,5 @@
 import styles from "../styles/Profile.module.css";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

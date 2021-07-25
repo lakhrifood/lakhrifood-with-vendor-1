@@ -1,5 +1,5 @@
 import styles from "../styles/Pay.module.css";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Image from "next/image";
 const paymenthistory = () => {
   return (

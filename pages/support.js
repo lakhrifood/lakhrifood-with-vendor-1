@@ -1,4 +1,4 @@
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import styles from "../styles/Support.module.css";
 
 const support = () => {

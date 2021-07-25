@@ -1,5 +1,5 @@
 import CartItem from "../components/checkout/cartitem";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import styles from "../styles/Checkout.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";

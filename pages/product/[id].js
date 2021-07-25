@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout";
-import Navbar from "../../components/navbar";
+import Navbar from "../../components/Navbar";
 import Router from "next/router";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
