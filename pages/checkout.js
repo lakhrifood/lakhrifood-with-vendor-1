@@ -1,11 +1,36 @@
 import CartItem from "../components/checkout/cartitem";
 import Navbar from "../components/navbar";
 import styles from "../styles/Checkout.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
-const Checkout = () => {
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
+
+
+const Checkout = ({ user }) => {
+  console.log(user, "user")
   const cartList = useSelector((state) => state.order);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [name, setname] = useState("");
+  const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+
+  const checkLogin = () => {
+    const token = localStorage.getItem("token");
+    const getName = localStorage.getItem("userName");
+    setname(getName);
+    if (token) {
+      dispatch(setAuthTrue());
+    } else {
+      dispatch(setAuthFalse());
+    }
+  };
+  useEffect(async () => {
+    await checkLogin();
+  }, []);
+
   let quantity = 0;
   let totalPrice = 0;
   cartList.map((item) => {
@@ -37,7 +62,7 @@ const Checkout = () => {
               <h1>Total: {totalPrice + 25} BDT</h1>
               <p>Including Delivery Charge : 25.00 BDT</p>
             </div>
-            <Link href="/confirmorder">
+            <Link href={isAuthenticated ? "/confirmorder" : "/auth/signin"}>
               <button className="btn btn-primary">Checkout</button>
             </Link>
           </div>
@@ -46,5 +71,6 @@ const Checkout = () => {
     </div>
   );
 };
+
 
 export default Checkout;
