@@ -9,23 +9,29 @@ function OrderCard({ order }) {
       <div className={`card ${styles.orderCard}`}>
         <h1 className={styles.orderID}>Order #{order._id}</h1>
         <p className={styles.orderTime}>{order.createdAt}</p>
-        {order.productInfo.map((product, index) => (
-          <div className="d-flex align-items-center mb-4">
-            <Image
-              className="rounded-circle"
-              src={product.productId.imgURL}
-              width={100}
-              height={100}
-            />
-            <div className="ms-4">
-              <h1 className={styles.productName}>{product.productId.name}</h1>
-              <h1 className={styles.productPrice}>
-                {product.productId.price} TK{" "}
-                <strong className="ms-5">Qty: </strong> {product.quantity}{" "}
-              </h1>
+        {order.productInfo &&
+          order.productInfo?.map((product, index) => (
+            <div className="d-flex align-items-center mb-4">
+              {product.productId ? (
+                <Image
+                  className="rounded-circle"
+                  src={product.productId && product.productId?.imgURL}
+                  width={100}
+                  height={100}
+                />
+              ) : null}
+
+              <div className="ms-4">
+                <h1 className={styles.productName}>
+                  {product.productId?.name}
+                </h1>
+                <h1 className={styles.productPrice}>
+                  {product.productId?.price} TK
+                  <strong className="ms-5">Qty: </strong> {product.quantity}{" "}
+                </h1>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
 
         <div className="text-end">
           <span className={`btn ${styles.status}`}>

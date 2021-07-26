@@ -19,7 +19,7 @@ const confirmorder = () => {
   let quantity = 0;
   let totalPrice = 0;
   let deliveryCharge = 25;
-  const [address, setaddress] = useState("");
+  const [address, setaddress] = useState(null);
   const [phone, setphone] = useState("");
   const [payment, setpayment] = useState("");
   const [userId, setuserId] = useState("");
@@ -78,16 +78,17 @@ const confirmorder = () => {
     }
   };
 
-
   useEffect(async () => {
     await checkLogin();
-    { !isAuthenticated && router.push('/auth/signin') }
+    {
+      !isAuthenticated && router.push("/auth/signin");
+    }
     checkCred();
   }, []);
   return (
     <div>
       <Navbar />
-      <div className={`container ${ styles.containersConfirm }`}>
+      <div className={`container ${styles.containersConfirm}`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
 
@@ -117,7 +118,7 @@ const confirmorder = () => {
         </div>
         <div className={styles.containerBill}>
           <h5 className={styles.headline}>Your Order </h5>
-          <div className={` ${ styles.containeritems }`}>
+          <div className={` ${styles.containeritems}`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
               <h5> {quantity}</h5>
@@ -170,15 +171,25 @@ const confirmorder = () => {
             </div>
             <div>
               <Link href="/orders">
-                <button
-                  type="button"
-                  className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
-                  onClick={() => {
-                    checkoutOrder();
-                  }}
-                >
-                  Checkout
-                </button>
+                {address === null ? (
+                  <button
+                    type="button"
+                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                    disabled
+                  >
+                    Checkout
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                    onClick={() => {
+                      checkoutOrder();
+                    }}
+                  >
+                    Checkout
+                  </button>
+                )}
               </Link>
             </div>
           </div>

@@ -23,19 +23,22 @@ function orders() {
   // check if user is logged in\
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+
   const checkLogin = () => {
     const token = localStorage.getItem("token");
     const getName = localStorage.getItem("userName");
     if (token) {
       dispatch(setAuthTrue());
-    } else {
+    } else if (!token) {
       dispatch(setAuthFalse());
     }
   };
 
   useEffect(async () => {
     await checkLogin();
-    { !isAuthenticated && router.push('/auth/signin') }
+    {
+      isAuthenticated === false && router.push("/auth/signin");
+    }
     getOrders();
   }, []);
   return (
@@ -48,7 +51,7 @@ function orders() {
             <h1 className={styles.title}>Order History</h1>
           </div>
           <div className="d-flex flex-wrap justify-content-around pt-5 pb-5">
-            {orders.map((order) => (
+            {orders?.map((order) => (
               <OrderCard order={order} />
             ))}
           </div>
