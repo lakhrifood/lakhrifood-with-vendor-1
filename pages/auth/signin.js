@@ -22,7 +22,7 @@ const Signin = () => {
   const handleSignin = async () => {
     try {
       const { data } = await signinAuthApi(cred);
-      console.log(data.user._id);
+      console.log(data, "my lakhriphone");
       settoken(data.token);
       setid(data.user._id);
       setphoneNumber(data.phoneNumber);
@@ -45,7 +45,7 @@ const Signin = () => {
 
   return (
     <div className={styles.container}>
-      <div className={`card ${ styles.cardLog }`}>
+      <div className={`card ${styles.cardLog}`}>
         <div className={styles.header}>
           <h1>Welcome !</h1>
           <p>Sign Up or Login to Continue.</p>
@@ -102,10 +102,16 @@ const Signin = () => {
               <i className="fab fa-google mr-10"></i>Continue With Google
             </p>
           </button>
-          <p className="text-center">Dont have an account? <strong className="text-color"> <Link href="/auth/signup">Sign up</Link></strong> </p>
+          <p className="text-center">
+            Dont have an account?{" "}
+            <strong className="text-color">
+              {" "}
+              <Link href="/auth/signup">Sign up</Link>
+            </strong>{" "}
+          </p>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

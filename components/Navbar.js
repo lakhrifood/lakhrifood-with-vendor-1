@@ -26,15 +26,15 @@ function Navbar() {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
     dispatch(setAuthFalse());
-    router.push('/')
-  }
+    router.push("/");
+  };
 
   useEffect(() => {
     checkLogin();
   }, []);
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.navbarShadow }`}
+      className={`navbar navbar-expand-lg navbar-light bg-transparent ${styles.navbarShadow}`}
     >
       <div className="container">
         <Image src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
@@ -51,9 +51,8 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
-            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenu } `}
+            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenu} `}
           >
-
             <Link href="/menu">
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#">
@@ -76,10 +75,6 @@ function Navbar() {
               </li>
             </Link>
 
-
-
-
-
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Promotion
@@ -96,11 +91,11 @@ function Navbar() {
 
           <div className="d-flex flex-w">
             <ul
-              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenuIcon } `}
+              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenuIcon} `}
             >
-              <li className={`${ styles.userSection }`}>
+              <li className={`${styles.userSection}`}>
                 <Link href="/checkout">
-                  <i className={`${ styles.logoUser } fas fa-cart-plus `}></i>
+                  <i className={`${styles.logoUser} fas fa-cart-plus `}></i>
                 </Link>
                 <p className={styles.numberProduct}>{cartList.length}</p>
               </li>
@@ -112,24 +107,39 @@ function Navbar() {
                       <p className={styles.Email}>{name}</p>
                     </li> */}
                     <div div className="dropdown">
-                      <a className="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <a
+                        className="btn btn-light dropdown-toggle"
+                        href="#"
+                        role="button"
+                        id="dropdownMenuLink"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
                         {name}
                       </a>
 
-                      <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <ul
+                        className="dropdown-menu"
+                        aria-labelledby="dropdownMenuLink"
+                      >
                         <li>
-                          <Link href="/profile"><a className="dropdown-item" href="#">Profile</a></Link>
+                          <Link href="/profile">
+                            <a className="dropdown-item" href="#">
+                              Profile
+                            </a>
+                          </Link>
                         </li>
-                        <li onClick={() => handleLogOut()}><a className="dropdown-item" href="#">Logout</a></li>
+                        <li onClick={() => handleLogOut()}>
+                          <a className="dropdown-item" href="#">
+                            Logout
+                          </a>
+                        </li>
                       </ul>
                     </div>
                   </>
-
                 ) : (
                   <Link href="/auth/signin">
-                    <a className={`btn ${ styles.btnSeller }`}>
-                      Login/Sign Up
-                    </a>
+                    <a className={`btn ${styles.btnSeller}`}>Login/Sign Up</a>
                   </Link>
                 )}
               </li>
@@ -137,7 +147,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </nav >
+    </nav>
   );
 }
 
