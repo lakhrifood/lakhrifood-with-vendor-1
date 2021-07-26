@@ -8,6 +8,8 @@ import {
   createOrderAction,
   setDiscountbyPromoCode,
 } from "../state/action/OrderAction";
+import router from "next/router";
+import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
 
 const confirmorder = () => {
   const cartList = useSelector((state) => state.order);
@@ -63,34 +65,50 @@ const confirmorder = () => {
       Router.push("/");
     }
   };
-  useEffect(() => {
+
+  // check if user is logged in\
+  const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+  const checkLogin = () => {
+    const token = localStorage.getItem("token");
+    const getName = localStorage.getItem("userName");
+    if (token) {
+      dispatch(setAuthTrue());
+    } else {
+      dispatch(setAuthFalse());
+    }
+  };
+
+
+  useEffect(async () => {
+    await checkLogin();
+    { !isAuthenticated && router.push('/auth/signin') }
     checkCred();
   }, []);
   return (
     <div>
       <Navbar />
-      <div className={`container ${styles.containersConfirm}`}>
+      <div className={`container ${ styles.containersConfirm }`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
 
-          <div class="mb-3">
+          <div className="mb-3">
             <label for="exampleInputEmail1" class="form-label">
               Address
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               value={address}
               onChange={(e) => setaddress(e.target.value)}
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label for="exampleInputEmail1" className="form-label">
               Phone Number{" "}
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               value={phone}
@@ -99,7 +117,7 @@ const confirmorder = () => {
         </div>
         <div className={styles.containerBill}>
           <h5 className={styles.headline}>Your Order </h5>
-          <div className={` ${styles.containeritems}`}>
+          <div className={` ${ styles.containeritems }`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
               <h5> {quantity}</h5>
@@ -154,7 +172,7 @@ const confirmorder = () => {
               <Link href="/orders">
                 <button
                   type="button"
-                  className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                  className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
                   onClick={() => {
                     checkoutOrder();
                   }}

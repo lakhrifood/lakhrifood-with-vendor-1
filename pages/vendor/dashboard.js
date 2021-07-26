@@ -5,15 +5,18 @@ import Image from "next/image";
 import styles from "../../styles/vendor/Dashboard.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const dashboard = () => {
+
+const Dashboard = () => {
+
   const [updatedStatus, setupdatedStatus] = useState({});
+
   const [orders, setorders] = useState([]);
   const [pendingAmount, setpendingAmount] = useState(0);
   const getAllVendorOrders = async () => {
     const vid = localStorage.getItem("vendorID");
 
     const { data } = await axios.get(
-      `http://localhost:5000/order/business/${vid}`
+      `http://localhost:5000/order/business/${ vid }`
     );
     setorders(data);
     console.log(data, "axios");
@@ -45,7 +48,7 @@ const dashboard = () => {
                 <h2 className="h2">{pendingAmount}</h2>
               </div>
               <div>
-                <i className={`fas fa-baby-carriage ${styles.headicon}`}></i>
+                <i className={`fas fa-baby-carriage ${ styles.headicon }`}></i>
               </div>
             </div>
             <div className={styles.card}>
@@ -54,7 +57,7 @@ const dashboard = () => {
                 <h2 className="h2">1340tk</h2>
               </div>
               <div>
-                <i className={`fas fa-money-check-alt ${styles.headicon}`}></i>
+                <i className={`fas fa-money-check-alt ${ styles.headicon }`}></i>
               </div>
             </div>
             <div className={styles.card}>
@@ -63,7 +66,7 @@ const dashboard = () => {
                 <h2 className="h2">1340</h2>
               </div>
               <div>
-                <i className={`fas fa-shopping-basket ${styles.headicon}`}></i>
+                <i className={`fas fa-shopping-basket ${ styles.headicon }`}></i>
               </div>
             </div>
             <div className={styles.card}>
@@ -72,12 +75,13 @@ const dashboard = () => {
                 <h2 className="h2">450</h2>
               </div>
               <div>
-                <i className={`fas fa-clipboard-check ${styles.headicon}`}></i>
+                <i className={`fas fa-clipboard-check ${ styles.headicon }`}></i>
               </div>
             </div>
           </div>
           <div className="activerOrder">
             <h1 className={styles.h1}>Orders</h1>
+
             <Tabs isFitted variant="enclosed">
               <TabList mb="1em">
                 <Tab>Pending Orders</Tab>
@@ -159,6 +163,7 @@ const dashboard = () => {
                               </div>
                             </div>
                           </div>
+
                         </div>
                       ) : (
                         "No order"
@@ -210,4 +215,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default Dashboard;

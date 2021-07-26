@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { setAuthTrue, setAuthFalse } from "../state/reducers/UserAuth";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
+import router from "next/router";
 function Navbar() {
   const dispatch = useDispatch();
   const [name, setname] = useState("");
@@ -20,6 +21,14 @@ function Navbar() {
       dispatch(setAuthFalse());
     }
   };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    dispatch(setAuthFalse());
+    router.push('/')
+  }
+
   useEffect(() => {
     checkLogin();
   }, []);
@@ -52,7 +61,7 @@ function Navbar() {
                 </a>
               </li>
             </Link>
-            <Link href="/orders">
+            <Link href={isAuthenticated ? "/orders" : "/auth/signin"}>
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   Order
@@ -67,16 +76,16 @@ function Navbar() {
               </li>
             </Link>
 
-         
-         
-           
+
+
+
 
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Promotion
               </a>
             </li>
-            <Link href="/support">
+            <Link href={isAuthenticated ? "/support" : "/auth/signin"}>
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   Contact Us
@@ -97,16 +106,29 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 {isAuthenticated ? (
-                  <Link href="/profile">
-                    <li className={` ${ styles.userSection }`}>
+                  <>
+                    {/* <li className={` ${ styles.userSection }`}>
                       <i className={`fas ${ styles.logoUser } fa-user-circle`}> </i>
                       <p className={styles.Email}>{name}</p>
-                    </li>
-                  </Link>
+                    </li> */}
+                    <div div className="dropdown">
+                      <a className="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        {name}
+                      </a>
+
+                      <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                          <Link href="/profile"><a className="dropdown-item" href="#">Profile</a></Link>
+                        </li>
+                        <li onClick={() => handleLogOut()}><a className="dropdown-item" href="#">Logout</a></li>
+                      </ul>
+                    </div>
+                  </>
+
                 ) : (
                   <Link href="/auth/signin">
                     <a className={`btn ${ styles.btnSeller }`}>
-                      Login/Sign Up as{" "}
+                      Login/Sign Up
                     </a>
                   </Link>
                 )}
@@ -115,7 +137,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 

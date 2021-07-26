@@ -9,7 +9,7 @@ import RecommendedHomeChef from "../components/FoodHome/recommendedhomechef";
 import RecommendedProduct from "../components/FoodHome/recommendedproduct";
 
 import Footer from "../components/vendor/Footer/footer";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import JoinAsVendorOrRider from "../components/joinasvendororrider";
 import Questions from "../components/FoodHome/questions";
 export default function Home() {

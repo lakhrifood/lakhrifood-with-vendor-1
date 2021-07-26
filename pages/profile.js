@@ -1,8 +1,25 @@
 import styles from "../styles/Profile.module.css";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const profile = () => {
+const Profile = () => {
+
+  const router = useRouter();
+  const [user, setuser] = useState({});
+  const getUserProfile = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/auth/user/${ localStorage.getItem("userId") }`
+    );
+    console.log(data, "mycat");
+    setuser(data);
+  };
+  useEffect(() => {
+    getUserProfile();
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -16,17 +33,20 @@ const profile = () => {
             height={150}
             className={styles.profilePic}
           />
-          <p>Rakib Islam</p>
+          <p>{user && user.name}</p>
           <p>
-            <span className={styles.containerspan}>Phone Number:</span>+880
-            1212080980
+            <span className={styles.containerspan}>Email:</span>
+            {user && user.email}
           </p>
           <p>
-            <span className={styles.containerspan}>Location:</span>295/Jha/6
-            Shikdar Real Estate, Rayerbajar, Dhaka 1209
+            <span className={styles.containerspan}>Phone Number:</span>
+            {user && user.phoneNumber}
           </p>
           <p>
-            <span className={styles.containerspan}>Gender:</span>Male
+            <span className={styles.containerspan}>Location:</span>{user && user.address}
+          </p>
+          <p>
+            <span className={styles.containerspan}>Gender:</span>{user && user.gender}
           </p>
         </div>
       </div>
@@ -34,4 +54,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

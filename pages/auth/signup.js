@@ -4,11 +4,11 @@ import { SignupAction } from "../../state/action/AuthAction";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { signUpAuth } from "state/api/auth";
+import { signUpAuth } from "../../state/api/auth";
 const Signup = () => {
   // const history = useHistory();
   const router = useRouter();
-  const { error, setError } = useState(null);
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const [cred, setcred] = useState({
     name: "",
@@ -25,8 +25,10 @@ const Signup = () => {
   const handleSignup = async () => {
     try {
       const { data } = await signUpAuth(cred);
+      console.log(data, "sumycat")
       router.push("/auth/signin")
     } catch (e) {
+      console.log(e, "sumycat")
       setError(e);
     }
   };

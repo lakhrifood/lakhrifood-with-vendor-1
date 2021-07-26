@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Products from "../components/FoodMenu/products";
 import SideBar from "../components/FoodMenu/sideBar";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Layout from "../components/Layout";
 import styles from "../styles/Menu.module.css";
 import JoinAsVendorOrRider from "../components/joinasvendororrider";

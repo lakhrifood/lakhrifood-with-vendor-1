@@ -16,7 +16,22 @@ function orders() {
     console.log(data, "printindddd");
     setorders(data);
   };
-  useEffect(() => {
+
+  // check if user is logged in\
+  const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+  const checkLogin = () => {
+    const token = localStorage.getItem("token");
+    const getName = localStorage.getItem("userName");
+    if (token) {
+      dispatch(setAuthTrue());
+    } else {
+      dispatch(setAuthFalse());
+    }
+  };
+
+  useEffect(async () => {
+    await checkLogin();
+    { !isAuthenticated && router.push('/auth/signin') }
     getOrders();
   }, []);
   return (

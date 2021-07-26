@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "../components/vendor/Footer/footer";
 import HomechefCard from "../components/homechefcard";
 import JoinAsVendorOrRider from "../components/joinasvendororrider";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Layout from "./../components/Layout";
 import styles from "../styles/HomeChefList.module.css";
 import MostOrdered from "./../components/FoodHome/mostordered";
