@@ -2,7 +2,9 @@ import axios from 'axios';
 import Image from 'next/image'
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../../components/vendor/Navbar'
+import { setAuthFalse, setAuthTrue } from '../../state/reducers/UserAuth';
 
 function Waiting() {
     const router = useRouter();
@@ -12,11 +14,29 @@ function Waiting() {
             `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
         );
         console.log(data.status, "mycat");
-        { data.status === "true" && router.push("/vendor/dashboard") }
+
         setuser(data);
     };
-    useEffect(() => {
-        getUserProfile();
+
+    // checking login vendor
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+
+    const checkLogin = () => {
+        const token = localStorage.getItem("vtoken");
+        const getName = localStorage.getItem("vName");
+        if (token) {
+            dispatch(setAuthTrue());
+        } else if (!token) {
+            dispatch(setAuthFalse());
+        }
+    };
+
+    useEffect(async () => {
+        await checkLogin();
+        { isAuthenticated === false && router.push("/vendor/signin") }
+        await getUserProfile();
+        { user.status === "true" && router.push("/vendor/dashboard") }
     }, []);
     return (
         <>
