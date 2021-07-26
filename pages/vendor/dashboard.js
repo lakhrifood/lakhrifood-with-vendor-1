@@ -6,6 +6,10 @@ import styles from "../../styles/vendor/Dashboard.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setAuthFalse, setAuthTrue } from "../../state/reducers/UserAuth";
+import router from "next/router";
+
 const Dashboard = () => {
 
   const [updatedStatus, setupdatedStatus] = useState({});
@@ -21,6 +25,32 @@ const Dashboard = () => {
     setorders(data);
     console.log(data, "axios");
   };
+
+  // checking vendor status
+  const [user, setuser] = useState({});
+  const getUserProfile = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+    );
+    console.log(data.status, router, "mycat");
+    setuser(data);
+  };
+
+  // checking login vendor
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+
+  const checkLogin = () => {
+    const token = localStorage.getItem("vtoken");
+    const getName = localStorage.getItem("vName");
+    if (token) {
+      dispatch(setAuthTrue());
+    } else if (!token) {
+      dispatch(setAuthFalse());
+    }
+  };
+
+
   const countDashAmount = () => {
     orders.map((order, index) => {
       if (order.product.orderStatus == "accepted") {
@@ -33,8 +63,14 @@ const Dashboard = () => {
   };
   useEffect(() => {
     getAllVendorOrders();
+
+    await checkLogin();
+    { isAuthenticated === false && router.push("/vendor/signin") }
+    await getUserProfile();
+    { user.status === "false" && router.push("/vendor/waiting") }
     countDashAmount();
   }, [updatedStatus]);
+
   return (
     <div>
       <Navbar />
