@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   Thead,
@@ -9,9 +9,47 @@ import {
   Td,
   TableCaption,
 } from "@chakra-ui/react";
-const { default: Footer } = require("@/components/vendor/Footer/footer");
-const { default: Navbar } = require("@/components/vendor/Navbar");
-const orderhistory = () => {
+import Navbar from '../../components/vendor/Navbar';
+import Footer from '../../components/vendor/Footer/Footer';
+import { useRouter } from "next/router";
+import axios from "axios";
+import { setAuthFalse, setAuthTrue } from "../../state/reducers/UserAuth";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+const Orderhistory = () => {
+
+  // checking vendor status
+  const router = useRouter();
+  const [user, setuser] = useState({});
+  const getUserProfile = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+    );
+    setuser(data);
+  };
+
+  // checking vendor login
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+  const checkLogin = () => {
+    const token = localStorage.getItem("vtoken");
+    const getName = localStorage.getItem("vName");
+    if (token) {
+      dispatch(setAuthTrue());
+    } else {
+      dispatch(setAuthFalse());
+    }
+  };
+
+  console.log(user.status, isAuthenticated, "asdfasdfasdf")
+
+  useEffect(async () => {
+    await getUserProfile();
+    await checkLogin();
+    // { user.status === "false" || "rejected" && router.push("/vendor/waiting"); }
+    // { !isAuthenticated && router.push("/vendor/signin"); }
+  }, []);
+
   return (
     <div className="">
       <Navbar />
@@ -97,4 +135,4 @@ const orderhistory = () => {
   );
 };
 
-export default orderhistory;
+export default Orderhistory;

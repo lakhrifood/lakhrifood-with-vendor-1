@@ -1,8 +1,42 @@
+import axios from "axios";
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuthFalse, setAuthTrue } from "../../state/reducers/UserAuth";
 import styles from "../../styles/Navbar.module.css";
 
 function Navbar() {
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
+
+    // checking vendor status
+    const router = useRouter();
+    const [user, setuser] = useState({});
+    const getUserProfile = async () => {
+        const { data } = await axios.get(
+            `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+        );
+        console.log(data.status, router, "mycat");
+        setuser(data);
+    };
+
+    const checkLogin = () => {
+        const token = localStorage.getItem("vtoken");
+        const getName = localStorage.getItem("vName");
+        if (token) {
+            dispatch(setAuthTrue());
+        } else {
+            dispatch(setAuthFalse());
+        }
+    };
+
+    useEffect(async () => {
+        await getUserProfile();
+        await checkLogin();
+
+    }, []);
     return (
         <nav className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.forVendorManu }`}>
             <div className="container">
@@ -11,33 +45,48 @@ function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className={`navbar-nav ms-auto me-auto mb-2 mb-lg-0 ${ styles.mainMenu } ${ styles.forVendor } `}>
-                        <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="#">Dashboard</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Food Section</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Order History</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Products</a>
-                        </li>
-                        {/* drop down start */}
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Settings
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Shop Settings</a></li>
-                                <li><a className="dropdown-item" href="#">Money Withdraws</a></li>
-                                <li><a className="dropdown-item" href="#">Contact Support</a></li>
-                                <li><a className="dropdown-item" href="#">Manage Profile</a></li>
-                            </ul>
-                        </li>
-                        {/* drop down end */}
-                    </ul >
+                    {user && user.status === "true" &&
+                        <ul className={`navbar-nav ms-auto me-auto mb-2 mb-lg-0 ${ styles.mainMenu } ${ styles.forVendor } `}>
+                            <Link href="/vendor/dashboard">
+                                <li className="nav-item">
+                                    <a className="nav-link" aria-current="page" href="#">Dashboard</a>
+                                </li>
+                            </Link>
+                            <Link href="/vendor/orderhistory">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Order History</a>
+                                </li>
+                            </Link>
+                            <Link href="/vendor/products">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Products</a>
+                                </li>
+                            </Link>
+                            {/* drop down start */}
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Settings
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <Link href="/vendor/moneywithdraw">
+                                        <li>
+                                            <a className="dropdown-item" href="#">Money Withdraws</a>
+                                        </li>
+                                    </Link>
+                                    <Link href="/vendor/support">
+                                        <li>
+                                            <a className="dropdown-item" href="#">Contact Support</a>
+                                        </li>
+                                    </Link>
+                                    <Link href="/vendor/manageprofile">
+                                        <li>
+                                            <a className="dropdown-item" href="#">Manage Profile</a>
+                                        </li>
+                                    </Link>
+                                </ul>
+                            </li>
+                            {/* drop down end */}
+                        </ul >}
 
                     <div className="ms-auto">
                         <i className={`fas ${ styles.logoUser } fa-user-circle`}> </i>

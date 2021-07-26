@@ -10,12 +10,12 @@ function HomechefCard({ business }) {
             <div className={`card ${ styles.productCard }`}>
                 {business &&
                     <>
-                        <Image
+                        {/* <Image
                             src={business.imgURL}
                             width="100%"
                             height="280px"
                             className={`card-img-top ${ styles.cardImage }`}
-                            alt="..." />
+                            alt="..." /> */}
                         <div className="card-body">
                             <h5>{business.organizationName}
                                 <span className={`ms-3 fa fa-star ${ styles.starIcon } ${ Math.round(business.averageRating) >= 1 && styles.checked }`}></span>
