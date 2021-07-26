@@ -6,6 +6,9 @@ import Footer from "../components/vendor/Footer/Footer";
 
 import { getOrderByUserID } from "../state/Api/order";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
+import router from "next/router";
 
 function orders() {
   const [orders, setorders] = useState([]);
@@ -18,6 +21,7 @@ function orders() {
   };
 
   // check if user is logged in\
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
   const checkLogin = () => {
     const token = localStorage.getItem("token");

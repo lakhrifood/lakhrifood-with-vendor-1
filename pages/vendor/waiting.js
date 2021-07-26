@@ -1,9 +1,23 @@
+import axios from 'axios';
 import Image from 'next/image'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/vendor/Navbar'
 
-function waiting() {
-
+function Waiting() {
+    const router = useRouter();
+    const [user, setuser] = useState({});
+    const getUserProfile = async () => {
+        const { data } = await axios.get(
+            `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+        );
+        console.log(data.status, "mycat");
+        { data.status === "true" && router.push("/vendor/dashboard") }
+        setuser(data);
+    };
+    useEffect(() => {
+        getUserProfile();
+    }, []);
     return (
         <>
             <Navbar />
@@ -26,4 +40,4 @@ function waiting() {
     )
 }
 
-export default waiting
+export default Waiting

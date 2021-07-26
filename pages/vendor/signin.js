@@ -8,51 +8,51 @@ import { useDispatch } from "react-redux";
 import Link from "next/link";
 const Signin = () => {
 
-    const dispatch = useDispatch();
-    const [cred, setcred] = useState({
-        email: "",
-        password: "",
-    });
-    const router = useRouter();
-    const [token, settoken] = useState("");
-    const [id, setid] = useState("");
-    const [username, setusername] = useState("");
-    const [email, setemail] = useState("");
-    const [phoneNumber, setphoneNumber] = useState("");
-    const [isVendor, setisVendor] = useState("");
+  const dispatch = useDispatch();
+  const [cred, setcred] = useState({
+    email: "",
+    password: "",
+  });
+  const router = useRouter();
+  const [token, settoken] = useState("");
+  const [id, setid] = useState("");
+  const [username, setusername] = useState("");
+  const [email, setemail] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
+  const [isVendor, setisVendor] = useState("");
 
-    const handleSignin = async () => {
-        console.log(cred)
-        try {
-            const { data } = await signinAuthApiForVendor(cred);
-            console.log(data)
-            console.log(data.user._id);
-            settoken(data.token);
-            setid(data.user._id);
-            setphoneNumber(data.phoneNumber);
-            setusername(data.user.ownerName);
-            setemail(data.user.email);
-            setisVendor(data.user.status);
-            { data.user.status === "false" && router.push("/vendor/waiting") }
-            // router.push("/vendor/");
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
+  const handleSignin = async () => {
+    console.log(cred)
+    try {
+      const { data } = await signinAuthApiForVendor(cred);
+      console.log(data)
+      console.log(data.user._id);
+      settoken(data.token);
+      setid(data.user._id);
+      setphoneNumber(data.phoneNumber);
+      setusername(data.user.ownerName);
+      setemail(data.user.email);
+      setisVendor(data.user.status);
+      { data.user.status === "false" ? router.push("/vendor/waiting") : router.push("/vendor/dashboard") }
+      // router.push("/vendor/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-    useEffect(() => {
-        localStorage.setItem("token", token);
-        localStorage.setItem("vendorID", id);
-        localStorage.setItem("userName", username);
-        localStorage.setItem("userEmail", email);
-        localStorage.setItem("phoneNumber", phoneNumber);
-        localStorage.setItem("status", isVendor);
-    }, [token, id, username, email, phoneNumber, isVendor]);
+  useEffect(() => {
+    localStorage.setItem("vtoken", token);
+    localStorage.setItem("vendorID", id);
+    localStorage.setItem("vName", username);
+    localStorage.setItem("vEmail", email);
+    localStorage.setItem("vphoneNumber", phoneNumber);
+    localStorage.setItem("status", isVendor);
+  }, [token, id, username, email, phoneNumber, isVendor]);
 
 
   return (
     <div className={styles.container}>
-      <div className={`card ${styles.cardLog}`}>
+      <div className={`card ${ styles.cardLog }`}>
         <div className={styles.header}>
           <h1>Welcome !</h1>
           <p>Sign Up or Login to Continue.</p>
