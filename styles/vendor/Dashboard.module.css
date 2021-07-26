@@ -26,11 +26,11 @@
 }
 .cardOrderSection {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .firstCard {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr;
 }
 .cardOrder {
   display: grid;
@@ -41,4 +41,8 @@
 }
 .prosec {
   margin-right: 20px;
+}
+.name {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
