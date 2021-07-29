@@ -1,43 +1,43 @@
 .productCard {
-    width: 340px;
-    border-radius: 20px;
-    box-shadow: 3px 4px 10px -1px lightgrey;
-    margin-bottom: 20px;
+  width: 340px;
+  border-radius: 10px;
+  box-shadow: 3px 4px 10px -1px lightgrey;
+  margin-bottom: 20px;
 }
 
 .cardImage {
-    border-radius: 20px;
+  border-radius: 5px;
 }
 
 .productCard h5 {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .productCard p {
-    padding: 4px 0px;
+  padding: 4px 0px;
 }
 
 .checked {
-    color: orange !important;
+  color: orange !important;
 }
 
 .starIcon {
-    margin-right: 2px;
-    color: #d8d5d5;
+  margin-right: 2px;
+  color: #d8d5d5;
 }
 
 .productCard h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #179bd7;
+  font-size: 20px;
+  font-weight: bold;
+  color: #179bd7;
 }
 
 @media screen and (max-width: 480px) {
-    .productCard {
-        width: 95%;
-    }
-    .cardImage {
-        height: 150px !important;
-    }
+  .productCard {
+    width: 95%;
+  }
+  .cardImage {
+    height: 150px !important;
+  }
 }

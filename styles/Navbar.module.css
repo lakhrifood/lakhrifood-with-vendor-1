@@ -22,6 +22,14 @@
   font-size: 21px;
   margin-left: -16px;
   margin-top: -41px;
+  background-color: cornflowerblue;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  color: white;
 }
 .logoUser {
   font-size: 28px;
@@ -36,8 +44,11 @@
   margin-right: 30px;
 }
 .mainMenuIcon li a i {
-  font-size: 20px;
+  font-size: 13px;
   line-height: 36px;
+}
+.navlinkFont {
+  font-size: 17px !important;
 }
 
 .btnSeller {

@@ -1,11 +1,32 @@
 .title {
-    font-size: 32px;
-    font-weight: bold;
-    padding: 50px 0px 0px 50px;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 50px 0px 0px 50px;
+}
+.orderContainer {
+  min-height: 100vh;
+}
+.orderBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
+@media screen and (max-width: 1205px) {
+  .orderBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 796px) {
+  .orderBody {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
 @media screen and (max-width: 480px) {
-    .title {
-        padding: 50px 0px 0px 10px;
-    }
+  .title {
+    padding: 50px 0px 0px 10px;
+    margin-bottom: 20px;
+  }
 }
