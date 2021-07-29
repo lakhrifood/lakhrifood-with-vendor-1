@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-function Withdraw() {
+function Withdraw({ request }) {
     return (
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
@@ -16,8 +16,7 @@ function Withdraw() {
                                 height={50}
                                 src="/./svg/loading.svg" />
                             <h1 className="p-3 text-center">
-                                Your Reuest Has been <br />
-                                Sent to the Admin Panel
+                                {request}
                             </h1>
                             <div className="text-center fw-bold">Keep Patience!</div>
                         </div>

@@ -61,7 +61,7 @@ const Dashboard = () => {
       }
     });
   };
-  useEffect(() => {
+  useEffect(async () => {
     getAllVendorOrders();
 
     await checkLogin();
@@ -166,7 +166,7 @@ const Dashboard = () => {
                                         discount: order.product.discount,
                                       };
                                       const { data } = await axios.patch(
-                                        `http://localhost:5000/order/status/update/by/${order.id}&${order.product._id}`,
+                                        `http://localhost:5000/order/status/update/by/${ order.id }&${ order.product._id }`,
                                         datas
                                       );
                                       setupdatedStatus(data);
@@ -187,7 +187,7 @@ const Dashboard = () => {
                                         discount: order.product.discount,
                                       };
                                       const { data } = await axios.patch(
-                                        `http://localhost:5000/order/status/update/by/${order.id}&${order.product._id}`,
+                                        `http://localhost:5000/order/status/update/by/${ order.id }&${ order.product._id }`,
                                         datas
                                       );
                                       setupdatedStatus(data);
