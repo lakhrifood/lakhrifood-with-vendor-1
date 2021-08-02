@@ -2,7 +2,9 @@ import Image from "next/image";
 import ReviewModal from "./ReviewModal";
 
 function OrderedProducts({ products }) {
+
   const total = products && products.productInfo.reduce((acc, curr) => acc + (curr.price * curr.quantity) - curr.discount, 0);
+
   return (
     <div className="pt-3 pb-3">
       <table className="table table-responsive table-striped">
@@ -14,7 +16,7 @@ function OrderedProducts({ products }) {
             <th scope="col">Price</th>
             <th scope="col">Discount</th>
             <th className="text-end" scope="col">
-              Totalsadasd
+              Total
             </th>
           </tr>
         </thead>
@@ -51,17 +53,26 @@ function OrderedProducts({ products }) {
             </tr>
           ))}
           <tr>
-            <th colSpan="5" className="text-end">Total</th>
+            <th colSpan="5" className="text-end">
+              Total
+            </th>
             <th className="text-end">{total} Tk</th>
           </tr>
-          {products && products.globalDiscount > 0 &&
+          {products && products.globalDiscount > 0 && (
             <tr>
-              <th colSpan="5" className="text-end">Vaucher Discount</th>
+              <th colSpan="5" className="text-end">
+                Vaucher Discount
+              </th>
               <th className="text-end">{products.globalDiscount} Tk</th>
-            </tr>}
+            </tr>
+          )}
           <tr>
-            <th colSpan="5" className="text-end">Sub Total</th>
-            <th className="text-end">{total - (products && products.globalDiscount)} Tk</th>
+            <th colSpan="5" className="text-end">
+              Sub Total
+            </th>
+            <th className="text-end">
+              {total - (products && products.globalDiscount)} Tk
+            </th>
           </tr>
         </tbody>
       </table>

@@ -55,34 +55,38 @@ function Navbar() {
           >
             <Link href="/menu">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
+                <a
+                  className={`${styles.navlinkFont} nav-link`}
+                  aria-current="page"
+                  href="#"
+                >
                   Menu
                 </a>
               </li>
             </Link>
             <Link href={isAuthenticated ? "/orders" : "/auth/signin"}>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className={`${styles.navlinkFont} nav-link`} href="#">
                   Order
                 </a>
               </li>
             </Link>
             <Link href="/homechefs">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className={`${styles.navlinkFont} nav-link`} href="#">
                   Our Homechefs
                 </a>
               </li>
             </Link>
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className={`${styles.navlinkFont} nav-link`} href="#">
                 Promotion
               </a>
             </li>
             <Link href={isAuthenticated ? "/support" : "/auth/signin"}>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className={`${styles.navlinkFont} nav-link`} href="#">
                   Contact Us
                 </a>
               </li>

@@ -16,8 +16,8 @@ function OrderCard({ order }) {
                 <Image
                   className="rounded-circle"
                   src={product.productId && product.productId?.imgURL}
-                  width={100}
-                  height={100}
+                  width={50}
+                  height={50}
                 />
               ) : null}
 
@@ -33,11 +33,13 @@ function OrderCard({ order }) {
             </div>
           ))}
 
+
         <div className="text-end">
           <span className={`btn ${ styles.status }`}>
             <CheckCircleOutlineIcon /> Confirmed
           </span>
         </div>
+
       </div>
     </Link>
   );
