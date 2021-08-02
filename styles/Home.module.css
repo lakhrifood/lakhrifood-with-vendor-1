@@ -38,18 +38,43 @@
   font-size: 32px;
   font-weight: bold;
 }
+
 .cataCon {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  overflow: auto;
+  white-space: nowrap;
 }
+
+/* width */
+.cataCon::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+.cataCon::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.cataCon::-webkit-scrollbar-thumb {
+  background: #179bd7;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.cataCon::-webkit-scrollbar-thumb:hover {
+  background: #179bd7;
+}
+
 .pizzaIn {
   margin-left: -120px;
   height: 329px;
 }
 .Items {
-  height: 250px;
-  width: 100%;
-  display: flex;
+  height: fit-content;
+  padding: 20px 0px;
+  width: 255px;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -155,10 +180,6 @@
     grid-template-columns: 1fr;
     height: 600px;
   }
-  .cataCon {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
   .Proitem {
     height: 390px;
     width: 250px;
@@ -201,10 +222,6 @@
     grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
-  }
-  .cataCon {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
   }
   .cataContainer {
     margin-top: 60px;

@@ -4,21 +4,30 @@ import Image from "next/image";
 import ProductCard from "../ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  getAndSetByCategoryFoodAction,
   getAndSetFoodAction,
   getAndSetFoodActionBySearch,
 } from "../../state/action/FoodActions";
+import { useRouter } from "next/router";
 
 function Products() {
+  const router = useRouter();
+  const category = router.query.category;
+
   const dispatch = useDispatch();
   const { foods } = useSelector((state) => state.food);
 
   useEffect(() => {
-    dispatch(getAndSetFoodAction());
-  }, []);
+    {
+      category
+        ? dispatch(getAndSetByCategoryFoodAction(category))
+        : dispatch(getAndSetFoodAction())
+    }
+  }, [category]);
   return (
     <div className={styles.productsWrapper}>
       <div className="mt-5 d-flex justify-content-between">
-        <div className={`input-group mb-3 w-25 ${styles.searchField}`}>
+        <div className={`input-group mb-3 w-25 ${ styles.searchField }`}>
           <input
             type="text"
             className={` form-control`}
