@@ -1,10 +1,8 @@
-import OrderedProducts from "../../components/OrderTracking/orderedproducts";
-import OrderTimeline from "../../components/OrderTracking/ordertimeline";
+import OrderedProducts from "../../components/OrderTracking/OrderedProducts";
 import Router from "next/router";
 import styles from "../../styles/OrderTracking.module.css";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
-import OrderTimelineMobile from "../../components/OrderTracking/ordertimelinemobile";
 import Footer from "../../components/vendor/Footer/Footer";
 import CancelOrderModal from "../../components/OrderTracking/CancelOrderModal";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +12,8 @@ import { getOrderbyidAction } from "../../state/action/FoodActions";
 
 function Ordertracking() {
   const route = useRouter();
-  const id = route.asPath.split("id=")[1];
+  const id = route.query.id;
+  console.log(route, "popo")
   const windowSize = useWindowSize();
   const dispatch = useDispatch();
   const { orderFood } = useSelector((state) => state.food);
@@ -25,10 +24,10 @@ function Ordertracking() {
   };
   useEffect(() => {
     getOrder();
-    if (orderFood == null) {
-      Router.push("/orders");
-    }
-  }, []);
+    // if (orderFood == null) {
+    //   Router.push("/orders");
+    // }
+  }, [id]);
   return (
     <Layout>
       <Navbar />
@@ -36,7 +35,7 @@ function Ordertracking() {
         <div className="container">
           <div className="row pb-5">
             <h1 className={styles.title}>Order Tracking</h1>
-            <h2 className={styles.orderID}>Order ID: #{orderFood?._id}</h2>
+            <h2 className={`${ styles.orderID } text-color`}>Order ID: #{orderFood?._id}</h2>
             {/* {windowSize && windowSize.width < 480 ? (
               <OrderTimelineMobile />
             ) : (

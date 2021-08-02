@@ -5,8 +5,8 @@ import Link from "next/link";
 function OrderCard({ order }) {
   console.log(order, "morder");
   return (
-    <Link href={`/ordertracking/id=${order._id}`}>
-      <div className={`card ${styles.orderCard}`}>
+    <Link href={`/ordertracking/${ order._id }`}>
+      <div className={`card ${ styles.orderCard }`}>
         <h1 className={styles.orderID}>Order #{order._id}</h1>
         <p className={styles.orderTime}>{order.createdAt}</p>
         {order.productInfo &&
@@ -32,6 +32,14 @@ function OrderCard({ order }) {
               </div>
             </div>
           ))}
+
+
+        <div className="text-end">
+          <span className={`btn ${ styles.status }`}>
+            <CheckCircleOutlineIcon /> Confirmed
+          </span>
+        </div>
+
       </div>
     </Link>
   );
