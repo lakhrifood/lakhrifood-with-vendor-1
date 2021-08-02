@@ -1,36 +1,36 @@
 .orderCard {
-    width: 350px;
-    padding: 20px;
-    border-radius: 30px;
-    margin-bottom: 20px;
-    box-shadow: 3px 4px 10px -1px lightgrey;
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 3px 4px 10px -1px lightgrey;
 }
 
 .orderID {
-    font-size: 24px;
-    font-weight: 600;
-    color: #707070;
-    padding: 5px 0px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #707070;
+  padding: 5px 0px;
 }
 
 .orderTime {
-    padding: 5px 0px 10px 0px;
+  padding: 5px 0px 10px 0px;
 }
 
 .status {
-    background-color: #CDE6D9;
-    color: #098342;
-    padding: 10px 30px;
-    border-radius: 10px;
-    font-size: 20px;
+  background-color: #cde6d9;
+  color: #098342;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
-.productName{
-    padding: 5px 0px;
-    font-weight: bold;
-    font-size: 18px;
+.productName {
+  padding: 5px 0px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.productPrice{
-    padding: 5px 0px;
+.productPrice {
+  padding: 5px 0px;
 }

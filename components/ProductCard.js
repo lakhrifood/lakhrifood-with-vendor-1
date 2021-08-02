@@ -39,8 +39,8 @@ function ProductCard({ product }) {
           alt="..."
         />
         <div className="card-body">
+          <h5> {product && product.name}</h5>
           <h5>
-            {product && product.name}
             <span
               className={`ms-2 fa fa-star ${styles.starIcon} ${
                 Math.round(product && product.averageRating) >= 1 &&
@@ -76,23 +76,9 @@ function ProductCard({ product }) {
           <p>{product && product.description.slice(0, 60)}...</p>
           <div className="d-flex justify-content-between align-items-center">
             <h3>{product && product.price} BDT</h3>
-            {/* {found ? (
-              <button className="btn btn-bg disable" disabled>
-                <i className="fas fa-cart-plus"></i>
-              </button>
-            ) : (
-              <button
-                className="btn btn-bg disable"
-                onClick={() => {
-                  addToCart();
-                }}
-              >
-                <i className="fas fa-cart-plus"></i>
-              </button>
-            )} */}
           </div>
           <p>
-            <i className="far fa-clock me-1"></i> Delivery Time :{" "}
+            <i className="far fa-clock me-1"></i> Delivery Time :
             {product && product.estimatedDeliveryTime}
           </p>
         </div>
