@@ -1,5 +1,4 @@
 .container {
-  background: rgb(247, 247, 247);
   min-height: 100vh;
 }
 .container > h1 {
@@ -14,7 +13,26 @@
 }
 .containerspan {
   font-weight: 500;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .profilePic {
+}
+
+.infoHeader {
+  font-size: 20px;
+  font-weight: 200;
+  padding: 30px 0px 10px 0px;
+  color: #a1a2a9;
+  letter-spacing: 10px;
+}
+
+.userName {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.userAddress {
+  font-size: 25px;
+  color: #a1a2a9;
+  font-weight: 100;
 }
