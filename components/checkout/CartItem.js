@@ -18,14 +18,15 @@ const CartItem = ({ item }) => {
   const remove = () => {
     dispatch(removeOrder({ id: item.productId }));
   };
+  console.log(item, "iasndlajns");
   return (
     <div className={styles.itemContainer}>
-      <Image
+      {/* <Image
         src="/../public/biriyani.png"
         alt="Picture of the author"
         width={90}
         height={90}
-      />
+      /> */}
       <div className={styles.detItemSection}>
         <h1>{item.productName}</h1>
       </div>
