@@ -17,7 +17,7 @@ const Profile = () => {
   };
   const getUserProfile = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/auth/user/${localStorage.getItem("userId")}`
+      `http://localhost:5000/auth/user/${ localStorage.getItem("userId") }`
     );
     console.log(data, "mycat");
     setuser(data);
@@ -31,32 +31,44 @@ const Profile = () => {
     <div>
       <Navbar />
       <div className="page-bg">
-        <div className={`${styles.container} container`}>
-          <h1>My Profile</h1>
-          <Image
-            src="/../public/profile.png"
-            alt="Picture of the author"
-            width={150}
-            height={150}
-            className={styles.profilePic}
-          />
-          <p>{user && user.name}</p>
-          <p>
-            <span className={styles.containerspan}>Email:</span>
-            {user && user.email}
-          </p>
-          <p>
-            <span className={styles.containerspan}>Phone Number:</span>
-            {user && user.phoneNumber}
-          </p>
-          <p>
-            <span className={styles.containerspan}>Location:</span>
-            {user && user.address}
-          </p>
-          <p>
-            <span className={styles.containerspan}>Gender:</span>
-            {user && user.gender}
-          </p>
+        <div className={`${ styles.container } container pt-5 pb-5`}>
+          <div className="row">
+            <div className="col-md-8">
+
+              <p className={styles.userName}>{user && user.name}</p>
+              <p className={styles.userAddress}> <i className="fas fa-map-marker-alt me-2"></i> {user && user.address}</p>
+
+              <h1 className={`${ styles.infoHeader }`}>CONTACT INFORMATION</h1>
+
+              <p>
+                <span className={styles.containerspan}>Phone:</span>
+                {user && user.phoneNumber}
+              </p>
+              <p>
+                <span className={styles.containerspan}>Email:</span>
+                {user && user.email}
+              </p>
+              <p>
+                <span className={styles.containerspan}>City:</span>
+                {user && user.city}
+              </p>
+
+              <h1 className={`${ styles.infoHeader }`}>BASIC INFORMATION</h1>
+              <p>
+                <span className={styles.containerspan}>Gender:</span>
+                {user && user.gender}
+              </p>
+            </div>
+            <div className="col-md-4">
+              <Image
+                src={user && user.imgURL || "/../public/profile.png"}
+                alt="Picture of the author"
+                width={150}
+                height={150}
+                className={styles.profilePic}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
