@@ -4,7 +4,7 @@ import { SignupAction } from "../../state/action/AuthAction";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { signUpAuth } from "../../state/api/auth";
+import { signUpAuth } from "../../state/Api/auth";
 const Signup = () => {
   // const history = useHistory();
   const router = useRouter();
@@ -25,19 +25,21 @@ const Signup = () => {
   const handleSignup = async () => {
     try {
       const { data } = await signUpAuth(cred);
-      console.log(data, "sumycat")
-      router.push("/auth/signin")
+      console.log(data, "sumycat");
+      router.push("/auth/signin");
     } catch (e) {
-      console.log(e, "sumycat")
+      console.log(e, "sumycat");
       setError(e);
     }
   };
   return (
     <div className={styles.containerSignup}>
-      <div className={`card ${ styles.cardLogSignup }`}>
+      <div className={`card ${styles.cardLogSignup}`}>
         <div className={styles.cardInput}>
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">Email address</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              Email address
+            </label>
             <input
               type="email"
               className="form-control"
@@ -51,7 +53,9 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputPassword1">Password</label>
+            <label className={styles.labels} htmlFor="exampleInputPassword1">
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
@@ -64,7 +68,9 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">Name</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              Name
+            </label>
             <input
               type="text"
               className="form-control"
@@ -78,7 +84,9 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">Phone Number</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              Phone Number
+            </label>
             <input
               type="text"
               className="form-control"
@@ -93,7 +101,9 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">Address</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              Address
+            </label>
             <input
               type="text"
               className="form-control"
@@ -107,7 +117,9 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">Gender</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              Gender
+            </label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -123,7 +135,9 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">Division</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              Division
+            </label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -132,13 +146,17 @@ const Signup = () => {
                 setcred({ ...cred, division: e.target.value });
               }}
             >
-              <option selected value="Khulna">Khulna </option>
+              <option selected value="Khulna">
+                Khulna{" "}
+              </option>
               <option value="Dhaka">Dhaka</option>
               <option value="Rajshahi">Rajshahi</option>
             </select>
           </div>
           <div className="form-group">
-            <label className={styles.labels} htmlFor="exampleInputEmail1">City</label>
+            <label className={styles.labels} htmlFor="exampleInputEmail1">
+              City
+            </label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -147,7 +165,9 @@ const Signup = () => {
                 setcred({ ...cred, city: e.target.value });
               }}
             >
-              <option selected value="Khulna">Khulna </option>
+              <option selected value="Khulna">
+                Khulna{" "}
+              </option>
               <option value="Dhaka">Dhaka</option>
               <option value="Rajshahi">Rajshahi</option>
             </select>
@@ -164,9 +184,14 @@ const Signup = () => {
           </button>
           <div className="mt-3 text-center">
             {error ? <p className={styles.error}>{error}</p> : null}
-            <p>Already member?
-              <strong className="text-color"> <Link href="/auth/signin">Login </Link></strong>
-              here.</p>
+            <p>
+              Already member?
+              <strong className="text-color">
+                {" "}
+                <Link href="/auth/signin">Login </Link>
+              </strong>
+              here.
+            </p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import styles from "../../styles/VendorSignin.module.css";
 
 import { useState, useEffect } from "react";
-import { signinAuthApiForVendor } from "../../state/api/auth";
+import { signinAuthApiForVendor } from "../../state/Api/auth";
 import { setAuthTrue } from "../../state/reducers/UserAuth";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
