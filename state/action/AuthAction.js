@@ -1,6 +1,6 @@
 import { signUpAuth, signinAuthApi } from "../api/auth";
 import { setAuthTrue, setAuthFalse } from "../reducers/UserAuth";
-import { setAuthFalse, setAuthTrue } from "../reducers/UserAuth";
+
 import { useDispatch, useSelector } from "react-redux";
 export const SignupAction = (userData) => async (dispatch) => {
   try {
