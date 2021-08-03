@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:5000/support/";
+const baseUrl = "https://peaceful-citadel-48843.herokuapp.com/support/";
 
 export const getAllQueryByUserId = async (userId) =>
   await axios.get(`${baseUrl}/user/${userId}`);

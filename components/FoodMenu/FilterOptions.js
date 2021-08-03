@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "../../styles/SideBar.module.css";
@@ -10,6 +11,7 @@ import {
   getAndSetFoodActionByRating,
 } from "../../state/action/FoodActions";
 import { useEffect } from "react";
+
 
 const useStyles = makeStyles({
   root: {

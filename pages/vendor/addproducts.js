@@ -18,7 +18,7 @@ const Addproducts = () => {
   const [catagories, setcatagories] = useState([]);
   const getCatagories = () => {
     axios
-      .get("http://localhost:5000/catagory")
+      .get("https://peaceful-citadel-48843.herokuapp.com/catagory")
       .then((response) => {
         setcatagories(response.data);
         console.log(response.data);
@@ -48,7 +48,7 @@ const Addproducts = () => {
 
   const handleSubmit = () => {
     console.log(product, "success mycat");
-    axios.post("http://localhost:5000/food/add", product).then(() => {
+    axios.post("https://peaceful-citadel-48843.herokuapp.com/food/add", product).then(() => {
       console.log("success mycat");
     });
   };

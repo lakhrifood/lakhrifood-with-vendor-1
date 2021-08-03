@@ -1,3 +1,4 @@
+
 import Navbar from "../../../components/vendor/Navbar";
 import Footer from "../../../components/vendor/Footer/Footer";
 import styles from "../../../styles/VendorProductDetails.module.css";
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 import { getAndSetFoodActionByID } from "../../../state/action/FoodActions";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFood, publishFood } from "../../../state/Api/food";
+
 
 function Productdetails() {
   const route = useRouter();

@@ -17,7 +17,7 @@ const Profile = () => {
   };
   const getUserProfile = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/auth/user/${ localStorage.getItem("userId") }`
+      `https://peaceful-citadel-48843.herokuapp.com/auth/user/${ localStorage.getItem("userId") }`
     );
     console.log(data, "mycat");
     setuser(data);

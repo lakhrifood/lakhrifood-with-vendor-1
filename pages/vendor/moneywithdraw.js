@@ -1,3 +1,4 @@
+
 import styles from "../../styles/Moneywithdraw.module.css";
 import Navbar from "../../components/vendor/Navbar";
 import Footer from "../../components/vendor/Footer/Footer";
@@ -9,6 +10,7 @@ import {
   getPaymentHistory,
   makeWithdraw,
 } from "../../state/Api/payment";
+
 
 function Moneywithdraw() {
   const [pendingBalance, setPendingBalance] = useState(null);

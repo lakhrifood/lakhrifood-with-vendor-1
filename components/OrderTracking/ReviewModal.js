@@ -1,7 +1,9 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
+
 import { giveFoodReview, giveVendorReview } from "../../state/Api/review";
+
 
 function ReviewModal({ vendorID, productID, orderID }) {
   console.log(vendorID, productID, orderID, "ReviewModal");

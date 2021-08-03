@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:5000/order";
+const baseUrl = "https://peaceful-citadel-48843.herokuapp.com/order";
 
 export const CreateOrderApi = async (orderinfo) => {
   axios.post(`${baseUrl}/create`, orderinfo);
@@ -12,4 +12,4 @@ export const getOrderByID = async (ID) =>
   await axios.get(`${baseUrl}/by/order/${ID}`);
 
 export const getOrderDiscountByPromoCode = async (promoCode) =>
-  await axios.get(`http://localhost:5000/promo/get/byid/${promoCode}`);
+  await axios.get(`https://peaceful-citadel-48843.herokuapp.com/promo/get/byid/${promoCode}`);
