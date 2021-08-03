@@ -1,4 +1,4 @@
-import { getAllHomechefData, getHomechefByID, getPopularVendor } from "../api/homechef";
+import { getAllHomechefData, getHomechefByID, getPopularVendor } from "../Api/homechef";
 import { getHomeChefs, getHomeChefsByID, getPopularHomeChefs } from "../reducers/HomechefSlice";
 
 export const getAndSetAllHomechefsAction = (pageNumber) => async (dispatch) => {
