@@ -40,43 +40,43 @@ const paymentsettings = () => {
           />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Bank Account Number
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="Enter here..."
           />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Bank Routing Number
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="Enter here..."
           />
         </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Change Your Mail
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="Enter here..."
           />
         </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">
+        <div className="col-auto">
+          <button type="submit" className="btn btn-primary mb-3">
             Save
           </button>
         </div>

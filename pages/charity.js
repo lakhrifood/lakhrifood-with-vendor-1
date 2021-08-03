@@ -30,6 +30,7 @@ function charity() {
                 <img
                     className={styles.charityFristImage}
                     src="/./WhatsApp Image 2021-07-09 at 8.24.26 PM.png"
+                    alt="charity image"
                 />
             </div>
             <div className="container text-center">
@@ -44,6 +45,7 @@ function charity() {
                 <img
                     className={styles.charityFristImage}
                     src="/./WhatsApp Image 2021-07-09 at 8.24.30 PM.png"
+                    alt="charity image"
                 />
             </div>
             <div className="container text-center">
@@ -59,6 +61,7 @@ function charity() {
                 <img
                     className={styles.charityFristImage}
                     src="/./WhatsApp Image 2021-07-09 at 8.24.33 PM (1).png"
+                    alt="charity image"
                 />
             </div>
             <div className="container text-center pb-5">

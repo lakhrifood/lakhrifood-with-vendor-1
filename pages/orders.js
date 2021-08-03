@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
 import router from "next/router";
 
-function orders() {
+function Orders() {
   const [orders, setorders] = useState([]);
 
   const getOrders = async () => {
@@ -45,14 +45,14 @@ function orders() {
     <Layout>
       <Navbar />
 
-      <div className={`page-bg ${styles.orderContainer}`}>
+      <div className={`page-bg ${ styles.orderContainer }`}>
         <div className="container">
           <div className="row">
             <h1 className={styles.title}>Order History</h1>
           </div>
           <div className="d-flex flex-wrap justify-content-around pt-5 pb-5">
-            {orders?.map((order) => (
-              <OrderCard order={order} />
+            {orders?.map((order, i) => (
+              <OrderCard key={i} order={order} />
             ))}
           </div>
         </div>
@@ -63,4 +63,4 @@ function orders() {
   );
 }
 
-export default orders;
+export default Orders;
