@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styles from '../../styles/SideBar.module.css';
 import { makeStyles, Slider } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import { getByCategoryFood } from '../../state/api/food';
+import { getByCategoryFood } from '../../state/Api/food';
 import { getAndSetByCategoryFoodAction, getAndSetFoodActionByPrice, getAndSetFoodActionByRating } from '../../state/action/FoodActions';
 import { useEffect } from 'react';
 

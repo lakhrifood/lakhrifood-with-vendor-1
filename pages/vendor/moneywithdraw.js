@@ -4,7 +4,7 @@ import Footer from '../../components/vendor/Footer/Footer';
 import Image from 'next/image';
 import Withdraw from '../../components/vendor/Modal/Withdraw';
 import { useEffect, useState } from 'react';
-import { getBalance, getPaymentHistory, makeWithdraw } from '../../state/api/payment';
+import { getBalance, getPaymentHistory, makeWithdraw } from '../../state/Api/payment';
 
 function Moneywithdraw() {
     const [pendingBalance, setPendingBalance] = useState(null);

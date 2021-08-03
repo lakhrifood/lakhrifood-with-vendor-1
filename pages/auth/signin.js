@@ -5,7 +5,7 @@ import { setAuthTrue } from "../../state/reducers/UserAuth";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
-import { signinAuthApi } from "../../state/api/auth";
+import { signinAuthApi } from "../../state/Api/auth";
 const Signin = () => {
   const dispatch = useDispatch();
   const [cred, setcred] = useState({

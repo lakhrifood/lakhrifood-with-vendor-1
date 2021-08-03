@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getAndSetFoodActionByID } from '../../../state/action/FoodActions';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteFood, publishFood } from '../../../state/api/food';
+import { deleteFood, publishFood } from '../../../state/Api/food';
 
 function Productdetails() {
     const route = useRouter();
