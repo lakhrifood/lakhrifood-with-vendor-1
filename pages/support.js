@@ -41,7 +41,7 @@ const Support = () => {
   return (
     <div>
       <Navbar />
-      <div className={` ${ styles.container }`}>
+      <div className={` ${styles.container}`}>
         <div className="container">
           <div className={styles.infoContainer}>
             <h1>Support Policy</h1>
@@ -96,7 +96,7 @@ const Support = () => {
             <h1>Query List</h1>
             <div className={styles.query}>
               {query.map((item, index) => (
-                <div key={index} className={`card ${ styles.system }`}>
+                <div key={index} className={`card ${styles.system}`}>
                   <div className="card-header">{item.title}</div>
                   <div className="card-body">
                     <blockquote className="blockquote mb-0">
@@ -105,14 +105,14 @@ const Support = () => {
                     <div>
                       <div
                         data-bs-toggle="collapse"
-                        data-bs-target={`#collapseExample${ index }`}
+                        data-bs-target={`#collapseExample${index}`}
                         aria-expanded="false"
                         aria-controls="collapseExample"
                       >
                         View Conversation
                       </div>
                       <p />
-                      <div className="collapse" id={`collapseExample${ index }`}>
+                      <div className="collapse" id={`collapseExample${index}`}>
                         {item.reply.map((reply, index) => (
                           <div key={index} className={styles.cardChat}>
                             <span>
