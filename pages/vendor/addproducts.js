@@ -129,7 +129,7 @@ const Addproducts = () => {
               id="exampleFormControlInput1"
               placeholder="Enter here..."
               onChange={(e) => {
-                setproduct({ ...product, price: e.target.value });
+                setproduct({ ...product, price: parseInt(e.target.value) });
               }}
             />
           </div>
