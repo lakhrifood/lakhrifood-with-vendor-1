@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Footer from "../components/vendor/Footer/footer";
-import HomechefCard from "../components/homechefcard";
-import JoinAsVendorOrRider from "../components/joinasvendororrider";
+import HomechefCard from "../components/HomechefCard";
+import JoinAsVendorOrRider from "../components/JoinAsVendorOrRider";
 import Navbar from "../components/Navbar";
 import Layout from "./../components/Layout";
 import styles from "../styles/HomeChefList.module.css";
-import MostOrdered from "./../components/FoodHome/mostordered";
-import RecommendedHomeChef from "./../components/FoodHome/recommendedhomechef";
+import MostOrdered from "./../components/FoodHome/MostOrdered";
+import RecommendedHomeChef from "./../components/FoodHome/RecommendedHomeChef";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAndSetAllHomechefsAction } from "../state/action/HomechefAction";
-import Pagination from "../components/pegination";
+import Pagination from "../components/Pegination";
 
 function Homechefs() {
   const dispatch = useDispatch();

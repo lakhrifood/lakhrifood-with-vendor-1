@@ -65,7 +65,7 @@ const Addproducts = () => {
         <div className="container">
           <h1 className={`h3`}>Add products</h1>
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Name
             </label>
             <input
@@ -87,13 +87,13 @@ const Addproducts = () => {
               }}
             >
               <option selected>Select Category</option>
-              {catagories.map((cat) => (
-                <option value={cat.name}>{cat.name}</option>
+              {catagories.map((cat, i) => (
+                <option key={i} value={cat.name}>{cat.name}</option>
               ))}
             </select>
           </div>
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               unit
             </label>
             <input
@@ -107,7 +107,7 @@ const Addproducts = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="formFile" className="form-label">
+            <label htmlFor="formFile" className="form-label">
               Photo
             </label>
             <input
@@ -120,7 +120,7 @@ const Addproducts = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Price
             </label>
             <input
@@ -143,7 +143,7 @@ const Addproducts = () => {
           </div> */}
 
           <div className="mb-3">
-            <label for="exampleFormControlTextarea1" className="form-label">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Description
             </label>
             <textarea

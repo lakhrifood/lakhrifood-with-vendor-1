@@ -6,16 +6,16 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 import Image from "next/image";
 import styles from "../../styles/ProductDetails.module.css";
-import JoinAsVendorOrRider from "../../components/joinasvendororrider";
-import Footer from "../../components/vendor/Footer/footer";
+import JoinAsVendorOrRider from "../../components/JoinAsVendorOrRider";
+import Footer from "../../components/vendor/Footer/Footer";
 import {
   addQuantity,
   reduceQuantity,
   removeOrder,
 } from "../../state/reducers/OrderSlice";
-import RecommendedProduct from "../../components/FoodHome/recommendedproduct";
-import MostOrdered from "../../components/FoodHome/mostordered";
-import RecommendedHomeChef from "../../components/FoodHome/recommendedhomechef";
+import RecommendedProduct from "../../components/FoodHome/RecommendedProduct";
+import MostOrdered from "../../components/FoodHome/MostOrdered";
+import RecommendedHomeChef from "../../components/FoodHome/RecommendedHomeChef";
 import { useRouter } from "next/dist/client/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

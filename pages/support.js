@@ -8,7 +8,7 @@ import {
 } from "../state/Api/Support";
 import styles from "../styles/Support.module.css";
 
-const support = () => {
+const Support = () => {
   const [query, setquery] = useState([]);
   const [depend, setdepend] = useState("");
   const [message, setmessage] = useState("");
@@ -41,7 +41,7 @@ const support = () => {
   return (
     <div>
       <Navbar />
-      <div className={` ${styles.container}`}>
+      <div className={` ${ styles.container }`}>
         <div className="container">
           <div className={styles.infoContainer}>
             <h1>Support Policy</h1>
@@ -96,7 +96,7 @@ const support = () => {
             <h1>Query List</h1>
             <div className={styles.query}>
               {query.map((item, index) => (
-                <div className={`card ${styles.system}`}>
+                <div key={index} className={`card ${ styles.system }`}>
                   <div className="card-header">{item.title}</div>
                   <div className="card-body">
                     <blockquote className="blockquote mb-0">
@@ -105,16 +105,16 @@ const support = () => {
                     <div>
                       <div
                         data-bs-toggle="collapse"
-                        data-bs-target={`#collapseExample${index}`}
+                        data-bs-target={`#collapseExample${ index }`}
                         aria-expanded="false"
                         aria-controls="collapseExample"
                       >
                         View Conversation
                       </div>
                       <p />
-                      <div className="collapse" id={`collapseExample${index}`}>
+                      <div className="collapse" id={`collapseExample${ index }`}>
                         {item.reply.map((reply, index) => (
-                          <div className={styles.cardChat}>
+                          <div key={index} className={styles.cardChat}>
                             <span>
                               <strong className={styles.cardChatstrong}>
                                 {reply.name}
@@ -123,10 +123,10 @@ const support = () => {
                             {reply.massage}
                           </div>
                         ))}
-                        <div class="input-group mb-3">
+                        <div className="input-group mb-3">
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Your message"
                             aria-label="Your message"
                             aria-describedby="button-addon2"
@@ -136,7 +136,7 @@ const support = () => {
                             }}
                           />
                           <button
-                            class="btn btn-outline-secondary"
+                            className="btn btn-outline-secondary"
                             type="button"
                             id="button-addon2"
                             onClick={() => {
@@ -168,4 +168,4 @@ const support = () => {
   );
 };
 
-export default support;
+export default Support;
