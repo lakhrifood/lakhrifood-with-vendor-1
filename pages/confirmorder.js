@@ -12,10 +12,10 @@ import router from "next/router";
 import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
 
 const Confirmorder = () => {
-  const cartList = useSelector((state) => state.order);
-  const { globalDiscount } = useSelector((state) => state.food);
   const dispatch = useDispatch();
   const [promo, setpromo] = useState("");
+  const cartList = useSelector((state) => state.order);
+  const { globalDiscount } = useSelector((state) => state.food);
   let quantity = 0;
   let totalPrice = 0;
   let deliveryCharge = 25;

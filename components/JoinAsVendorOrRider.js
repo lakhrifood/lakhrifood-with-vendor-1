@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import styles from '../styles/JoinAsVendorOrRider.module.css';
-import riderImg from '../public/svg/delivery-boy.svg'
-import homeChefImg from '../public/svg/baker.svg'
 
 function JoinAsVendorOrRider() {
     return (
@@ -14,12 +12,12 @@ function JoinAsVendorOrRider() {
                                 <h2 className="text-start">Become a <br /> Rider</h2>
                                 <button className="btn btn-dark">Signup As a Rider</button>
                             </div>
-                            <Image src={riderImg} width={100} height={100} />
+                            <Image src="/./svg/delivery-boy.svg" width={100} height={100} />
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className={styles.riderWrapper}>
-                            <Image src={homeChefImg} width={100} height={100} />
+                            <Image src="/./svg/baker.svg" width={100} height={100} />
                             <div className={styles.homechef}>
                                 <h2 className="text-end">Become a <br /> Homechef</h2>
                                 <button className="btn btn-dark">Signup As a Homechef</button>
