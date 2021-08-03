@@ -23,7 +23,7 @@ const Orderhistory = () => {
   const [user, setuser] = useState({});
   const getUserProfile = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+      `https://peaceful-citadel-48843.herokuapp.com/business/one/${ localStorage.getItem("vendorID") }`
     );
     setuser(data);
   };

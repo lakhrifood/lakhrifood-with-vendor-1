@@ -20,7 +20,7 @@ const Dashboard = () => {
     const vid = localStorage.getItem("vendorID");
 
     const { data } = await axios.get(
-      `http://localhost:5000/order/business/${ vid }`
+      `https://peaceful-citadel-48843.herokuapp.com/order/business/${ vid }`
     );
     setorders(data);
     console.log(data, "axios");
@@ -30,7 +30,7 @@ const Dashboard = () => {
   const [user, setuser] = useState({});
   const getUserProfile = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+      `https://peaceful-citadel-48843.herokuapp.com/business/one/${ localStorage.getItem("vendorID") }`
     );
     console.log(data.status, router, "mycat");
     setuser(data);
@@ -166,7 +166,7 @@ const Dashboard = () => {
                                         discount: order.product.discount,
                                       };
                                       const { data } = await axios.patch(
-                                        `http://localhost:5000/order/status/update/by/${ order.id }&${ order.product._id }`,
+                                        `https://peaceful-citadel-48843.herokuapp.com/order/status/update/by/${ order.id }&${ order.product._id }`,
                                         datas
                                       );
                                       setupdatedStatus(data);
@@ -187,7 +187,7 @@ const Dashboard = () => {
                                         discount: order.product.discount,
                                       };
                                       const { data } = await axios.patch(
-                                        `http://localhost:5000/order/status/update/by/${ order.id }&${ order.product._id }`,
+                                        `https://peaceful-citadel-48843.herokuapp.com/order/status/update/by/${ order.id }&${ order.product._id }`,
                                         datas
                                       );
                                       setupdatedStatus(data);

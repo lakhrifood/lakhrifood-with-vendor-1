@@ -10,7 +10,7 @@ const Manageprofile = () => {
   const [user, setuser] = useState({});
   const getUserProfile = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/business/one/${ localStorage.getItem("vendorID") }`
+      `https://peaceful-citadel-48843.herokuapp.com/business/one/${ localStorage.getItem("vendorID") }`
     );
     console.log(data, "mycat");
     setuser(data);
@@ -44,7 +44,7 @@ const Manageprofile = () => {
   const handleUpdate = async () => {
     console.log(userData, "Success catti")
     try {
-      const { data } = await axios.patch(`http://localhost:5000/auth/business/edit/${ localStorage.getItem("vendorID") }`, userData);
+      const { data } = await axios.patch(`https://peaceful-citadel-48843.herokuapp.com/auth/business/edit/${ localStorage.getItem("vendorID") }`, userData);
       console.log(data, "Success edit")
       setDep(data);
       router.push('/vendor/profile')
