@@ -4,7 +4,7 @@ import { SignupAction } from "../../state/action/AuthAction";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { signUpAuth } from "../../state/api/auth";
+import { signUpAuth } from "../../state/api/Auth";
 const Signup = () => {
   // const history = useHistory();
   const router = useRouter();
