@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script"
 
 function Layout({ children }) {
     return (
@@ -25,7 +24,6 @@ function Layout({ children }) {
             <div>
                 {children}
             </div>
-            <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></Script>
         </div>
     );
 }

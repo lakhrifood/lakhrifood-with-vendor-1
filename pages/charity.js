@@ -15,15 +15,15 @@ function charity() {
                 />
 
                 <p className="fs-3">
-                    LAKHRI is an organization aiming to provide home-cooked meals to as many homeless and orphan children as possible for a better hunger-less Bangladesh. We, Lakhri, aim to help them by serving a hot, hygienic, home-cooked meal so that they have the energy and growth to overcome the obstacles in their daily life. A simple gesture can be worth innate humanity. Our intention through Lakhri would be to multiply the effects of goodness through serving a plate of home-cooked food to the hungered ones and that would be that innate humane act.
+                    {`LAKHRI is an organization aiming to provide home-cooked meals to as many homeless and orphan children as possible for a better hunger-less Bangladesh. We, Lakhri, aim to help them by serving a hot, hygienic, home-cooked meal so that they have the energy and growth to overcome the obstacles in their daily life. A simple gesture can be worth innate humanity. Our intention through Lakhri would be to multiply the effects of goodness through serving a plate of home-cooked food to the hungered ones and that would be that innate humane act.`}
                 </p>
 
                 <p className="pt-5 fs-3">
-                    "(The righteous are those) who feed the poor, the orphan and the captive for the love of God, saying: 'We feed you for the sake of God Alone; we seek from you neither reward nor thanks.'" - The Holy Quran, 76:8-9
+                    {`"(The righteous are those) who feed the poor, the orphan and the captive for the love of God, saying: 'We feed you for the sake of God Alone; we seek from you neither reward nor thanks.'" - The Holy Quran, 76:8-9`}
                 </p>
 
                 <p className="pt-5 pb-4 fs-3">
-                    The mission of Lakhri: “To bring change to the lives of homeless and orphan kids”
+                    {`The mission of Lakhri: “To bring change to the lives of homeless and orphan kids”`}
                 </p>
             </div>
             <div>
