@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 const Signin = () => {
-
   const dispatch = useDispatch();
   const [cred, setcred] = useState({
     email: "",
@@ -22,10 +21,10 @@ const Signin = () => {
   const [isVendor, setisVendor] = useState("");
 
   const handleSignin = async () => {
-    console.log(cred)
+    console.log(cred);
     try {
       const { data } = await signinAuthApiForVendor(cred);
-      console.log(data)
+      console.log(data);
       console.log(data.user._id);
       settoken(data.token);
       setid(data.user._id);
@@ -33,7 +32,11 @@ const Signin = () => {
       setusername(data.user.ownerName);
       setemail(data.user.email);
       setisVendor(data.user.status);
-      { data.user.status === "false" ? router.push("/vendor/waiting") : router.push("/vendor/dashboard") }
+      {
+        data.user.status === "false"
+          ? router.push("/vendor/waiting")
+          : router.push("/vendor/dashboard");
+      }
       // router.push("/vendor/");
     } catch (error) {
       console.log(error.message);
@@ -49,10 +52,9 @@ const Signin = () => {
     localStorage.setItem("status", isVendor);
   }, [token, id, username, email, phoneNumber, isVendor]);
 
-
   return (
     <div className={styles.container}>
-      <div className={`card ${ styles.cardLog }`}>
+      <div className={`card ${styles.cardLog}`}>
         <div className={styles.header}>
           <h1>Welcome !</h1>
           <p>Sign Up or Login to Continue.</p>
