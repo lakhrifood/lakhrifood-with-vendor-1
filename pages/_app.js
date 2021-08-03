@@ -3,10 +3,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../state/store";
-import Script from "next/script";
+import Script from 'next/experimental-script'
 
 function MyApp({ Component, pageProps }) {
-  
+
   return (
     <Provider store={store}>
       <ChakraProvider>

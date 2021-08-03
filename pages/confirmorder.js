@@ -11,7 +11,7 @@ import {
 import router from "next/router";
 import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
 
-const confirmorder = () => {
+const Confirmorder = () => {
   const cartList = useSelector((state) => state.order);
   const { globalDiscount } = useSelector((state) => state.food);
   const dispatch = useDispatch();
@@ -88,12 +88,12 @@ const confirmorder = () => {
   return (
     <div>
       <Navbar />
-      <div className={`container ${styles.containersConfirm}`}>
+      <div className={`container ${ styles.containersConfirm }`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
 
           <div className="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Address
             </label>
             <input
@@ -104,7 +104,7 @@ const confirmorder = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Phone Number{" "}
             </label>
             <input
@@ -118,7 +118,7 @@ const confirmorder = () => {
         </div>
         <div className={styles.containerBill}>
           <h5 className={styles.headline}>Your Order </h5>
-          <div className={` ${styles.containeritems}`}>
+          <div className={` ${ styles.containeritems }`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
               <h5> {quantity}</h5>
@@ -174,7 +174,7 @@ const confirmorder = () => {
                 {address === null ? (
                   <button
                     type="button"
-                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                    className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
                     disabled
                   >
                     Checkout
@@ -182,7 +182,7 @@ const confirmorder = () => {
                 ) : (
                   <button
                     type="button"
-                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                    className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
                     onClick={() => {
                       checkoutOrder();
                     }}
@@ -199,4 +199,4 @@ const confirmorder = () => {
   );
 };
 
-export default confirmorder;
+export default Confirmorder;
