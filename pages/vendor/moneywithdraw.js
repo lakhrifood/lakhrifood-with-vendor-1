@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Withdraw from '../../components/vendor/Modal/Withdraw';
 import { useEffect, useState } from 'react';
 import { getBalance, getPaymentHistory, makeWithdraw } from '../../state/Api/payment';
+import dateFormat from 'dateformat';
 
 function Moneywithdraw() {
     const [pendingBalance, setPendingBalance] = useState(null);
@@ -27,7 +28,7 @@ function Moneywithdraw() {
     console.log(history)
 
     useEffect(async () => {
-        const { data } = await getBalance(localStorage.getItem('vendorID'), "pending")
+        const { data } = await getBalance(localStorage.getItem('vendorID'), "pending");
         setPendingBalance(data.amount);
         const history = await getPaymentHistory(localStorage.getItem('vendorID'));
         setHistory(history.data);
@@ -70,7 +71,7 @@ function Moneywithdraw() {
                             <tbody>
                                 {history.map((payment, i) =>
                                     <tr key={i}>
-                                        <th scope="row">{payment.createdAt} </th>
+                                        <th scope="row">{dateFormat(payment.createdAt, "fullDate")} </th>
                                         <td> {payment.amountOfPaid}</td>
                                         <td> {payment.amountOfUnpaid}</td>
                                         <td className={payment.status === "paid" ? "text-uppercase fw-bold text-success" : "text-uppercase fw-bold text-danger"} >{payment.status}</td>

@@ -9,13 +9,16 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthFalse, setAuthTrue } from "../../state/reducers/UserAuth";
 import router from "next/router";
+import { getBalance } from "../../state/Api/payment";
+import { getTotalSales } from "../../state/Api/order";
 
 const Dashboard = () => {
 
   const [updatedStatus, setupdatedStatus] = useState({});
-
+  const [totalEarning, setTotalEarning] = useState(null);
+  const [pendingBalance, setPendingBalance] = useState(null);
+  const [sales, setSales] = useState(null)
   const [orders, setorders] = useState([]);
-  const [pendingAmount, setpendingAmount] = useState(0);
   const getAllVendorOrders = async () => {
     const vid = localStorage.getItem("vendorID");
 
@@ -51,24 +54,21 @@ const Dashboard = () => {
   };
 
 
-  const countDashAmount = () => {
-    orders.map((order, index) => {
-      if (order.product.orderStatus == "accepted") {
-        const oneOrder =
-          order.product.quantity * order.product.price - order.product.discount;
-        console.log(oneOrder, "accepted");
-        setpendingAmount(pendingAmount + oneOrder);
-      }
-    });
-  };
   useEffect(async () => {
-    getAllVendorOrders();
+    const { data } = await getBalance(localStorage.getItem('vendorID'), "pending");
+    setPendingBalance(data.amount);
 
+    const totalearning = await getBalance(localStorage.getItem('vendorID'), "paid");
+    setTotalEarning(totalearning.data.amount);
+
+    const totalSales = await getTotalSales(localStorage.getItem('vendorID'));
+    setSales(totalSales.data.totalSales);
+
+    getAllVendorOrders();
     await checkLogin();
     { isAuthenticated === false && router.push("/vendor/signin") }
     await getUserProfile();
     { user.status === "false" && router.push("/vendor/waiting") }
-    countDashAmount();
   }, [updatedStatus]);
 
   return (
@@ -81,7 +81,7 @@ const Dashboard = () => {
             <div className={styles.card}>
               <div>
                 <h4 className="h5">Pending Amount</h4>
-                <h2 className="h2">{pendingAmount}</h2>
+                <h2 className="h2">{pendingBalance}</h2>
               </div>
               <div>
                 <i className={`fas fa-baby-carriage ${ styles.headicon }`}></i>
@@ -90,7 +90,7 @@ const Dashboard = () => {
             <div className={styles.card}>
               <div>
                 <h4 className="h5">Total Earnings</h4>
-                <h2 className="h2">1340tk</h2>
+                <h2 className="h2">{totalEarning} BDT</h2>
               </div>
               <div>
                 <i className={`fas fa-money-check-alt ${ styles.headicon }`}></i>
@@ -99,7 +99,7 @@ const Dashboard = () => {
             <div className={styles.card}>
               <div>
                 <h4 className="h5">Total Sale</h4>
-                <h2 className="h2">1340</h2>
+                <h2 className="h2">{sales}</h2>
               </div>
               <div>
                 <i className={`fas fa-shopping-basket ${ styles.headicon }`}></i>
@@ -108,7 +108,7 @@ const Dashboard = () => {
             <div className={styles.card}>
               <div>
                 <h4 className="h5">Successfull Order</h4>
-                <h2 className="h2">450</h2>
+                <h2 className="h2">{sales}</h2>
               </div>
               <div>
                 <i className={`fas fa-clipboard-check ${ styles.headicon }`}></i>
@@ -154,7 +154,7 @@ const Dashboard = () => {
                               <div className="row">
                                 <div className="d-flex align-content-center">
                                   <button
-                                    className="btn btn-success"
+                                    className="btn btn-success mr-3"
                                     onClick={async () => {
                                       const datas = {
                                         orderStatus: "accepted",
@@ -202,7 +202,7 @@ const Dashboard = () => {
 
                         </div>
                       ) : (
-                        "No order"
+                        ""
                       )
                     )}
                   </div>
@@ -237,7 +237,7 @@ const Dashboard = () => {
                           </div>
                         </div>
                       ) : (
-                        "No Accepted order"
+                        ""
                       )
                     )}
                   </div>
