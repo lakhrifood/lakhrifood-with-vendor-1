@@ -8,7 +8,7 @@ import {
   getByVendorIDFood,
   getPopularProduct,
   getRecommendedProduct,
-} from "../api/food";
+} from "../Api/food";
 import { getOrderByID } from "../Api/order";
 import {
   getFoodByID,
@@ -116,4 +116,4 @@ export const getAndSetFoodActionByVendorID = (vendorID) => async (dispatch) => {
   } catch (error) {
     console.error(error.message);
   }
-}
+};

@@ -1,4 +1,4 @@
-import { signUpAuth, signinAuthApi } from "../api/auth";
+import { signUpAuth, signinAuthApi } from "../Api/auth";
 import { setAuthTrue, setAuthFalse } from "../reducers/UserAuth";
 
 import { useDispatch, useSelector } from "react-redux";

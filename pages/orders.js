@@ -45,7 +45,7 @@ function Orders() {
     <Layout>
       <Navbar />
 
-      <div className={`page-bg ${ styles.orderContainer }`}>
+      <div className={`page-bg ${styles.orderContainer}`}>
         <div className="container">
           <div className="row">
             <h1 className={styles.title}>Order History</h1>
