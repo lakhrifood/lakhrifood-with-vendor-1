@@ -5,6 +5,7 @@ import ProductCard from '../../components/vendor/ProductCard';
 import { getAndSetFoodAction, getAndSetFoodActionByVendorID } from '../../state/action/FoodActions';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 
 
 function Index() {
@@ -32,7 +33,9 @@ function Index() {
                                 <li><a className="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </div>
-                        <button className={`ms-3 btn ${ styles.addProductBtn }`}>Add Product</button>
+                        <Link href="/vendor/addproducts">
+                            <button className={`ms-3 btn ${ styles.addProductBtn }`}>Add Product</button>
+                        </Link>
                     </div>
                 </div>
 

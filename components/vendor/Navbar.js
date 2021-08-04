@@ -18,7 +18,7 @@ function Navbar() {
   const [user, setuser] = useState({});
   const getUserProfile = async () => {
     const { data } = await axios.get(
-      `https://peaceful-citadel-48843.herokuapp.com/business/one/${localStorage.getItem("vendorID")}`
+      `https://peaceful-citadel-48843.herokuapp.com/business/one/${ localStorage.getItem("vendorID") }`
     );
     console.log(data.status, router, "mycat");
     if (data.status === "false") {
@@ -38,13 +38,20 @@ function Navbar() {
     }
   };
 
+  const handleLogOut = () => {
+    localStorage.removeItem("vtoken");
+    localStorage.removeItem("vName");
+    dispatch(setAuthFalse());
+    router.push("/vendor/signin");
+  }
+
   useEffect(async () => {
     await checkLogin();
     await getUserProfile();
   }, []);
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent ${styles.forVendorManu}`}
+      className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.forVendorManu }`}
     >
       <div className="container">
         <Image src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
@@ -62,7 +69,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {user && user.status === "true" && (
             <ul
-              className={`navbar-nav ms-auto me-auto mb-2 mb-lg-0 ${styles.mainMenu} ${styles.forVendor} `}
+              className={`navbar-nav ms-auto me-auto mb-2 mb-lg-0 ${ styles.mainMenu } ${ styles.forVendor } `}
             >
               <Link href="/vendor/dashboard">
                 <li className="nav-item">
@@ -71,17 +78,24 @@ function Navbar() {
                   </a>
                 </li>
               </Link>
-              <Link href="/vendor/orderhistory">
+              {/* <Link href="/vendor/orderhistory">
                 <li className="nav-item">
                   <a className="nav-link" href="#">
                     Order History
                   </a>
                 </li>
-              </Link>
+              </Link> */}
               <Link href="/vendor/products">
                 <li className="nav-item">
                   <a className="nav-link" href="#">
                     Products
+                  </a>
+                </li>
+              </Link>
+              <Link href="/vendor/moneywithdraw">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Money Withdraws
                   </a>
                 </li>
               </Link>
@@ -98,13 +112,6 @@ function Navbar() {
                   Settings
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link href="/vendor/moneywithdraw">
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Money Withdraws
-                      </a>
-                    </li>
-                  </Link>
                   <Link href="/vendor/support">
                     <li>
                       <a className="dropdown-item" href="#">
@@ -126,7 +133,36 @@ function Navbar() {
           )}
 
           <div className="ms-auto">
-            <i className={`fas ${styles.logoUser} fa-user-circle`}> </i>
+            <div div className="dropdown">
+              <a
+                className="btn btn-light dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {user && user.ownerName}
+              </a>
+
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuLink"
+              >
+                <li>
+                  <Link href="/vendor/profile">
+                    <a className="dropdown-item" href="#">
+                      Profile
+                    </a>
+                  </Link>
+                </li>
+                <li onClick={() => handleLogOut()}>
+                  <a className="dropdown-item" href="#">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
