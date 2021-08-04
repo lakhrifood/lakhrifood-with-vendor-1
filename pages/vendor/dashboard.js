@@ -154,7 +154,7 @@ const Dashboard = () => {
                               <div className="row">
                                 <div className="d-flex align-content-center">
                                   <button
-                                    className="btn btn-success mr-3"
+                                    className="btn btn-success me-3"
                                     onClick={async () => {
                                       const datas = {
                                         orderStatus: "accepted",
