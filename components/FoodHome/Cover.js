@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/Home.module.css";
 import Image from "next/image";
+import router from "next/router";
 const Cover = () => {
   return (
     <div className={styles.headerContainer}>
@@ -16,9 +17,18 @@ const Cover = () => {
             placeholder="Enter Your Area"
             aria-label="Enter Your Area"
             aria-describedby="basic-addon2"
+            onClick={() => {
+              router.push("/menu");
+            }}
           />
           <div className="input-group-append">
-            <button className="btn btn-primary" type="button">
+            <button
+              className="btn btn-primary"
+              type="button"
+              onClick={() => {
+                router.push("/menu");
+              }}
+            >
               Search
             </button>
           </div>

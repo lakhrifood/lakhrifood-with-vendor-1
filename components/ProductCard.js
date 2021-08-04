@@ -79,7 +79,7 @@ function ProductCard({ product }) {
           </div>
           <p>
             <i className="far fa-clock me-1"></i> Delivery Time :
-            {product && product.estimatedDeliveryTime}
+            {product && product.estimatedDeliveryTime} Day
           </p>
         </div>
       </div>
