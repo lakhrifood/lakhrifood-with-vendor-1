@@ -17,6 +17,7 @@
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.6.0",
     "axios": "^0.21.1",
+    "dateformat": "^4.5.1",
     "framer-motion": "^4",
     "next": "10.2.3",
     "next-images": "^1.8.1",

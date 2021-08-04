@@ -34,7 +34,7 @@ function Navbar() {
   }, []);
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent ${styles.navbarShadow}`}
+      className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.navbarShadow }`}
     >
       <div className="container">
         <Image src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
@@ -51,12 +51,12 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
-            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenu} `}
+            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenu } `}
           >
             <Link href="/menu">
               <li className="nav-item">
                 <a
-                  className={`${styles.navlinkFont} nav-link`}
+                  className={`${ styles.navlinkFont } nav-link`}
                   aria-current="page"
                   href="#"
                 >
@@ -66,27 +66,27 @@ function Navbar() {
             </Link>
             <Link href={isAuthenticated ? "/orders" : "/auth/signin"}>
               <li className="nav-item">
-                <a className={`${styles.navlinkFont} nav-link`} href="#">
+                <a className={`${ styles.navlinkFont } nav-link`} href="#">
                   Order
                 </a>
               </li>
             </Link>
             <Link href="/homechefs">
               <li className="nav-item">
-                <a className={`${styles.navlinkFont} nav-link`} href="#">
+                <a className={`${ styles.navlinkFont } nav-link`} href="#">
                   Our Homechefs
                 </a>
               </li>
             </Link>
 
             <li className="nav-item">
-              <a className={`${styles.navlinkFont} nav-link`} href="#">
+              <a className={`${ styles.navlinkFont } nav-link`} href="#">
                 Promotion
               </a>
             </li>
             <Link href={isAuthenticated ? "/support" : "/auth/signin"}>
               <li className="nav-item">
-                <a className={`${styles.navlinkFont} nav-link`} href="#">
+                <a className={`${ styles.navlinkFont } nav-link`} href="#">
                   Contact Us
                 </a>
               </li>
@@ -95,11 +95,11 @@ function Navbar() {
 
           <div className="d-flex flex-w">
             <ul
-              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenuIcon} `}
+              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenuIcon } `}
             >
-              <li className={`${styles.userSection}`}>
+              <li className={`${ styles.userSection }`}>
                 <Link href="/checkout">
-                  <i className={`${styles.logoUser} fas fa-cart-plus `}></i>
+                  <i className={`${ styles.logoUser } fas fa-cart-plus `}></i>
                 </Link>
                 <p className={styles.numberProduct}>{cartList.length}</p>
               </li>
@@ -143,7 +143,7 @@ function Navbar() {
                   </>
                 ) : (
                   <Link href="/auth/signin">
-                    <a className={`btn ${styles.btnSeller}`}>Login/Sign Up</a>
+                    <a className={`btn ${ styles.btnSeller }`}>Login/Sign Up</a>
                   </Link>
                 )}
               </li>
