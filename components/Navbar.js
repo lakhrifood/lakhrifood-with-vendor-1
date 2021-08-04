@@ -37,7 +37,7 @@ function Navbar() {
       className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.navbarShadow }`}
     >
       <div className="container">
-        <Image priority={true} src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
+        <Image priority="eager" src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
         <button
           className="navbar-toggler"
           type="button"
