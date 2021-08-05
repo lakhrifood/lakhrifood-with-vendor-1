@@ -85,11 +85,14 @@ function Navbar() {
               </li>
             </Link>
 
-            <li className="nav-item">
-              <a className={`${ styles.navlinkFont } nav-link`} href="#">
-                Promotion
-              </a>
-            </li>
+            <Link href="/about">
+              <li className="nav-item">
+                <a className={`${ styles.navlinkFont } nav-link`} href="#">
+                  About Us
+                </a>
+              </li>
+            </Link>
+
             <Link href={isAuthenticated ? "/support" : "/auth/signin"}>
               <li className="nav-item">
                 <a className={`${ styles.navlinkFont } nav-link`} href="#">

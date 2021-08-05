@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 const Promotion = () => {
   return (
-    <div>
-      <h1 className={styles.headingpro}>Promotion</h1>
+    <div className="pt-5">
+      <h1 className={`${ styles.headingpro } fw-bold`}>Promotion</h1>
       <div className={styles.promotionsContainer}>
         <div className={styles.Proitems}>
           <div className={styles.Proitem}>
@@ -36,9 +36,11 @@ const Promotion = () => {
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" className="btn btn-bg ms-2">
-              See The Discount Item
-            </button>
+            <Link href="/menu?discount=true">
+              <button type="button" className="btn btn-bg ms-2">
+                See The Discount Item
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles.Proitems}>

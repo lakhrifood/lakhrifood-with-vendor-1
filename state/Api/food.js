@@ -40,6 +40,9 @@ export const getRecommendedProduct = async () =>
 export const getByVendorIDFood = async (vendorID) =>
   await axios.get(`https://peaceful-citadel-48843.herokuapp.com/food/vendor/${ vendorID }`);
 
+export const getFoodByDiscount = async () =>
+  await axios.get(`https://peaceful-citadel-48843.herokuapp.com/food/discount/items`);
+
 // delete food by id
 export const deleteFood = async (id) =>
   await axios.delete(`https://peaceful-citadel-48843.herokuapp.com/food/delete/${ id }`);
@@ -47,3 +50,4 @@ export const deleteFood = async (id) =>
 // publish or unpublish food by id
 export const publishFood = async (id) =>
   await axios.patch(`https://peaceful-citadel-48843.herokuapp.com/food/publish/or/unpublish?productID=${ id }`);
+
