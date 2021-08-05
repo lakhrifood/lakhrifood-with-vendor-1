@@ -11,7 +11,7 @@ function charity() {
                 <Image
                     width={300}
                     height={300}
-                    src="/./svg/Lakhri food logo.svg"
+                    src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139834/assests/Lakhri_food_logo_eqmoie.svg"
                 />
 
                 <p className="fs-3">
@@ -29,7 +29,7 @@ function charity() {
             <div>
                 <img
                     className={styles.charityFristImage}
-                    src="/./WhatsApp Image 2021-07-09 at 8.24.26 PM.png"
+                    src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139343/assests/WhatsApp_Image_2021-07-09_at_8.24.26_PM_sdrewo.png"
                     alt="charity image"
                 />
             </div>
@@ -44,7 +44,7 @@ function charity() {
             <div>
                 <img
                     className={styles.charityFristImage}
-                    src="/./WhatsApp Image 2021-07-09 at 8.24.30 PM.png"
+                    src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139339/assests/WhatsApp_Image_2021-07-09_at_8.24.30_PM_zs0xyv.png"
                     alt="charity image"
                 />
             </div>
@@ -60,7 +60,7 @@ function charity() {
             <div>
                 <img
                     className={styles.charityFristImage}
-                    src="/./WhatsApp Image 2021-07-09 at 8.24.33 PM (1).png"
+                    src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139343/assests/WhatsApp_Image_2021-07-09_at_8.24.33_PM_1_zfwg20.png"
                     alt="charity image"
                 />
             </div>

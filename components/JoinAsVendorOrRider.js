@@ -12,12 +12,12 @@ function JoinAsVendorOrRider() {
                                 <h2 className="text-start">Become a <br /> Rider</h2>
                                 <button className="btn btn-dark">Signup As a Rider</button>
                             </div>
-                            <Image src="/./svg/delivery-boy.svg" width={100} height={100} />
+                            <Image src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139833/assests/delivery-boy_wr4dwm.svg" width={100} height={100} />
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className={styles.riderWrapper}>
-                            <Image src="/./svg/baker.svg" width={100} height={100} />
+                            <Image src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139833/assests/baker_ekhgap.svg" width={100} height={100} />
                             <div className={styles.homechef}>
                                 <h2 className="text-end">Become a <br /> Homechef</h2>
                                 <button className="btn btn-dark">Signup As a Homechef</button>

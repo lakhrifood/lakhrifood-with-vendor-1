@@ -41,7 +41,7 @@ function Profile() {
                 width={200}
                 height={200}
                 className={styles.profilePic}
-                src={user && user.imgURL ? user.imgURL : '/./svg/user.svg'}
+                src={user && user.imgURL ? user.imgURL : 'https://res.cloudinary.com/lakhrifood/image/upload/v1628139349/assests/user_ocaisw.svg'}
               />
               <h1 className={`mt-3`}>
                 {user?.bio}

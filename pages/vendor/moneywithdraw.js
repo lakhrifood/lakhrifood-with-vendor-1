@@ -50,7 +50,7 @@ function Moneywithdraw() {
                             <Image
                                 width={50}
                                 height={50}
-                                src="/./svg/money (1).svg"
+                                src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139346/assests/money_1_akqsut.svg"
                                 className={styles.moneyIMG} />
                             <h1>{pendingBalance} BDT</h1>
                             <p>Pending Balance</p>
