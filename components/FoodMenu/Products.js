@@ -5,6 +5,7 @@ import ProductCard from "../ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAndSetByCategoryFoodAction,
+  getAndSetByDiscountFoodAction,
   getAndSetFoodAction,
   getAndSetFoodActionBySearch,
 } from "../../state/action/FoodActions";
@@ -13,15 +14,18 @@ import { useRouter } from "next/router";
 function Products() {
   const router = useRouter();
   const category = router.query.category;
+  const discount = router.query.discount;
 
   const dispatch = useDispatch();
   const { foods } = useSelector((state) => state.food);
 
   useEffect(() => {
     {
-      category
-        ? dispatch(getAndSetByCategoryFoodAction(category))
-        : dispatch(getAndSetFoodAction())
+      discount === "true"
+        ? dispatch(getAndSetByDiscountFoodAction())
+        : (category
+          ? dispatch(getAndSetByCategoryFoodAction(category))
+          : dispatch(getAndSetFoodAction()))
     }
   }, [category]);
   return (
