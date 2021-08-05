@@ -1,5 +1,6 @@
 .title {
     color: #fff;
+    font-weight: bold;
 }
 
 .FooterLogo {
@@ -7,5 +8,9 @@
 }
 
 .items {
+    color: #fff;
+}
+
+.items :hover {
     color: #fff;
 }

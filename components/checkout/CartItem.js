@@ -21,12 +21,14 @@ const CartItem = ({ item }) => {
   console.log(item, "iasndlajns");
   return (
     <div className={styles.itemContainer}>
-      {/* <Image
-        src="/../public/biriyani.png"
-        alt="Picture of the author"
-        width={90}
-        height={90}
-      /> */}
+      {item.imgURL &&
+        <Image
+          src={item.imgURL}
+          alt="Picture of the author"
+          width={90}
+          height={90}
+        />
+      }
       <div className={styles.detItemSection}>
         <h1>{item.productName}</h1>
       </div>
@@ -63,7 +65,7 @@ const CartItem = ({ item }) => {
         </button>
       </div>
       <i
-        className={`fas fa-times ${styles.iconx}`}
+        className={`fas fa-times ${ styles.iconx }`}
         onClick={() => {
           remove();
         }}
