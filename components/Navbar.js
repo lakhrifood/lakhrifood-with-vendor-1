@@ -37,12 +37,13 @@ function Navbar() {
       className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.navbarShadow }`}
     >
       <div className="container">
-        <Image
-          src={`https://res.cloudinary.com/lakhrifood/image/upload/v1628139313/assests/Lakhri_food_logo_gyynpm.svg`}
-          width={100}
-          height={50}
-          alt="" />
-
+        <Link href="/">
+          <Image
+            src={`https://res.cloudinary.com/lakhrifood/image/upload/v1628139313/assests/Lakhri_food_logo_gyynpm.svg`}
+            width={100}
+            height={50}
+            alt="" />
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -104,7 +105,7 @@ function Navbar() {
             >
               <li className={`${ styles.userSection }`}>
                 <Link href="/checkout">
-                  <i className={`${ styles.logoUser } fas fa-cart-plus `}></i>
+                  <i className={`${ styles.logoUser } text-color fas fa-cart-plus `}></i>
                 </Link>
                 <p className={styles.numberProduct}>{cartList.length}</p>
               </li>

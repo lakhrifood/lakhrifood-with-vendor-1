@@ -42,6 +42,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <Component {...pageProps} />
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></Script>
+        <Script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></Script>
       </ChakraProvider>
     </Provider>
   );

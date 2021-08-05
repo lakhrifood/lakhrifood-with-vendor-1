@@ -10,7 +10,7 @@ const Cover = () => {
           Set Meals <span className={styles.blueTxt}>Delivery</span> In Dhaka
         </h1>
         <p>Choose a set or combine your own and get your order in time.</p>
-        <div className={`input-group mb-3 ${styles.searchField}`}>
+        <div className={`input-group mb-3 ${ styles.searchField }`}>
           <input
             type="text"
             className="form-control"
@@ -22,13 +22,15 @@ const Cover = () => {
             }}
           />
           <div className="input-group-append">
+
             <button
-              className="btn btn-primary"
+              className="btn btn-bg"
               type="button"
               onClick={() => {
                 router.push("/menu");
               }}
             >
+            
               Search
             </button>
           </div>
