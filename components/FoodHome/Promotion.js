@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/Home.module.css";
 import Image from "next/image";
+import Link from "next/link";
 const Promotion = () => {
   return (
     <div>
@@ -9,7 +10,7 @@ const Promotion = () => {
         <div className={styles.Proitems}>
           <div className={styles.Proitem}>
             <Image
-              src="/../public/modern-big-sale-discount-all-260nw-1623606355.png"
+              src="https://res.cloudinary.com/lakhrifood/image/upload/v1628140425/assests/maxresdefault_mfmbnz.png"
               alt="Picture of the author"
               width={350}
               height={210}
@@ -18,7 +19,7 @@ const Promotion = () => {
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-bg ms-2">
               Promo Code
             </button>
           </div>
@@ -26,7 +27,7 @@ const Promotion = () => {
         <div className={styles.Proitems}>
           <div className={styles.Proitem}>
             <Image
-              src="/../public/modern-big-sale-discount-all-260nw-1623606355.png"
+              src="https://res.cloudinary.com/lakhrifood/image/upload/v1628140425/assests/10-Coupon-Vector_rz2qmv.png"
               alt="Picture of the author"
               width={350}
               height={210}
@@ -35,26 +36,28 @@ const Promotion = () => {
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" className="btn btn-primary">
-              Promo Code
+            <button type="button" className="btn btn-bg ms-2">
+              See The Discount Item
             </button>
           </div>
         </div>
         <div className={styles.Proitems}>
           <div className={styles.Proitem}>
             <Image
-              src="/../public/promo-code-coupon-code-flat-set-design-on-white-vector-24176056.png"
+              src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139276/assests/wordpress-donation-plugins_mynevj.png"
               alt="Picture of the author"
               width={350}
               height={210}
             />
-            <h1>APPLY PROMO CODE</h1>
+            <h1>CHARITY AND DONATION</h1>
             <p>
               will be distracted by the readable content of a page when looking{" "}
             </p>
-            <button type="button" className="btn btn-primary">
-              Promo Code
-            </button>
+            <Link href="/charity">
+              <button type="button" className="btn btn-bg ms-2">
+                Donate Food at Charity
+              </button>
+            </Link>
           </div>
         </div>
       </div>

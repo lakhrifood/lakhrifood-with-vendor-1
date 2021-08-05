@@ -61,7 +61,7 @@ const Profile = () => {
             </div>
             <div className="col-md-4">
               <Image
-                src={user && user.imgURL || "/../public/profile.png"}
+                src={user && user.imgURL || "https://res.cloudinary.com/lakhrifood/image/upload/v1628139349/assests/user_ocaisw.svg"}
                 alt="Picture of the author"
                 width={150}
                 height={150}

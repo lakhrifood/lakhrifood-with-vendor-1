@@ -7,7 +7,7 @@ const Questions = () => {
     <div className={styles.QuestionsContainer}>
       <div className={styles.imgQuestion}>
         <Image
-          src="/../public/biriyani.png"
+          src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139318/assests/biriyani_ulyv8d.png"
           alt="Picture of the author"
           width={600}
           height={580}

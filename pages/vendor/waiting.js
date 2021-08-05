@@ -47,7 +47,7 @@ function Waiting() {
                     <Image
                         width={50}
                         height={50}
-                        src="/./svg/loading.svg" />
+                        src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139830/assests/loading_plcihe.svg" />
                     <h1 className="p-3 text-center">
                         Once You accepted By Admin <br />
                         You can Access the Dashboard

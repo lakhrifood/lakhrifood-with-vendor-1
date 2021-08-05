@@ -54,7 +54,7 @@ function Navbar() {
       className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.forVendorManu }`}
     >
       <div className="container">
-        <Image src="/./Lakhri food logo.svg" width={100} height={50} alt="" />
+        <Image src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139834/assests/Lakhri_food_logo_eqmoie.svg" width={100} height={50} alt="" />
         <button
           className="navbar-toggler"
           type="button"

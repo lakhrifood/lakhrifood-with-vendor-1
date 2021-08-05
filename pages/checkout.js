@@ -43,7 +43,7 @@ const Checkout = ({ user }) => {
       {quantity == 0 ? (
         <div className={styles.emptyCard}>
           <Image
-            src="/../public/empty.png"
+            src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139306/assests/empty_wiammp.png"
             alt="empty card"
             width={390}
             height={270}

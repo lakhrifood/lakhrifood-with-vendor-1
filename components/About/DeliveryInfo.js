@@ -8,7 +8,7 @@ function DeliveryInfo() {
             <Image
                 width={300}
                 height={300}
-                src="/./svg/undraw_On_the_way_re_swjt.svg"
+                src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139832/assests/undraw_On_the_way_re_swjt_vngjv8.svg"
             />
             <p>Delivering in Dhaka only for now. <br />
                 Delivery charges are applicable as follows: <br />

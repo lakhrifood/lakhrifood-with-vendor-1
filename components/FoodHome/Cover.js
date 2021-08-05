@@ -26,7 +26,7 @@ const Cover = () => {
       </div>
       <div className={styles.imgSection}>
         <Image
-          src="/../public/9-2-food-png-file.png"
+          src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139303/assests/9-2-food-png-file_rjq0mv.png"
           alt="Picture of the author"
           width={600}
           height={350}

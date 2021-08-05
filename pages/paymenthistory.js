@@ -17,7 +17,7 @@ const paymenthistory = () => {
         <ul className={styles.conUL}>
           <div className={styles.conDiv}>
             <Image
-              src="/../public/Rectangle 31.png"
+              src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139323/assests/Rectangle_31_slba2c.png"
               alt="Picture of the author"
               width={50}
               height={50}
@@ -35,7 +35,7 @@ const paymenthistory = () => {
         <ul className={styles.conUL}>
           <div className={styles.conDiv}>
             <Image
-              src="/../public/Rectangle 31.png"
+              src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139323/assests/Rectangle_31_slba2c.png"
               alt="Picture of the author"
               width={50}
               height={50}
