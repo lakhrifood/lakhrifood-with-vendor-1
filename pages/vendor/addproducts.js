@@ -1,5 +1,5 @@
 import Navbar from "../../components/vendor/Navbar";
-import Footer from '../../components/vendor/Footer/Footer';
+import Footer from "../../components/vendor/Footer/Footer";
 import { Switch } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,7 +15,8 @@ const Addproducts = () => {
     description: "",
     vendorID: "",
   });
-  console.log(product, 'mycat');
+
+  console.log(product, "mycat");
   const [catagories, setcatagories] = useState([]);
   const getCatagories = () => {
     axios
@@ -29,7 +30,7 @@ const Addproducts = () => {
       });
   };
   const postCloudImage = (image) => {
-    document.getElementById('submit').innerHTML = "Uploading Image...";
+    document.getElementById("submit").innerHTML = "Uploading Image...";
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "rentahome");
@@ -42,7 +43,7 @@ const Addproducts = () => {
       .then((data) => {
         console.log(data, "mycat");
         setproduct({ ...product, imgURL: data.url });
-        document.getElementById('submit').innerHTML = "Save";
+        document.getElementById("submit").innerHTML = "Save";
       })
       .catch((err) => {
         console.log(err);
@@ -51,11 +52,10 @@ const Addproducts = () => {
 
   const handleSubmit = () => {
     console.log(product, "success mycat");
-    axios.post("http://localhost:5000/food/add", product)
-      .then(() => {
-        console.log("success mycat");
-        document.getElementById("addProduct").reset();
-      });
+    axios.post("http://localhost:5000/food/add", product).then(() => {
+      console.log("success mycat");
+      document.getElementById("addProduct").reset();
+    });
   };
 
   useEffect(() => {
@@ -94,7 +94,9 @@ const Addproducts = () => {
               >
                 <option selected>Select Category</option>
                 {catagories.map((cat, i) => (
-                  <option key={i} value={cat.name}>{cat.name}</option>
+                  <option key={i} value={cat.name}>
+                    {cat.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -108,7 +110,10 @@ const Addproducts = () => {
                 id="totalQuantity"
                 placeholder="Enter here..."
                 onChange={(e) => {
-                  setproduct({ ...product, totalQuantity: parseInt(e.target.value) });
+                  setproduct({
+                    ...product,
+                    totalQuantity: parseInt(e.target.value),
+                  });
                 }}
               />
             </div>
@@ -139,6 +144,23 @@ const Addproducts = () => {
                 }}
               />
             </div>
+            <div className="mb-3">
+              <label htmlFor="price" className="form-label">
+                Discounted price(Optional)
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="Discounted price"
+                placeholder="Enter here..."
+                onChange={(e) => {
+                  setproduct({
+                    ...product,
+                    discountPrice: parseInt(e.target.value),
+                  });
+                }}
+              />
+            </div>
             {/* <div className="row ml-10">
             <FormControl display="flex" alignItems="center">
               <FormLabel htmlFor="email-alerts" mb="0">
@@ -149,7 +171,10 @@ const Addproducts = () => {
           </div> */}
 
             <div className="mb-3">
-              <label htmlFor="exampleFormControlTextarea1" className="form-label">
+              <label
+                htmlFor="exampleFormControlTextarea1"
+                className="form-label"
+              >
                 Description
               </label>
               <textarea
@@ -163,11 +188,11 @@ const Addproducts = () => {
             </div>
             <div className="col-auto">
               {product.name &&
-                product.description &&
-                product.price &&
-                product.totalQuantity &&
-                product.category
-                ? <button
+              product.description &&
+              product.price &&
+              product.totalQuantity &&
+              product.category ? (
+                <button
                   id="submit"
                   type="button"
                   className="btn btn-primary mb-3"
@@ -175,7 +200,8 @@ const Addproducts = () => {
                 >
                   Save
                 </button>
-                : <button
+              ) : (
+                <button
                   disabled
                   id="submit"
                   type="button"
@@ -183,8 +209,7 @@ const Addproducts = () => {
                 >
                   Save
                 </button>
-              }
-
+              )}
             </div>
           </form>
         </div>
