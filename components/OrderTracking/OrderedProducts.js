@@ -18,6 +18,7 @@ function OrderedProducts({ products }) {
             <th scope="col">Image</th>
             <th scope="col">Food Name</th>
             <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Discount</th>
             <th className="text-end" scope="col">
               Total
@@ -73,6 +74,7 @@ function OrderedProducts({ products }) {
               </td>
               <td>{item.productId.name} </td>
               <td>{item.price}TK</td>
+              <td>{item.quantity}</td>
               <td>{item.discount} TK</td>
               <td className="text-end">
                 {item.price * item.quantity - item.discount} TK
