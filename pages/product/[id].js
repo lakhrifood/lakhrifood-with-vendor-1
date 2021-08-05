@@ -24,6 +24,7 @@ import { AddOrderCartAction } from "../../state/action/OrderAction";
 function Productdetails() {
   const route = useRouter();
   const id = route.asPath.split("id=")[1];
+  console.log(id, 'have a ')
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.order);
   const { food } = useSelector((state) => state.food);
@@ -74,29 +75,24 @@ function Productdetails() {
                 <h1 className={styles.pTitle}>{food.name}</h1>
                 <h5 className={styles.pReting}>
                   <span
-                    className={`fa fa-star ${styles.starIcon}  ${
-                      Math.round(food.averageRating) >= 1 && styles.checked
-                    }`}
+                    className={`fa fa-star ${ styles.starIcon }  ${ Math.round(food.averageRating) >= 1 && styles.checked
+                      }`}
                   ></span>
                   <span
-                    className={`fa fa-star ${styles.starIcon} ${
-                      Math.round(food.averageRating) >= 2 && styles.checked
-                    }`}
+                    className={`fa fa-star ${ styles.starIcon } ${ Math.round(food.averageRating) >= 2 && styles.checked
+                      }`}
                   ></span>
                   <span
-                    className={`fa fa-star ${styles.starIcon} ${
-                      Math.round(food.averageRating) >= 3 && styles.checked
-                    }`}
+                    className={`fa fa-star ${ styles.starIcon } ${ Math.round(food.averageRating) >= 3 && styles.checked
+                      }`}
                   ></span>
                   <span
-                    className={`fa fa-star ${styles.starIcon} ${
-                      Math.round(food.averageRating) >= 4 && styles.checked
-                    }`}
+                    className={`fa fa-star ${ styles.starIcon } ${ Math.round(food.averageRating) >= 4 && styles.checked
+                      }`}
                   ></span>
                   <span
-                    className={`fa fa-star ${styles.starIcon} ${
-                      Math.round(food.averageRating) >= 5 && styles.checked
-                    }`}
+                    className={`fa fa-star ${ styles.starIcon } ${ Math.round(food.averageRating) >= 5 && styles.checked
+                      }`}
                   ></span>
                   ({food.allRatings.length})
                   <small>
@@ -163,14 +159,14 @@ function Productdetails() {
                 </div>
                 {found ? (
                   <button
-                    className={`btn btn-bg ${styles.addCartBtn}`}
+                    className={`btn btn-bg ${ styles.addCartBtn }`}
                     disabled
                   >
                     added to cart
                   </button>
                 ) : (
                   <button
-                    className={`btn btn-bg ${styles.addCartBtn}`}
+                    className={`btn btn-bg ${ styles.addCartBtn }`}
                     onClick={() => {
                       addToCart();
                     }}

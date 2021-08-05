@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 function ProductCard({ product }) {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.order);
-  console.log(product, "see you");
+  console.log(product._id, "see you");
   const { food } = useSelector((state) => state.food);
   const found = cartList.find((element) => element.productId === product._id);
 
