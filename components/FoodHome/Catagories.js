@@ -29,7 +29,7 @@ const responsive = {
 const Catagories = () => {
   return (
     <div className={styles.cataContainer}>
-      <h1>Categories</h1>
+      <h1 className="text-color">Categories</h1>
 
       <div className={`${ styles.categoryWrapper } container pb-3`}>
 
