@@ -37,7 +37,7 @@ function Productdetails() {
   const found = cartList.find((element) => element.productId === food._id);
 
   const addToCart = () => {
-    console.log(food.vendorID, "food.vendorID._id");
+    console.log(food, "food.vendorID._id");
     dispatch(
       AddOrderCartAction({
         productId: food._id,
@@ -45,7 +45,7 @@ function Productdetails() {
         vendorID: food.vendorID,
         price: food.price,
         quantity: 1,
-        discount: 200,
+        discount: food.discountPrice ? food.discountPrice : 0,
       })
     );
   };
@@ -107,7 +107,20 @@ function Productdetails() {
                 <h4 className={styles.subTitle}>Description</h4>
                 <p className={styles.pDetails}>{food.description}</p>
                 <div className={styles.priceAndQuantityWrapper}>
-                  <h4 className={styles.pPrice}>{food.price} BDT</h4>
+                  {food?.discountPrice ? (
+                    <>
+                      <del>{food.discountPrice} BDT OFF</del>
+                      <h3 className={styles.pPrice}>
+                        {food.price - food?.discountPrice}BDT{" "}
+                      </h3>
+                      <br />
+                    </>
+                  ) : (
+                    <>
+                      <h4 className={styles.pPrice}>{food.price} BDT</h4>
+                    </>
+                  )}
+
                   {found ? (
                     <div className={styles.quantityWrapper}>
                       {found?.quantity <= 1 ? (

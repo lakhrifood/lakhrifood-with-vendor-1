@@ -13,7 +13,6 @@ function ProductCard({ product }) {
     dispatch(
       AddOrderCartAction({
         productId: product._id,
-
         productName: product.name,
         price: product.price,
         quantity: 1,
@@ -74,9 +73,23 @@ function ProductCard({ product }) {
             ({product && product.allRatings.length})
           </h5>
           <p>{product && product.description.slice(0, 60)}...</p>
-          <div className="d-flex justify-content-between align-items-center">
-            <h3>{product && product.price} BDT</h3>
-          </div>
+          {product?.discountPrice ? (
+            <>
+              <div className="d-flex justify-content-between align-items-center ">
+                <del>{product && product.price} BDT</del>
+              </div>
+              <div className="d-flex justify-content-between align-items-center">
+                <h3>{product && product.price - product?.discountPrice}BDT </h3>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="d-flex justify-content-between align-items-center">
+                <h3>{product && product.price} BDT</h3>
+              </div>
+            </>
+          )}
+
           <p>
             <i className="far fa-clock me-1"></i> Delivery Time :
             {product && product.estimatedDeliveryTime} Day
