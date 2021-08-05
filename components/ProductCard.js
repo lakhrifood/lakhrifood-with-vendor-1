@@ -77,9 +77,6 @@ function ProductCard({ product }) {
 
         {product?.discountPrice ? (
           <>
-            <div className="d-flex justify-content-between align-items-center ">
-              <del>{product && product.price} BDT</del>
-            </div>
             <div className="d-flex justify-content-between align-items-center">
               <h3>{product && product.price - product?.discountPrice}BDT </h3>
               {found?.quantity <= 1 ? (
@@ -91,6 +88,9 @@ function ProductCard({ product }) {
                   <i className={`  fas fa-cart-plus `}></i>
                 </button>
               )}
+            </div>
+            <div className="d-flex justify-content-between align-items-center ">
+              <del>{product && product.price} BDT</del>
             </div>
           </>
         ) : (

@@ -93,8 +93,8 @@ function Navbar() {
                 </li>
               </Link>
               <Link href="/vendor/moneywithdraw">
-                <li>
-                  <a className="dropdown-item" href="#">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
                     Money Withdraws
                   </a>
                 </li>
