@@ -24,7 +24,7 @@ const Cover = () => {
           </div>
         </div>
       </div>
-      <div className={styles.imgSection}>
+      <div className={`${ styles.imgSection }`}>
         <Image
           src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139303/assests/9-2-food-png-file_rjq0mv.png"
           alt="Picture of the author"

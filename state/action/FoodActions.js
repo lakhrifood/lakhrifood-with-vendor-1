@@ -6,6 +6,7 @@ import {
   getByRatingFood,
   getBySearch,
   getByVendorIDFood,
+  getFoodByDiscount,
   getPopularProduct,
   getRecommendedProduct,
 } from "../Api/food";
@@ -20,6 +21,7 @@ import {
   getPopularFoods,
   setRecommendedFoods,
   getOrderFoodById,
+  getFoodsByDiscount,
 } from "../reducers/FoodSlice";
 
 export const getAndSetFoodAction = () => async (dispatch) => {
@@ -44,6 +46,15 @@ export const getAndSetByCategoryFoodAction = (category) => async (dispatch) => {
   try {
     const { data } = await getByCategoryFood(category);
     dispatch(getFoodsByCategory(data));
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+export const getAndSetByDiscountFoodAction = (category) => async (dispatch) => {
+  try {
+    const { data } = await getFoodByDiscount(category);
+    dispatch(getFoodsByDiscount(data));
   } catch (error) {
     console.error(error.message);
   }

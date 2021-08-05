@@ -1,7 +1,8 @@
 .headerContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 600px;
+  height: fit-content;
+  padding: 50px 0px;
 }
 .textCon {
   height: 100%;
@@ -25,7 +26,7 @@
   color: #179bd7;
 }
 .imgSection {
-  height: 100%;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,7 +184,7 @@
   .headerContainer {
     display: grid;
     grid-template-columns: 1fr;
-    height: 600px;
+    height: fit-content;
   }
   .Proitem {
     height: 390px;

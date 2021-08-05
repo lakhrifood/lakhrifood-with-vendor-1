@@ -16,6 +16,9 @@ export const FoodSlice = createSlice({
     getFoodsByCategory: (state, { payload }) => {
       state.foods = payload;
     },
+    getFoodsByDiscount: (state, { payload }) => {
+      state.foods = payload;
+    },
     getFoodByRating: (state, { payload }) => {
       state.foods = payload;
     },
@@ -51,6 +54,7 @@ export const {
   setRecommendedFoods,
   getPopularFoods,
   getFoodsByCategory,
+  getFoodsByDiscount,
   getFoodByRating,
   getFoodByID,
   getFoodsByPriceFilter,
