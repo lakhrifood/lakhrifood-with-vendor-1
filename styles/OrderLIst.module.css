@@ -11,7 +11,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
+.orderConCards {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 @media screen and (max-width: 1205px) {
   .orderBody {
     display: grid;
