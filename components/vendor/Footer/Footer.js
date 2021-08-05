@@ -28,7 +28,7 @@ function Footer() {
             <footer className="footer-area bg-dark clear-both">
                 <div className="container pt-5">
                     <div className="row py-5">
-                        <FooterCol key={1} menuLogo={"/./Lakhri food logo.svg"} menuItems={noNamed} />
+                        <FooterCol key={1} menuLogo={"https://res.cloudinary.com/lakhrifood/image/upload/v1628139834/assests/Lakhri_food_logo_eqmoie.svg"} menuItems={noNamed} />
                         <FooterCol key={2} menuTitle="For Vendor" menuItems={quickLink} />
                         <FooterCol key={3} menuTitle="Get In Touch" menuItems={getInTouch} >
                             <div className="col-md-8">
