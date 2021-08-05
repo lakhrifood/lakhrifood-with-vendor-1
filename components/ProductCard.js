@@ -7,16 +7,20 @@ import { useDispatch, useSelector } from "react-redux";
 function ProductCard({ product }) {
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.order);
+  console.log(product, "see you");
+  const { food } = useSelector((state) => state.food);
   const found = cartList.find((element) => element.productId === product._id);
 
   const addToCart = () => {
     dispatch(
       AddOrderCartAction({
-        productId: product._id,
-        productName: product.name,
-        price: product.price,
+        productId: food._id,
+        productName: food.name,
+        vendorID: food.vendorID,
+        imgURL: food.imgURL,
+        price: food.price,
         quantity: 1,
-        discount: 200,
+        discount: food.discountPrice ? food.discountPrice : 0,
       })
     );
   };
@@ -80,20 +84,44 @@ function ProductCard({ product }) {
               </div>
               <div className="d-flex justify-content-between align-items-center">
                 <h3>{product && product.price - product?.discountPrice}BDT </h3>
+                {found?.quantity <= 1 ? (
+                  <button className="btn btn-bg" disabled onClick={addToCart}>
+                    <i className={`  fas fa-cart-plus `}></i>
+                  </button>
+                ) : (
+                  <button className="btn btn-bg" onClick={addToCart}>
+                    <i className={`  fas fa-cart-plus `}></i>
+                  </button>
+                )}
               </div>
             </>
           ) : (
             <>
               <div className="d-flex justify-content-between align-items-center">
                 <h3>{product && product.price} BDT</h3>
+
+                {found?.quantity <= 1 ? (
+                  <button className="btn btn-bg" disabled onClick={addToCart}>
+                    <i className={`  fas fa-cart-plus `}></i>
+                  </button>
+                ) : (
+                  <button className="btn btn-bg" onClick={addToCart}>
+                    <i className={`  fas fa-cart-plus `}></i>
+                  </button>
+                )}
               </div>
             </>
           )}
 
-          <p>
-            <i className="far fa-clock me-1"></i> Delivery Time :
-            {product && product.estimatedDeliveryTime} Day
-          </p>
+          {product && product.category === "Fast Food Item" ? (
+            <p>
+              <i className="far fa-clock me-1"></i> 6 hour pre order required
+            </p>
+          ) : (
+            <p>
+              <i className="far fa-clock me-1"></i> 12 hour pre order required
+            </p>
+          )}
         </div>
       </div>
     </Link>

@@ -44,6 +44,7 @@ function Productdetails() {
         productName: food.name,
         vendorID: food.vendorID,
         price: food.price,
+        imgURL: food.imgURL,
         quantity: 1,
         discount: food.discountPrice ? food.discountPrice : 0,
       })
