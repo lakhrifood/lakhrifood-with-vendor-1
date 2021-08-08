@@ -39,16 +39,16 @@ Compared to Food From Restaurants or Takeways ? "
           ans="Lakhri Foods, currently, is only serving within Dhaka city limits."
         />
 
-        <CollapsQue
+        {/* <CollapsQue
           que="What is the procedure for filing a complaint?"
           ans="If the cuisine does not match your expectations on a rare occasion, the cook will normally reward you with a free dinner if you present a solid cause. Lakhri Foods will examine any delivery concerns and take appropriate action, which may include reimbursing your delivery price. Please do not hesitate to contact us via the app's help & support area or via email/phone at:
           complaints@lakhrifoods.com
           +88 01747 229 993
           +88 01747 229 663
           "
-        />
+        /> */}
 
-        <CollapsQue
+        {/* <CollapsQue
           que="How are the Home Chef Choosen?"
           ans="The Lakhri Foods community places a premium on food safety. We only hire the greatest home chefs and hold them to the strictest food safety standards. We examine all kitchens before approving chefs to sell on the platform, and we undertake quarterly house inspections to ensure our high standards are met. We also provide each home-chefs with information on sanitation and packing rules. Every Lakhri Foods meal receives feedback to guarantee that quality and safety standards are never compromised. All complaints are properly investigated, and if there are any safety concerns, such as illness, the home-chef is prohibited from working until the inquiry is completed. If a complaint is valid and substantial, the home-chef will be removed from our platform; the most essential thing to us is that customers may safely enjoy their cuisine.
 "
@@ -75,7 +75,7 @@ Your charity works are done at-least once a month (more depending on the orders 
           que="Who Should I Contact if My Question isn't Answered Here?"
           ans="If you have any questions, please contact us via Messenger, phone or email at: support@lakhrifoods.com
           "
-        />
+        /> */}
       </div>
     </div>
   );
