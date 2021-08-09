@@ -23,7 +23,7 @@ import { getAndSetFoodActionByID } from "../../state/action/FoodActions";
 import { AddOrderCartAction } from "../../state/action/OrderAction";
 function Productdetails() {
   const route = useRouter();
-  const id = route.asPath.split("id=")[1];
+  const id = route.query.id;
   console.log(id, 'have a ')
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.order);
