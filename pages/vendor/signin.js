@@ -26,16 +26,17 @@ const Signin = () => {
       const { data } = await signinAuthApiForVendor(cred);
       console.log(data);
       console.log(data.user._id);
-      settoken(data.token);
-      setid(data.user._id);
-      setphoneNumber(data.phoneNumber);
-      setusername(data.user.ownerName);
-      setemail(data.user.email);
-      setisVendor(data.user.status);
+      await settoken(data.token);
+      await setid(data.user._id);
+      await setphoneNumber(data.phoneNumber);
+      await setusername(data.user.ownerName);
+      await setemail(data.user.email);
+      await setisVendor(data.user.status);
       {
-        data.user.status === "false"
+        localStorage.getItem("vtoken") !== "" &&
+          data.user.status === "false"
           ? router.push("/vendor/waiting")
-          : router.push("/vendor/dashboard");
+          : router.push("/vendor/dashboard")
       }
       // router.push("/vendor/");
     } catch (error) {
@@ -54,7 +55,7 @@ const Signin = () => {
 
   return (
     <div className={styles.container}>
-      <div className={`card ${styles.cardLog}`}>
+      <div className={`card ${ styles.cardLog }`}>
         <div className={styles.header}>
           <h1>Welcome !</h1>
           <p>Sign Up or Login to Continue.</p>

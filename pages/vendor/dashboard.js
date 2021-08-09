@@ -20,10 +20,9 @@ const Dashboard = () => {
   const [sales, setSales] = useState(null)
   const [orders, setorders] = useState([]);
   const getAllVendorOrders = async () => {
-    const vid = localStorage.getItem("vendorID");
 
     const { data } = await axios.get(
-      `https://peaceful-citadel-48843.herokuapp.com/order/business/${ vid }`
+      `https://peaceful-citadel-48843.herokuapp.com/order/business/${ localStorage.getItem("vendorID") }`
     );
     setorders(data);
     console.log(data, "axios");
@@ -43,9 +42,9 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
 
-  const checkLogin = () => {
-    const token = localStorage.getItem("vtoken");
-    const getName = localStorage.getItem("vName");
+  const checkLogin = async () => {
+    const token = await localStorage.getItem("vtoken");
+    const getName = await localStorage.getItem("vName");
     if (token) {
       dispatch(setAuthTrue());
     } else if (!token) {
@@ -55,6 +54,7 @@ const Dashboard = () => {
 
 
   useEffect(async () => {
+
     const { data } = await getBalance(localStorage.getItem('vendorID'), "pending");
     setPendingBalance(data.amount);
 
