@@ -1,5 +1,5 @@
 .productCard {
-  width: 340px;
+  width: 250px;
   border-radius: 10px;
   box-shadow: 3px 4px 10px -1px lightgrey;
   margin-bottom: 20px;
@@ -15,7 +15,7 @@
 }
 
 .productCard p {
-  padding: 4px 0px;
+  padding: 2px 0px;
 }
 
 .checked {
@@ -28,9 +28,29 @@
 }
 
 .productCard h3 {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bold;
   color: #179bd7;
+}
+
+.quantity {
+  display: flex;
+}
+
+.quantity > h1 {
+  margin: 5px 20px;
+}
+.quantity > button {
+  background-color: #179bd7;
+  color: white;
+  height: 31px !important;
+  width: 27px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.quantity > button:disabled {
+  background-color: #5dccff;
 }
 
 @media screen and (max-width: 480px) {

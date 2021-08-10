@@ -40,9 +40,9 @@ function Navbar() {
         <Link href="/">
           <Image
             src={`https://res.cloudinary.com/lakhrifood/image/upload/v1628139313/assests/Lakhri_food_logo_gyynpm.svg`}
-            width={100}
-            height={50}
-            alt="" />
+            width={190}
+            height={60}
+            alt="Lakhri Food Logo" />
         </Link>
         <button
           className="navbar-toggler"
