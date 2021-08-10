@@ -11,7 +11,12 @@ const Signin = () => {
   const dispatch = useDispatch();
   const responseGoogle = (response) => {
     var decoded = jwt_decode(response.tokenId);
-    console.log(decoded, "respdo");
+    console.log(response, "respdo");
+    localStorage.setItem("token", response.tokenId);
+    localStorage.setItem("userId", response.profileObj.googleId);
+    localStorage.setItem("userName", response.Ts.Ne);
+    localStorage.setItem("userEmail", response.profileObj.email);
+    router.push("/");
   };
 
   const [cred, setcred] = useState({
@@ -100,7 +105,8 @@ const Signin = () => {
             </p>
           </button>
           <GoogleLogin
-            clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
+            // clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
+            clientId="939267819184-vkv221guiu71amp963c9q93ebj21flp4.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
