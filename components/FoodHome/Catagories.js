@@ -10,7 +10,7 @@ const Catagories = () => {
     <div className={styles.cataContainer}>
       <h1 className="text-color">Categories</h1>
 
-      <div className={`${ styles.categoryWrapper } container pb-3`}>
+      <div className={`${ styles.categoryWrapper } container px-5 pb-3`}>
 
         <div className={styles.cataCon}>
           <div className={styles.Items}>

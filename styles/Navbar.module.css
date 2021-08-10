@@ -67,7 +67,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  color: black;
+  color: #179bd7 !important;
   position: relative;
 }
 
@@ -79,7 +79,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: Black;
+  background-color: #179bd7;
   animation: manuHover 1s;
 }
 
