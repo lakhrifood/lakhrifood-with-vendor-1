@@ -4,10 +4,15 @@ import { useState, useEffect } from "react";
 import { setAuthTrue } from "../../state/reducers/UserAuth";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import GoogleLogin from "react-google-login";
 import Link from "next/link";
 import { signinAuthApi } from "../../state/Api/auth";
 const Signin = () => {
   const dispatch = useDispatch();
+  const responseGoogle = (response) => {
+    console.log(response, "respdo");
+  };
+
   const [cred, setcred] = useState({
     email: "",
     password: "",
@@ -78,7 +83,6 @@ const Signin = () => {
               }}
             />
           </div>
-
           <button
             type="submit"
             className="btn btn-primary"
@@ -94,6 +98,14 @@ const Signin = () => {
               <i className="fab fa-facebook"></i> Continue With Facebook
             </p>
           </button>
+          <GoogleLogin
+            clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+          ,
           <h1 className="text-center">
             <strong>Or</strong>
           </h1>
