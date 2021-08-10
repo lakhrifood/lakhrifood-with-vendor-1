@@ -1,5 +1,5 @@
 import styles from "../../styles/Auth.module.css";
-
+import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
 import { setAuthTrue } from "../../state/reducers/UserAuth";
 import { useRouter } from "next/router";
@@ -10,7 +10,8 @@ import { signinAuthApi } from "../../state/Api/auth";
 const Signin = () => {
   const dispatch = useDispatch();
   const responseGoogle = (response) => {
-    console.log(response, "respdo");
+    var decoded = jwt_decode(response.tokenId);
+    console.log(decoded, "respdo");
   };
 
   const [cred, setcred] = useState({
