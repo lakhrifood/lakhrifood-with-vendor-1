@@ -21,7 +21,7 @@ function HomechefCard({ business }) {
                     : "https://images.unsplash.com/photo-1500315331616-db4f707c24d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
                 }
                 width="300px"
-                height="280px"
+                height="250px"
                 className={`card-img-top ${styles.cardImage}`}
                 alt="..."
               />
