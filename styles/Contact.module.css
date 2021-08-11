@@ -1,0 +1,47 @@
+.contactwrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+}
+.headerTitle {
+  margin-top: 20px;
+}
+.textBlue {
+  color: #179bd7;
+}
+.supportField {
+  margin-top: 20px;
+}
+.contactInfobox {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.iconCatcher {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #179bd7;
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.det {
+  font-size: 19px;
+  font-weight: 500;
+}
+.secondPart {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (max-width: 600px) {
+  .contactwrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+}

@@ -106,14 +106,14 @@
 }
 .Proitem {
   height: 390px;
-  width: 350px;
+  width: 280px;
   display: flex;
   text-align: left;
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
   box-shadow: 5px 3px 7px 2px #e8e8e8;
-  border-radius: 18px;
+  border-radius: 5px;
 }
 .Proitem > h1 {
   text-align: left !important;
@@ -124,9 +124,9 @@
 
 .Proitem > p {
   text-align: left !important;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 11px;
 }
 .headingpro {
   font-size: 33px;

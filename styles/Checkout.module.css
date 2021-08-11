@@ -5,6 +5,11 @@
   align-items: center;
   flex-direction: column;
 }
+.boxCheckout {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
 .emptyCard {
   height: 100vh;
   width: 100%;
@@ -12,6 +17,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.boxContinue {
+  border: 1px solid #179bd7;
+  color: #179bd7;
+}
+.from {
+  color: rgb(167, 167, 167);
+  font-size: 14px;
 }
 .emptyCardH1 {
   font-size: 33px;
@@ -30,7 +43,7 @@
   align-items: center;
 }
 .detItemSection {
-  width: 50%;
+  width: 31%;
   justify-content: flex-start;
 }
 .iconx {
@@ -41,9 +54,13 @@
   margin: 20px;
 }
 .quantity > button {
-  background-color: black;
+  background-color: #179bd7;
   color: white;
   width: 40px !important;
+}
+.aroundPrice {
+  margin: 20px;
+  font-weight: 500;
 }
 .paymentSec {
   display: flex;

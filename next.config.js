@@ -11,6 +11,11 @@ module.exports = {
 
 module.exports = {
   images: {
-    domains: ["images.unsplash.com", "res.cloudinary.com", "lakhrifood-with-vendor.vercel.app", "lh3.googleusercontent.com"],
+    domains: [
+      "images.unsplash.com",
+      "res.cloudinary.com",
+      "lakhrifood-with-vendor.vercel.app",
+      "lh3.googleusercontent.com",
+    ],
   },
 };

@@ -10,17 +10,27 @@ import {
 } from "../state/action/OrderAction";
 import router from "next/router";
 import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
+import { style } from "dom-helpers";
+import axios from "axios";
 
 const Confirmorder = () => {
   const dispatch = useDispatch();
   const [promo, setpromo] = useState("");
   const cartList = useSelector((state) => state.order);
+  const [allAdress, setallAdress] = useState([]);
   const { globalDiscount } = useSelector((state) => state.food);
   let quantity = 0;
   let totalPrice = 0;
   let deliveryCharge = 25;
   const [address, setaddress] = useState(null);
-  const [phone, setphone] = useState("");
+  const [phone, setphone] = useState(null);
+  const [depen, setdepen] = useState(null);
+  const [newAdressBook, setnewAdressBook] = useState({
+    address: "",
+    phone: "",
+    place: "",
+    userID: "",
+  });
   const [payment, setpayment] = useState("");
   const [userId, setuserId] = useState("");
   let productInfo = [];
@@ -29,6 +39,32 @@ const Confirmorder = () => {
     quantity += item.quantity;
     totalPrice += item.price * item.quantity;
   });
+  const createAdress = async () => {
+    const { data } = await axios.post(
+      "http://localhost:5000/addressBook",
+      newAdressBook
+    );
+
+    setnewAdressBook({
+      address: "",
+      phone: "",
+      place: "",
+    });
+    setdepen(data);
+  };
+  const getAllAdress = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/addressBook/${localStorage.getItem("userId")}`
+    );
+    console.log(data, "pokachu");
+    setallAdress(data);
+  };
+  const deleteAddress = async (id) => {
+    const { data } = await axios.delete(
+      `http://localhost:5000/addressBook/${id}`
+    );
+    setdepen(data);
+  };
   const setPromoDiscount = () => {
     if (promo) {
       dispatch(setDiscountbyPromoCode(promo));
@@ -45,6 +81,7 @@ const Confirmorder = () => {
         discount: item.discount,
       });
     });
+
     dispatch(
       createOrderAction({
         deliveryAddress: address,
@@ -57,9 +94,7 @@ const Confirmorder = () => {
     );
   };
   const checkCred = () => {
-    const phoneNumber = localStorage.getItem("phoneNumber");
     const uid = localStorage.getItem("userId");
-    setphone(phoneNumber);
     setuserId(uid);
     if (quantity == 0) {
       Router.push("/");
@@ -79,19 +114,63 @@ const Confirmorder = () => {
   };
 
   useEffect(async () => {
+    setnewAdressBook({
+      ...newAdressBook,
+      userID: localStorage.getItem("userId"),
+    });
+    getAllAdress();
     await checkLogin();
     {
       !isAuthenticated && router.push("/auth/signin");
     }
     checkCred();
-  }, []);
+  }, [depen]);
   return (
     <div>
       <Navbar />
-      <div className={`container ${ styles.containersConfirm }`}>
+      <div className={`container ${styles.containersConfirm}`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
-
+          <div className={styles.mainAdress}>
+            {allAdress.length === 0 ? (
+              <p class="text-danger">Add address inorder to make this order</p>
+            ) : (
+              <>
+                {" "}
+                {allAdress.map((item) => (
+                  <div className={styles.addressWrapper}>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        onChange={() => {
+                          setaddress(item.address);
+                          setphone(item.phone);
+                        }}
+                      />
+                      <p>{item.place}</p>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        {item.address}
+                      </label>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        {item.phone}
+                      </label>
+                    </div>
+                    <div>
+                      <i
+                        class="fas fa-trash-alt"
+                        onClick={() => {
+                          deleteAddress(item._id);
+                        }}
+                      ></i>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Address
@@ -99,8 +178,10 @@ const Confirmorder = () => {
             <input
               type="text"
               className="form-control"
-              value={address}
-              onChange={(e) => setaddress(e.target.value)}
+              value={newAdressBook.address}
+              onChange={(e) =>
+                setnewAdressBook({ ...newAdressBook, address: e.target.value })
+              }
             />
           </div>
           <div className="mb-3">
@@ -112,13 +193,78 @@ const Confirmorder = () => {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              value={phone}
+              value={newAdressBook.phone}
+              onChange={(e) =>
+                setnewAdressBook({ ...newAdressBook, phone: e.target.value })
+              }
             />
           </div>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            onChange={(e) =>
+              setnewAdressBook({ ...newAdressBook, place: e.target.value })
+            }
+          >
+            <option selected>Select Place</option>
+            <option value="Home">Home</option>
+            <option value="Office">Office</option>
+            <option value="Others">Others</option>
+          </select>
+          {newAdressBook.place &&
+          newAdressBook.phone &&
+          newAdressBook.address &&
+          newAdressBook.userID ? (
+            <>
+              {allAdress.length >= 3 ? (
+                <>
+                  <p>Please delete one adress inorder to add new adress</p>
+                  <button
+                    type="button"
+                    disabled
+                    className="btn btn-primary btn-lg"
+                  >
+                    Create
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-primary btn-lg"
+                  onClick={createAdress}
+                >
+                  Create
+                </button>
+              )}
+            </>
+          ) : (
+            <>
+              {allAdress.length >= 3 ? (
+                <>
+                  <p>Please delete one adress inorder to add new adress</p>
+                  <button
+                    type="button"
+                    disabled
+                    className="btn btn-primary btn-lg"
+                  >
+                    Create
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="btn btn-primary btn-lg"
+                >
+                  Create
+                </button>
+              )}
+            </>
+          )}
         </div>
         <div className={styles.containerBill}>
           <h5 className={styles.headline}>Your Order </h5>
-          <div className={` ${ styles.containeritems }`}>
+          <div className={` ${styles.containeritems}`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
               <h5> {quantity}</h5>
@@ -171,10 +317,10 @@ const Confirmorder = () => {
             </div>
             <div>
               <Link href="/orders">
-                {address === null ? (
+                {address == null && phone == null ? (
                   <button
                     type="button"
-                    className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
+                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
                     disabled
                   >
                     Checkout
@@ -182,7 +328,7 @@ const Confirmorder = () => {
                 ) : (
                   <button
                     type="button"
-                    className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
+                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
                     onClick={() => {
                       checkoutOrder();
                     }}

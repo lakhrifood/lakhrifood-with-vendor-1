@@ -10,6 +10,7 @@ import {
   getAndSetFoodActionBySearch,
 } from "../../state/action/FoodActions";
 import { useRouter } from "next/router";
+import Promotion from "../FoodHome/Promotion";
 
 function Products() {
   const router = useRouter();
@@ -30,6 +31,7 @@ function Products() {
   }, [category]);
   return (
     <div className={styles.productsWrapper}>
+          <Promotion />
       <div className="mt-5 d-flex justify-content-between">
         <div className={`input-group mb-3 w-25 ${ styles.searchField }`}>
           <input

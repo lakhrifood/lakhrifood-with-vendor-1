@@ -8,9 +8,24 @@
   font-weight: 600;
   margin-bottom: 20px;
 }
+.mainAdress {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .paymentSection {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+}
+.addressWrapper {
+  min-height: 50px;
+  display: flex;
+  margin-right: 10px;
+  width: 90%;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px 0 rgba(214, 214, 214, 0.2),
+    0 2px 10px 0 rgba(0, 0, 0, 0.14), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .payItem {
   display: flex;

@@ -8,9 +8,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { setAuthFalse, setAuthTrue } from "../state/reducers/UserAuth";
 
-
 const Checkout = ({ user }) => {
-  console.log(user, "user")
+  console.log(user, "user");
   const cartList = useSelector((state) => state.order);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -62,6 +61,13 @@ const Checkout = ({ user }) => {
               <h1>Total: {totalPrice + 25} BDT</h1>
               <p>Including Delivery Charge : 25.00 BDT</p>
             </div>
+          </div>
+          <div className={styles.boxCheckout}>
+            <Link href={"/menu"}>
+              <button className={`btn ${styles.boxContinue}`}>
+                Continue Shopping
+              </button>
+            </Link>
             <Link href={isAuthenticated ? "/confirmorder" : "/auth/signin"}>
               <button className="btn btn-primary">Checkout</button>
             </Link>
@@ -71,6 +77,5 @@ const Checkout = ({ user }) => {
     </div>
   );
 };
-
 
 export default Checkout;
