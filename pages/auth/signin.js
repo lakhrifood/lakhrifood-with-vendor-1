@@ -6,16 +6,19 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import GoogleLogin from "react-google-login";
 import Link from "next/link";
-import { signinAuthApi } from "../../state/Api/auth";
+import { signinAuthApi, signInGoogleApi } from "../../state/Api/auth";
 const Signin = () => {
   const dispatch = useDispatch();
-  const responseGoogle = (response) => {
+  const responseGoogle = async (response) => {
     var decoded = jwt_decode(response.tokenId);
     console.log(response, "respdo");
-    localStorage.setItem("token", response.tokenId);
-    localStorage.setItem("userId", response.profileObj.googleId);
-    localStorage.setItem("userName", response.Ts.Ne);
-    localStorage.setItem("userEmail", response.profileObj.email);
+    const res = await signInGoogleApi(response.tokenId);
+    settoken(res.data.token);
+    setid(res.data.user._id);
+    setphoneNumber(res.data.phoneNumber);
+    setusername(res.data.user.name);
+    setemail(res.data.user.email);
+    dispatch(setAuthTrue());
     router.push("/");
   };
 
@@ -56,7 +59,7 @@ const Signin = () => {
 
   return (
     <div className={styles.container}>
-      <div className={`card ${styles.cardLog}`}>
+      <div className={`card ${ styles.cardLog }`}>
         <div className={styles.header}>
           <h1>Welcome !</h1>
           <p>Sign Up or Login to Continue.</p>
