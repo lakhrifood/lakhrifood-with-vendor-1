@@ -43,17 +43,6 @@ const Signin = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("vtoken", token);
-    localStorage.setItem("vendorID", id);
-    localStorage.setItem("vName", username);
-    localStorage.setItem("vEmail", email);
-    localStorage.setItem("vphoneNumber", phoneNumber);
-    localStorage.setItem("status", isVendor);
-    {
-      localStorage.getItem("vtoken") === ""
-        ? ""
-        : router.push("/vendor/dashboard")
-    }
   }, []);
 
   return (
