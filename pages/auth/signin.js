@@ -7,7 +7,21 @@ import { useDispatch } from "react-redux";
 import GoogleLogin from "react-google-login";
 import Link from "next/link";
 import { signinAuthApi, signInGoogleApi } from "../../state/Api/auth";
+import FacebookAuth from 'react-facebook-auth';
+
+const MyFacebookButton = ({ onClick }) => (
+  <button onClick={onClick}>
+    Login with facebook
+  </button>
+);
+
 const Signin = () => {
+
+  const authenticate = (response) => {
+    console.log(response);
+    // Api call to server so we can validate the token
+  };
+
   const dispatch = useDispatch();
   const responseGoogle = async (response) => {
     var decoded = jwt_decode(response.tokenId);
@@ -115,7 +129,11 @@ const Signin = () => {
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
           />
-          ,
+          <FacebookAuth
+            appId="1161606900995726"
+            callback={authenticate}
+            component={MyFacebookButton}
+          />
           <h1 className="text-center">
             <strong>Or</strong>
           </h1>

@@ -54,14 +54,14 @@ const Confirmorder = () => {
   };
   const getAllAdress = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/addressBook/${localStorage.getItem("userId")}`
+      `http://localhost:5000/addressBook/${ localStorage.getItem("userId") }`
     );
     console.log(data, "pokachu");
     setallAdress(data);
   };
   const deleteAddress = async (id) => {
     const { data } = await axios.delete(
-      `http://localhost:5000/addressBook/${id}`
+      `http://localhost:5000/addressBook/${ id }`
     );
     setdepen(data);
   };
@@ -128,20 +128,20 @@ const Confirmorder = () => {
   return (
     <div>
       <Navbar />
-      <div className={`container ${styles.containersConfirm}`}>
+      <div className={`container ${ styles.containersConfirm }`}>
         <div>
           <h1 className={styles.headline}>Confirm Order</h1>
           <div className={styles.mainAdress}>
             {allAdress.length === 0 ? (
-              <p class="text-danger">Add address inorder to make this order</p>
+              <p className="text-danger">Add address inorder to make this order</p>
             ) : (
               <>
                 {" "}
-                {allAdress.map((item) => (
-                  <div className={styles.addressWrapper}>
-                    <div class="form-check">
+                {allAdress.map((item, i) => (
+                  <div key={i} className={styles.addressWrapper}>
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault1"
@@ -151,16 +151,16 @@ const Confirmorder = () => {
                         }}
                       />
                       <p>{item.place}</p>
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label className="form-check-label" htmlFor="flexRadioDefault1">
                         {item.address}
                       </label>
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label className="form-check-label" htmlFor="flexRadioDefault1">
                         {item.phone}
                       </label>
                     </div>
                     <div>
                       <i
-                        class="fas fa-trash-alt"
+                        className="fas fa-trash-alt"
                         onClick={() => {
                           deleteAddress(item._id);
                         }}
@@ -200,7 +200,7 @@ const Confirmorder = () => {
             />
           </div>
           <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             onChange={(e) =>
               setnewAdressBook({ ...newAdressBook, place: e.target.value })
@@ -212,9 +212,9 @@ const Confirmorder = () => {
             <option value="Others">Others</option>
           </select>
           {newAdressBook.place &&
-          newAdressBook.phone &&
-          newAdressBook.address &&
-          newAdressBook.userID ? (
+            newAdressBook.phone &&
+            newAdressBook.address &&
+            newAdressBook.userID ? (
             <>
               {allAdress.length >= 3 ? (
                 <>
@@ -222,7 +222,7 @@ const Confirmorder = () => {
                   <button
                     type="button"
                     disabled
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg mt-2"
                   >
                     Create
                   </button>
@@ -230,7 +230,7 @@ const Confirmorder = () => {
               ) : (
                 <button
                   type="button"
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-lg mt-2"
                   onClick={createAdress}
                 >
                   Create
@@ -245,7 +245,7 @@ const Confirmorder = () => {
                   <button
                     type="button"
                     disabled
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg  mt-2"
                   >
                     Create
                   </button>
@@ -254,7 +254,7 @@ const Confirmorder = () => {
                 <button
                   type="button"
                   disabled
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-lg  mt-2"
                 >
                   Create
                 </button>
@@ -264,7 +264,7 @@ const Confirmorder = () => {
         </div>
         <div className={styles.containerBill}>
           <h5 className={styles.headline}>Your Order </h5>
-          <div className={` ${styles.containeritems}`}>
+          <div className={` ${ styles.containeritems }`}>
             <div className={styles.itemCheck}>
               <h5>Quantity </h5>
               <h5> {quantity}</h5>
@@ -320,7 +320,7 @@ const Confirmorder = () => {
                 {address == null && phone == null ? (
                   <button
                     type="button"
-                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                    className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
                     disabled
                   >
                     Checkout
@@ -328,7 +328,7 @@ const Confirmorder = () => {
                 ) : (
                   <button
                     type="button"
-                    className={`btn btn-lg btn-primary ${styles.btnGhor}`}
+                    className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
                     onClick={() => {
                       checkoutOrder();
                     }}

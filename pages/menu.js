@@ -10,6 +10,7 @@ import { getAndSetFoodAction } from "../state/action/FoodActions";
 import { useDispatch } from "react-redux";
 import { getAndSetHomechefsAction } from "../state/action/HomechefAction";
 import { useRouter } from "next/router";
+import Catagories from "../components/FoodHome/Catagories";
 import Promotion from "../components/FoodHome/Promotion";
 
 function Menu() {
@@ -18,8 +19,11 @@ function Menu() {
   return (
     <Layout>
       <Navbar></Navbar>
-
-      <div className={`container ${styles.contentWrapper}`}>
+      <div className="container pt-5">
+        <Catagories />
+        <Promotion />
+      </div>
+      <div className={`container ${ styles.contentWrapper }`}>
         <SideBar></SideBar>
 
         <Products />

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "../components/vendor/Footer/Footer";
-const contact = () => {
+const Contact = () => {
   const [contact, setcontact] = useState({
     name: "",
     email: "",
@@ -41,13 +41,13 @@ const contact = () => {
             </div>
           ) : (
             <div className={`${styles.supportField}`}>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">
                   Name
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlInput1"
                   placeholder="Enter your name"
                   value={contact.name}
@@ -56,13 +56,13 @@ const contact = () => {
                   }
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">
                   Email address
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlInput1"
                   placeholder="name@example.com"
                   value={contact.email}
@@ -71,12 +71,12 @@ const contact = () => {
                   }
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">
                   Message
                 </label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   placeholder="Enter your message"
@@ -106,19 +106,19 @@ const contact = () => {
             </h1>
             <div className={`${styles.contactInfobox}`}>
               <div className={styles.iconCatcher}>
-                <i class="fas fa-mobile"></i>
+                <i className="fas fa-mobile"></i>
               </div>
               <p className={styles.det}>018 1010 5049</p>
             </div>
             <div className={`${styles.contactInfobox}`}>
               <div className={styles.iconCatcher}>
-                <i class="fas fa-envelope-open"></i>
+                <i className="fas fa-envelope-open"></i>
               </div>
               <p className={styles.det}>Info@lakhrifood.com</p>
             </div>
             <div className={`${styles.contactInfobox}`}>
               <div className={styles.iconCatcher}>
-                <i class="fab fa-internet-explorer"></i>
+                <i className="fab fa-internet-explorer"></i>
               </div>
               <p className={styles.det}>www.lakhrifood.com</p>
             </div>
@@ -137,4 +137,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
