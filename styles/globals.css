@@ -59,3 +59,123 @@ a {
   background-color: #8d2ad3;
   color: #fff;
 }
+
+.carousel-indicators [data-bs-target] {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #179bd7 !important;
+}
+
+/* vendor landing page */
+
+.vsignup {
+  height: fit-content;
+  padding: 20px 0px;
+}
+
+.vsignup .title-box {
+  background-image: url("https://res.cloudinary.com/lakhrifood/image/upload/v1628758683/assests/01_uk1rj4.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 13px 20px;
+}
+
+.vsignup .title-box h3 {
+  color: #fff;
+  font-size: 34px;
+  font-weight: 600;
+  padding: 0px 0px 0px 70px;
+}
+/*  */
+.acceptngetready {
+  height: fit-content;
+  padding: 20px 0px;
+}
+
+.acceptngetready .title-box {
+  background-image: url("https://res.cloudinary.com/lakhrifood/image/upload/v1628758683/assests/03_pzmwcs.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 13px 25px;
+}
+
+.acceptngetready .title-box h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 0px 0px 0px 75px;
+}
+/*  */
+.pupload {
+  height: fit-content;
+  padding: 20px 0px;
+}
+
+.pupload .title-box {
+  background-image: url("https://res.cloudinary.com/lakhrifood/image/upload/v1628758680/assests/02_buvaoe.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 13px 20px;
+}
+
+.pupload .title-box h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 0px 0px 0px 70px;
+}
+/*  */
+.wrapndeliver {
+  height: fit-content;
+  padding: 20px 0px;
+}
+
+.wrapndeliver .title-box {
+  background-image: url("https://res.cloudinary.com/lakhrifood/image/upload/v1628758683/assests/04_iswyln.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 13px 20px;
+}
+
+.wrapndeliver .title-box h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 0px 0px 0px 70px;
+}
+/*  */
+.getpayment {
+  height: fit-content;
+  padding: 20px 0px;
+}
+
+.getpayment .title-box {
+  background-image: url("https://res.cloudinary.com/lakhrifood/image/upload/v1628758683/assests/05_ubb0yv.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 13px 51px;
+}
+
+.getpayment .title-box h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 0px 0px 0px 29px;
+}
+/*  */

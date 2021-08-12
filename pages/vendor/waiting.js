@@ -13,7 +13,7 @@ function Waiting() {
         const { data } = await axios.get(
             `https://peaceful-citadel-48843.herokuapp.com/business/one/${ localStorage.getItem("vendorID") }`
         );
-        console.log(data.status, "mycat");
+        console.log(typeof (data.status), "mycat");
 
         setuser(data);
     };
@@ -22,21 +22,24 @@ function Waiting() {
     const dispatch = useDispatch();
     const isAuthenticated = useSelector((state) => state.userAuth.authenticated);
 
-    const checkLogin = () => {
-        const token = localStorage.getItem("vtoken");
-        const getName = localStorage.getItem("vName");
+    const checkLogin = async () => {
+        const token = await localStorage.getItem("vtoken");
+        const getName = await localStorage.getItem("vName");
         if (token) {
             dispatch(setAuthTrue());
-        } else if (!token) {
+            // await getUserProfile();
+        } else if (token === "") {
             dispatch(setAuthFalse());
+            router.push("/vendor/signin");
+        } else {
+            router.push("/vendor/signin");
         }
     };
 
     useEffect(async () => {
         await checkLogin();
         { isAuthenticated === false && router.push("/vendor/signin") }
-        await getUserProfile();
-        { user.status === "true" && router.push("/vendor/dashboard") }
+        
     }, []);
     return (
         <>
