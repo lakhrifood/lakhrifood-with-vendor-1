@@ -10,8 +10,11 @@ import { signinAuthApi, signInGoogleApi } from "../../state/Api/auth";
 import FacebookAuth from 'react-facebook-auth';
 
 const MyFacebookButton = ({ onClick }) => (
-  <button onClick={onClick}>
-    Login with facebook
+  <button onClick={onClick} type="button" className="btn btn-outline-primary">
+    <p className={styles.btnTxt}>
+      {" "}
+      <i className="fab fa-facebook"></i> Continue With Facebook
+    </p>
   </button>
 );
 
@@ -19,7 +22,6 @@ const Signin = () => {
 
   const authenticate = (response) => {
     console.log(response);
-    // Api call to server so we can validate the token
   };
 
   const dispatch = useDispatch();
@@ -115,20 +117,6 @@ const Signin = () => {
           >
             Submit
           </button>
-          <button type="button" className="btn btn-outline-primary">
-            <p className={styles.btnTxt}>
-              {" "}
-              <i className="fab fa-facebook"></i> Continue With Facebook
-            </p>
-          </button>
-          <GoogleLogin
-            // clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
-            clientId="939267819184-vkv221guiu71amp963c9q93ebj21flp4.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={"single_host_origin"}
-          />
           <FacebookAuth
             appId="1161606900995726"
             callback={authenticate}
@@ -137,11 +125,19 @@ const Signin = () => {
           <h1 className="text-center">
             <strong>Or</strong>
           </h1>
-          <button type="button" className="btn btn-outline-danger">
+          <GoogleLogin
+            // clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
+            clientId="939267819184-vkv221guiu71amp963c9q93ebj21flp4.apps.googleusercontent.com"
+            buttonText="Continue With Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+          {/* <button type="button" className="btn btn-outline-danger">
             <p className={styles.btnTxt}>
               <i className="fab fa-google mr-10"></i>Continue With Google
             </p>
-          </button>
+          </button> */}
           <p className="text-center">
             Dont have an account?{" "}
             <strong className="text-color">
