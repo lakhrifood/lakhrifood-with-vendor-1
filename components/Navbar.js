@@ -34,7 +34,7 @@ function Navbar() {
   }, []);
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent ${styles.navbarShadow}`}
+      className={`navbar navbar-expand-lg navbar-light bg-transparent ${ styles.navbarShadow }`}
     >
       <div className="container">
         <Link href="/">
@@ -58,12 +58,12 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
-            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenu} `}
+            className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenu } `}
           >
             <Link href="/menu">
               <li className="nav-item">
                 <a
-                  className={`${styles.navlinkFont} nav-link`}
+                  className={`${ styles.navlinkFont } nav-link`}
                   aria-current="page"
                   href="#"
                 >
@@ -71,16 +71,9 @@ function Navbar() {
                 </a>
               </li>
             </Link>
-            <Link href={isAuthenticated ? "/orders" : "/auth/signin"}>
-              <li className="nav-item">
-                <a className={`${styles.navlinkFont} nav-link`} href="#">
-                  Order
-                </a>
-              </li>
-            </Link>
             <Link href="/homechefs">
               <li className="nav-item">
-                <a className={`${styles.navlinkFont} nav-link`} href="#">
+                <a className={`${ styles.navlinkFont } nav-link`} href="#">
                   Our Homechefs
                 </a>
               </li>
@@ -88,7 +81,7 @@ function Navbar() {
 
             <Link href="/about">
               <li className="nav-item">
-                <a className={`${styles.navlinkFont} nav-link`} href="#">
+                <a className={`${ styles.navlinkFont } nav-link`} href="#">
                   About Us
                 </a>
               </li>
@@ -97,7 +90,7 @@ function Navbar() {
             {isAuthenticated ? (
               <Link href={isAuthenticated ? "/support" : "/auth/signin"}>
                 <li className="nav-item">
-                  <a className={`${styles.navlinkFont} nav-link`} href="#">
+                  <a className={`${ styles.navlinkFont } nav-link`} href="#">
                     Contact Us
                   </a>
                 </li>
@@ -105,7 +98,7 @@ function Navbar() {
             ) : (
               <Link href="/contact">
                 <li className="nav-item">
-                  <a className={`${styles.navlinkFont} nav-link`} href="#">
+                  <a className={`${ styles.navlinkFont } nav-link`} href="#">
                     Contact Us
                   </a>
                 </li>
@@ -115,12 +108,12 @@ function Navbar() {
 
           <div className="d-flex flex-w">
             <ul
-              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${styles.mainMenuIcon} `}
+              className={`navbar-nav me-auto ms-auto mb-2 mb-lg-0 ${ styles.mainMenuIcon } `}
             >
-              <li className={`${styles.userSection}`}>
+              <li className={`${ styles.userSection }`}>
                 <Link href="/checkout">
                   <i
-                    className={`${styles.logoUser} text-color fas fa-cart-plus `}
+                    className={`${ styles.logoUser } text-color fas fa-cart-plus `}
                   ></i>
                 </Link>
                 <p className={styles.numberProduct}>{cartList.length}</p>
@@ -155,6 +148,13 @@ function Navbar() {
                             </a>
                           </Link>
                         </li>
+                        <li>
+                          <Link href={isAuthenticated ? "/orders" : "/auth/signin"}>
+                            <a className={`dropdown-item`} href="#">
+                              Order History
+                            </a>
+                          </Link>
+                        </li>
                         <li onClick={() => handleLogOut()}>
                           <a className="dropdown-item" href="#">
                             Logout
@@ -165,7 +165,7 @@ function Navbar() {
                   </>
                 ) : (
                   <Link href="/auth/signin">
-                    <a className={`btn ${styles.btnSeller}`}>Login/Sign Up</a>
+                    <a className={`btn ${ styles.btnSeller }`}>Login/Sign Up</a>
                   </Link>
                 )}
               </li>
