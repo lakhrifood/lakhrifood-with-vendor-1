@@ -16,6 +16,7 @@ module.exports = {
       "res.cloudinary.com",
       "lakhrifood-with-vendor.vercel.app",
       "lh3.googleusercontent.com",
+      "platform-lookaside.fbsbx.com",
     ],
   },
 };
