@@ -21,7 +21,6 @@ const Signin = () => {
   const [isVendor, setisVendor] = useState("");
 
   const handleSignin = async () => {
-    console.log(cred);
     try {
       const { data } = await signinAuthApiForVendor(cred);
       await settoken(data.token);
@@ -30,12 +29,7 @@ const Signin = () => {
       await setusername(data.user.ownerName);
       await setemail(data.user.email);
       await setisVendor(data.user.status);
-      await localStorage.setItem("vtoken", token);
-      await localStorage.setItem("vendorID", id);
-      await localStorage.setItem("vName", username);
-      await localStorage.setItem("vEmail", email);
-      await localStorage.setItem("vphoneNumber", phoneNumber);
-      await localStorage.setItem("status", isVendor);
+      dispatch(setAuthTrue());
       router.push("/vendor/dashboard");
     } catch (error) {
       console.log(error.message);
@@ -43,7 +37,13 @@ const Signin = () => {
   };
 
   useEffect(() => {
-  }, []);
+    localStorage.setItem("vtoken", token);
+    localStorage.setItem("vendorID", id);
+    localStorage.setItem("vName", username);
+    localStorage.setItem("vEmail", email);
+    localStorage.setItem("vphoneNumber", phoneNumber);
+    localStorage.setItem("status", isVendor);
+  }, [token, id, username, email, phoneNumber, isVendor]);
 
   return (
     <div className={styles.container}>
