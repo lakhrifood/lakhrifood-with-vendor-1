@@ -128,7 +128,7 @@ const Signin = () => {
           </h1>
           <GoogleLogin
             // clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
-            clientId="939267819184-vkv221guiu71amp963c9q93ebj21flp4.apps.googleusercontent.com"
+            clientId="66555235728-td9c4vhn0nithkrscgc66j2g4gtgq2uk.apps.googleusercontent.com"
             buttonText="Continue With Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
