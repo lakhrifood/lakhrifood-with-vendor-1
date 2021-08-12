@@ -36,12 +36,7 @@ const Signin = () => {
       await localStorage.setItem("vEmail", email);
       await localStorage.setItem("vphoneNumber", phoneNumber);
       await localStorage.setItem("status", isVendor);
-      {
-        localStorage.getItem("vtoken") !== "" &&
-          data.user.status === "false"
-          ? router.push("/vendor/waiting")
-          : router.push("/vendor/dashboard")
-      }
+
       // router.push("/vendor/");
     } catch (error) {
       console.log(error.message);
@@ -49,7 +44,12 @@ const Signin = () => {
   };
 
   useEffect(() => {
-
+    {
+      localStorage.getItem("vtoken") !== "" &&
+        data.user.status === "false"
+        ? router.push("/vendor/waiting")
+        : router.push("/vendor/dashboard")
+    }
   }, [token, id, username, email, phoneNumber, isVendor]);
 
   return (
