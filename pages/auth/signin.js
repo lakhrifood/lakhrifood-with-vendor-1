@@ -21,6 +21,7 @@ const MyFacebookButton = ({ onClick }) => (
 const Signin = () => {
 
   const authenticateWithFacebook = async (response) => {
+    console.log(response)
     const { name, email, accessToken, picture } = response;
     const res = await signInFacebookApi(accessToken, name, email, picture.data.url);
     settoken(res.data.token);
