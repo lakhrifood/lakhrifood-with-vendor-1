@@ -12,6 +12,7 @@ import Footer from "../components/vendor/Footer/Footer";
 import Navbar from "../components/Navbar";
 import JoinAsVendorOrRider from "../components/JoinAsVendorOrRider";
 import Questions from "../components/FoodHome/Questions";
+import OurApp from "../components/FoodHome/OurApp";
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -28,6 +29,7 @@ export default function Home() {
         <MostOrdered />
         <RecommendedHomeChef />
         <RecommendedProduct />
+        <OurApp />
         <Questions />
       </div>
       <JoinAsVendorOrRider />
