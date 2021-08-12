@@ -120,6 +120,7 @@ const Signin = () => {
           <FacebookAuth
             appId="1161606900995726"
             callback={authenticate}
+            fields="name,email,picture"
             component={MyFacebookButton}
           />
           <h1 className="text-center">
