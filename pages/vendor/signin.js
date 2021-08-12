@@ -19,7 +19,6 @@ const Signin = () => {
   const [email, setemail] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
   const [isVendor, setisVendor] = useState("");
-  const [dep, setDep] = useState(null)
 
   const handleSignin = async () => {
     console.log(cred);
@@ -37,18 +36,25 @@ const Signin = () => {
       await localStorage.setItem("vEmail", email);
       await localStorage.setItem("vphoneNumber", phoneNumber);
       await localStorage.setItem("status", isVendor);
-      setDep(data);
-      // router.push("/vendor/");
+      router.push("/vendor/dashboard");
     } catch (error) {
       console.log(error.message);
     }
   };
 
   useEffect(() => {
+    localStorage.setItem("vtoken", token);
+    localStorage.setItem("vendorID", id);
+    localStorage.setItem("vName", username);
+    localStorage.setItem("vEmail", email);
+    localStorage.setItem("vphoneNumber", phoneNumber);
+    localStorage.setItem("status", isVendor);
     {
-      localStorage.getItem("vtoken") === "" && router.push("/vendor/dashboard")
+      localStorage.getItem("vtoken") === ""
+        ? ""
+        : router.push("/vendor/dashboard")
     }
-  }, [dep]);
+  }, []);
 
   return (
     <div className={styles.container}>
