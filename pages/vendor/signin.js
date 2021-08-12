@@ -24,14 +24,18 @@ const Signin = () => {
     console.log(cred);
     try {
       const { data } = await signinAuthApiForVendor(cred);
-      console.log(data);
-      console.log(data.user._id);
       await settoken(data.token);
       await setid(data.user._id);
       await setphoneNumber(data.phoneNumber);
       await setusername(data.user.ownerName);
       await setemail(data.user.email);
       await setisVendor(data.user.status);
+      await localStorage.setItem("vtoken", token);
+      await localStorage.setItem("vendorID", id);
+      await localStorage.setItem("vName", username);
+      await localStorage.setItem("vEmail", email);
+      await localStorage.setItem("vphoneNumber", phoneNumber);
+      await localStorage.setItem("status", isVendor);
       {
         localStorage.getItem("vtoken") !== "" &&
           data.user.status === "false"
@@ -45,12 +49,7 @@ const Signin = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("vtoken", token);
-    localStorage.setItem("vendorID", id);
-    localStorage.setItem("vName", username);
-    localStorage.setItem("vEmail", email);
-    localStorage.setItem("vphoneNumber", phoneNumber);
-    localStorage.setItem("status", isVendor);
+
   }, [token, id, username, email, phoneNumber, isVendor]);
 
   return (
