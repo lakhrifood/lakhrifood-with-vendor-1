@@ -19,6 +19,7 @@ const Signin = () => {
   const [email, setemail] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
   const [isVendor, setisVendor] = useState("");
+  const [dep, setDep] = useState(null)
 
   const handleSignin = async () => {
     console.log(cred);
@@ -36,7 +37,7 @@ const Signin = () => {
       await localStorage.setItem("vEmail", email);
       await localStorage.setItem("vphoneNumber", phoneNumber);
       await localStorage.setItem("status", isVendor);
-
+      setDep(data);
       // router.push("/vendor/");
     } catch (error) {
       console.log(error.message);
@@ -50,7 +51,7 @@ const Signin = () => {
         ? router.push("/vendor/waiting")
         : router.push("/vendor/dashboard")
     }
-  }, [token, id, username, email, phoneNumber, isVendor]);
+  }, [dep]);
 
   return (
     <div className={styles.container}>
