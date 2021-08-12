@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Image from "next/image";
 import router from "next/router";
 const Cover = () => {
+
+  const [search, setSearch] = useState(null);
+
   return (
     <div className={styles.headerContainer}>
       <div className={styles.textCon}>
@@ -14,12 +17,10 @@ const Cover = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Enter Your Area"
+            placeholder="Enter Your Favorite Food Name"
             aria-label="Enter Your Area"
             aria-describedby="basic-addon2"
-            onClick={() => {
-              router.push("/menu");
-            }}
+            onChange={e => setSearch(e.target.value)}
           />
           <div className="input-group-append">
 
@@ -27,22 +28,41 @@ const Cover = () => {
               className="btn btn-bg"
               type="button"
               onClick={() => {
-                router.push("/menu");
+                router.push(`/menu?search=${ search }`);
               }}
             >
-            
               Search
             </button>
           </div>
         </div>
       </div>
       <div className={`${ styles.imgSection }`}>
-        <Image
+
+        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div className="carousel-inner">
+            <div className="carousel-item active" data-bs-interval="3000">
+              <img src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139303/assests/9-2-food-png-file_rjq0mv.png" className="d-block  img-fluid" alt="..." />
+            </div>
+            <div className="carousel-item" data-bs-interval="3000">
+              <img src="https://res.cloudinary.com/lakhrifood/image/upload/v1628753966/assests/2-2-food-png-hd_bjbkmv.png" className="d-block  img-fluid" alt="..." />
+            </div>
+            <div className="carousel-item" data-bs-interval="3000">
+              <img src="https://res.cloudinary.com/lakhrifood/image/upload/v1628753962/assests/4-2-food-png_utchne.png" className="d-block  img-fluid" alt="..." />
+            </div>
+          </div>
+        </div>
+
+        {/* <Image
           src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139303/assests/9-2-food-png-file_rjq0mv.png"
           alt="Picture of the author"
           width={600}
           height={350}
-        />
+        /> */}
       </div>
     </div>
   );

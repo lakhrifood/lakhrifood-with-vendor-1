@@ -15,19 +15,21 @@ function Products() {
   const router = useRouter();
   const category = router.query.category;
   const discount = router.query.discount;
+  const search = router.query.search;
 
   const dispatch = useDispatch();
   const { foods } = useSelector((state) => state.food);
 
   useEffect(() => {
     {
-      discount === "true"
-        ? dispatch(getAndSetByDiscountFoodAction())
-        : (category
-          ? dispatch(getAndSetByCategoryFoodAction(category))
-          : dispatch(getAndSetFoodAction()))
+      search ? dispatch(getAndSetFoodActionBySearch(search))
+        : (discount === "true"
+          ? dispatch(getAndSetByDiscountFoodAction())
+          : (category
+            ? dispatch(getAndSetByCategoryFoodAction(category))
+            : dispatch(getAndSetFoodAction())))
     }
-  }, [category]);
+  }, [category, discount, search]);
   return (
     <div className={styles.productsWrapper}>
       <div className="mt-5 d-flex justify-content-between">

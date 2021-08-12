@@ -45,30 +45,33 @@ const Dashboard = () => {
   const checkLogin = async () => {
     const token = await localStorage.getItem("vtoken");
     const getName = await localStorage.getItem("vName");
+    console.log(token)
     if (token) {
       dispatch(setAuthTrue());
-    } else if (!token) {
+      // await getUserProfile();
+      const { data } = await getBalance(localStorage.getItem('vendorID'), "pending");
+      setPendingBalance(data.amount);
+
+      const totalearning = await getBalance(localStorage.getItem('vendorID'), "paid");
+      setTotalEarning(totalearning.data.amount);
+
+      const totalSales = await getTotalSales(localStorage.getItem('vendorID'));
+      setSales(totalSales.data.totalSales);
+
+      getAllVendorOrders();
+    } else if (token === "") {
       dispatch(setAuthFalse());
+      router.push("/vendor/signin");
+    } else {
+      router.push("/vendor/signin");
     }
   };
 
 
   useEffect(async () => {
-
-    const { data } = await getBalance(localStorage.getItem('vendorID'), "pending");
-    setPendingBalance(data.amount);
-
-    const totalearning = await getBalance(localStorage.getItem('vendorID'), "paid");
-    setTotalEarning(totalearning.data.amount);
-
-    const totalSales = await getTotalSales(localStorage.getItem('vendorID'));
-    setSales(totalSales.data.totalSales);
-
-    getAllVendorOrders();
     await checkLogin();
     { isAuthenticated === false && router.push("/vendor/signin") }
-    await getUserProfile();
-    { user.status === "false" && router.push("/vendor/waiting") }
+    
   }, [updatedStatus]);
 
   return (

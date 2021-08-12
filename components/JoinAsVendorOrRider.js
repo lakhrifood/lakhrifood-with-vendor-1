@@ -21,7 +21,7 @@ function JoinAsVendorOrRider() {
                             <Image src="https://res.cloudinary.com/lakhrifood/image/upload/v1628142155/assests/undraw_Chef_cu0r_mterdm.svg" width={100} height={100} />
                             <div className={styles.homechef}>
                                 <h2 className="text-end text-dark">Become a <br /> Homechef</h2>
-                                <Link href="/vendor/signup">
+                                <Link href="/vendor">
                                     <button className="btn btn-dark">Signup As a Homechef</button>
                                 </Link>
                             </div>
