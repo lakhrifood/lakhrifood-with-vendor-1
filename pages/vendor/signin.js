@@ -46,10 +46,7 @@ const Signin = () => {
 
   useEffect(() => {
     {
-      localStorage.getItem("vtoken") !== "" &&
-        data.user.status === "false"
-        ? router.push("/vendor/waiting")
-        : router.push("/vendor/dashboard")
+      localStorage.getItem("vtoken") === "" && router.push("/vendor/dashboard")
     }
   }, [dep]);
 
