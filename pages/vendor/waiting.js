@@ -13,8 +13,9 @@ function Waiting() {
         const { data } = await axios.get(
             `https://peaceful-citadel-48843.herokuapp.com/business/one/${ localStorage.getItem("vendorID") }`
         );
-        console.log(typeof (data.status), "mycat");
-
+        if (data.status === "true") {
+            router.push("/vendor/dashboard");
+        }
         setuser(data);
     };
 
@@ -27,7 +28,7 @@ function Waiting() {
         const getName = await localStorage.getItem("vName");
         if (token) {
             dispatch(setAuthTrue());
-            // await getUserProfile();
+            await getUserProfile();
         } else if (token === "") {
             dispatch(setAuthFalse());
             router.push("/vendor/signin");
@@ -39,7 +40,7 @@ function Waiting() {
     useEffect(async () => {
         await checkLogin();
         { isAuthenticated === false && router.push("/vendor/signin") }
-        
+
     }, []);
     return (
         <>

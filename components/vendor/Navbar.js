@@ -23,9 +23,6 @@ function Navbar() {
     if (data.status === "false") {
       router.push("/vendor/waiting");
     }
-    if (data.status === "true") {
-      router.push("/vendor/dashboard");
-    }
     setuser(data);
   };
 
