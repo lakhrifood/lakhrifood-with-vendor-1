@@ -12,7 +12,10 @@ export const signinAuthApi = async (userInfo) =>
   axios.post("https://peaceful-citadel-48843.herokuapp.com/auth/user/signin", userInfo);
 
 export const signInGoogleApi = async (token) =>
-  axios.post("http://localhost:5000/auth/google/signin", { token: token });
+  axios.post("https://peaceful-citadel-48843.herokuapp.com/auth/google/signin", { token: token });
+
+export const signInFacebookApi = async (token, name, email, picture) =>
+  axios.post("https://peaceful-citadel-48843.herokuapp.com/auth/facebook/signin", { token: token, name: name, email: email, picture: picture });
 
 export const signinAuthApiForVendor = async (userInfo) =>
   axios.post("https://peaceful-citadel-48843.herokuapp.com/auth/business/signin", userInfo);

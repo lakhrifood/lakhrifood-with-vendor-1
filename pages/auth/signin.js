@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import GoogleLogin from "react-google-login";
 import Link from "next/link";
-import { signinAuthApi, signInGoogleApi } from "../../state/Api/auth";
+import { signinAuthApi, signInFacebookApi, signInGoogleApi } from "../../state/Api/auth";
 import FacebookAuth from 'react-facebook-auth';
 
 const MyFacebookButton = ({ onClick }) => (
@@ -20,8 +20,16 @@ const MyFacebookButton = ({ onClick }) => (
 
 const Signin = () => {
 
-  const authenticate = (response) => {
-    console.log(response);
+  const authenticateWithFacebook = async (response) => {
+    const { name, email, accessToken, picture } = response;
+    const res = await signInFacebookApi(accessToken, name, email, picture.data.url);
+    settoken(res.data.token);
+    setid(res.data.user._id);
+    setphoneNumber(res.data.phoneNumber);
+    setusername(res.data.user.name);
+    setemail(res.data.user.email);
+    dispatch(setAuthTrue());
+    router.push("/");
   };
 
   const dispatch = useDispatch();
@@ -119,8 +127,7 @@ const Signin = () => {
           </button>
           <FacebookAuth
             appId="1161606900995726"
-            callback={authenticate}
-            fields="name,email,picture"
+            callback={authenticateWithFacebook}
             component={MyFacebookButton}
           />
           <h1 className="text-center">

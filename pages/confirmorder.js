@@ -41,7 +41,7 @@ const Confirmorder = () => {
   });
   const createAdress = async () => {
     const { data } = await axios.post(
-      "http://localhost:5000/addressBook",
+      "https://peaceful-citadel-48843.herokuapp.com/addressBook",
       newAdressBook
     );
 
@@ -54,14 +54,14 @@ const Confirmorder = () => {
   };
   const getAllAdress = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/addressBook/${ localStorage.getItem("userId") }`
+      `https://peaceful-citadel-48843.herokuapp.com/addressBook/${ localStorage.getItem("userId") }`
     );
     console.log(data, "pokachu");
     setallAdress(data);
   };
   const deleteAddress = async (id) => {
     const { data } = await axios.delete(
-      `http://localhost:5000/addressBook/${ id }`
+      `https://peaceful-citadel-48843.herokuapp.com/addressBook/${ id }`
     );
     setdepen(data);
   };

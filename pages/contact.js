@@ -15,7 +15,7 @@ const Contact = () => {
   const [showDone, setshowDone] = useState(false);
 
   const submitQue = async () => {
-    await axios.post("http://localhost:5000/contact", contact);
+    await axios.post("https://peaceful-citadel-48843.herokuapp.com/contact", contact);
     console.log(contact, "pikachu");
     setcontact({
       name: "",
