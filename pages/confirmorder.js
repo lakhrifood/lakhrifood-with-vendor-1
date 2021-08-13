@@ -19,7 +19,7 @@ const Confirmorder = () => {
   const [promo, setpromo] = useState("");
   const cartList = useSelector((state) => state.order);
   const [allAdress, setallAdress] = useState([]);
-  const { globalDiscount } = useSelector((state) => state.food);
+  const { globalDiscount, promoMsg } = useSelector((state) => state.food);
   let quantity = 0;
   let totalPrice = 0;
   let deliveryCharge = 25;
@@ -69,7 +69,7 @@ const Confirmorder = () => {
   };
   const setPromoDiscount = () => {
     if (promo) {
-      dispatch(setDiscountbyPromoCode(promo));
+      dispatch(setDiscountbyPromoCode(promo, localStorage.getItem("userId")));
     }
   };
   const checkoutOrder = async () => {
@@ -309,6 +309,25 @@ const Confirmorder = () => {
                 check
               </button>
             </div>
+            {globalDiscount ? (
+              <div className={styles.itemCheck}>
+                <h5>Voucher Discount </h5>
+                <h5> {globalDiscount}BDT</h5>
+              </div>
+            ) : null}
+            <div className={styles.itemCheck}></div>
+            {promoMsg && <p className="text-danger text-center fw-bold">{promoMsg}</p>}
+            <div className={styles.itemCheck}>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Promo code"
+                aria-label="Enter Promo code"
+                aria-describedby="basic-addon2"
+                value={promo}
+                onChange={(e) => setpromo(e.target.value)}
+              />
+              <div className="input-group-append">
           </div>
           <div className={styles.itemCheck}>
             <h5 className={styles.headline}>Total </h5>
