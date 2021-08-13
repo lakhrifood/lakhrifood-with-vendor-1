@@ -8,6 +8,16 @@
   font-weight: 600;
   margin-bottom: 20px;
 }
+.successH1{
+  font-size: 36px;
+}
+.success{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center; 
+ height: 80vh;
+}
 .mainAdress {
   display: grid;
   grid-template-columns: 1fr 1fr;

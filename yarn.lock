@@ -3633,6 +3633,13 @@ react-easy-swipe@^0.0.21:
   dependencies:
     prop-types "^15.5.8"
 
+react-facebook-auth@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-facebook-auth/-/react-facebook-auth-1.4.0.tgz#9765208a931046c6e8ff27aa69c8d74194fe67b9"
+  integrity sha512-OcTqp9CfhdEfT2pf5qEUGu8HYHy6fEJw45ndUFI6ZEXuvy6hjghzN1VS0+1mwODzItinPT+aSEemeTHx3qpXrw==
+  dependencies:
+    prop-types "^15.6.0"
+
 react-fast-compare@3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
