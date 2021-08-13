@@ -84,7 +84,7 @@ const Confirmorder = () => {
       });
     });
 
-   await dispatch(
+    await dispatch(
       createOrderAction({
         deliveryAddress: address,
         paymentType: payment,
@@ -129,261 +129,263 @@ const Confirmorder = () => {
     checkCred();
   }, [depen]);
   return (
-    <div>
+    <>
       <Navbar />
       {
-      Success ? orderSuccess() :  <div className={`container ${ styles.containersConfirm }`}>
-      <div>
-        <h1 className={styles.headline}>Confirm Order</h1>
-        <div className={styles.mainAdress}>
-          {allAdress.length === 0 ? (
-            <p className="text-danger">Add address inorder to make this order</p>
-          ) : (
-            <>
-              {" "}
-              {allAdress.map((item, i) => (
-                <div key={i} className={styles.addressWrapper}>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                      onChange={() => {
-                        setaddress(item.address);
-                        setphone(item.phone);
-                      }}
-                    />
-                    <p>{item.place}</p>
-                    <label className="form-check-label" htmlFor="flexRadioDefault1">
-                      {item.address}
-                    </label>
-                    <label className="form-check-label" htmlFor="flexRadioDefault1">
-                      {item.phone}
-                    </label>
+        Success ? orderSuccess() :
+          <div className={`container ${ styles.containersConfirm }`}>
+            <div>
+              <h1 className={styles.headline}>Confirm Order</h1>
+              <div className={styles.mainAdress}>
+                {allAdress.length === 0 ? (
+                  <p className="text-danger">Add address inorder to make this order</p>
+                ) : (
+                  <>
+                    {" "}
+                    {allAdress.map((item, i) => (
+                      <div key={i} className={styles.addressWrapper}>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="flexRadioDefault1"
+                            onChange={() => {
+                              setaddress(item.address);
+                              setphone(item.phone);
+                            }}
+                          />
+                          <p>{item.place}</p>
+                          <label className="form-check-label" htmlFor="flexRadioDefault1">
+                            {item.address}
+                          </label>
+                          <label className="form-check-label" htmlFor="flexRadioDefault1">
+                            {item.phone}
+                          </label>
+                        </div>
+                        <div>
+                          <i
+                            className="fas fa-trash-alt"
+                            onClick={() => {
+                              deleteAddress(item._id);
+                            }}
+                          ></i>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={newAdressBook.address}
+                  onChange={(e) =>
+                    setnewAdressBook({ ...newAdressBook, address: e.target.value })
+                  }
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
+                  Phone Number{" "}
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  value={newAdressBook.phone}
+                  onChange={(e) =>
+                    setnewAdressBook({ ...newAdressBook, phone: e.target.value })
+                  }
+                />
+              </div>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                onChange={(e) =>
+                  setnewAdressBook({ ...newAdressBook, place: e.target.value })
+                }
+              >
+                <option selected>Select Place</option>
+                <option value="Home">Home</option>
+                <option value="Office">Office</option>
+                <option value="Others">Others</option>
+              </select>
+              {newAdressBook.place &&
+                newAdressBook.phone &&
+                newAdressBook.address &&
+                newAdressBook.userID ? (
+                <>
+                  {allAdress.length >= 3 ? (
+                    <>
+                      <p>Please delete one adress inorder to add new adress</p>
+                      <button
+                        type="button"
+                        disabled
+                        className="btn btn-primary btn-lg mt-2"
+                      >
+                        Create
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-primary btn-lg mt-2"
+                      onClick={createAdress}
+                    >
+                      Create
+                    </button>
+                  )}
+                </>
+              ) : (
+                <>
+                  {allAdress.length >= 3 ? (
+                    <>
+                      <p>Please delete one adress inorder to add new adress</p>
+                      <button
+                        type="button"
+                        disabled
+                        className="btn btn-primary btn-lg  mt-2"
+                      >
+                        Create
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      disabled
+                      className="btn btn-primary btn-lg  mt-2"
+                    >
+                      Create
+                    </button>
+                  )}
+                </>
+              )}
+            </div>
+            <div className={styles.containerBill}>
+              <h5 className={styles.headline}>Your Order </h5>
+              <div className={` ${ styles.containeritems }`}>
+                <div className={styles.itemCheck}>
+                  <h5>Quantity </h5>
+                  <h5> {quantity}</h5>
+                </div>
+                <div className={styles.itemCheck}>
+                  <h5>Price </h5>
+                  <h5> {totalPrice} BDT</h5>
+                </div>
+                <div className={styles.itemCheck}>
+                  <h5>Delivery Charge </h5>
+                  <h5> {deliveryCharge}BDT</h5>
+                </div>
+                {globalDiscount ? (
+                  <div className={styles.itemCheck}>
+                    <h5>Voucher Discount </h5>
+                    <h5> {globalDiscount}BDT</h5>
                   </div>
-                  <div>
-                    <i
-                      className="fas fa-trash-alt"
+                ) : null}
+                <div className={styles.itemCheck}></div>
+                <div className={styles.itemCheck}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter Promo code"
+                    aria-label="Enter Promo code"
+                    aria-describedby="basic-addon2"
+                    value={promo}
+                    onChange={(e) => setpromo(e.target.value)}
+                  />
+                  <div className="input-group-append">
+                    <button
+                      className="btn btn-primary"
+                      type="button"
                       onClick={() => {
-                        deleteAddress(item._id);
+                        setPromoDiscount();
                       }}
-                    ></i>
+                    >
+                      check
+                    </button>
+                  </div>
+                  {globalDiscount ? (
+                    <div className={styles.itemCheck}>
+                      <h5>Voucher Discount </h5>
+                      <h5> {globalDiscount}BDT</h5>
+                    </div>
+                  ) : null}
+                  <div className={styles.itemCheck}></div>
+                  {promoMsg && <p className="text-danger text-center fw-bold">{promoMsg}</p>}
+                  <div className={styles.itemCheck}>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter Promo code"
+                      aria-label="Enter Promo code"
+                      aria-describedby="basic-addon2"
+                      value={promo}
+                      onChange={(e) => setpromo(e.target.value)}
+                    />
+                    <div className="input-group-append">
+                    </div>
+                    <div className={styles.itemCheck}>
+                      <h5 className={styles.headline}>Total </h5>
+                      <h5 className={styles.headline}>
+                        {globalDiscount
+                          ? totalPrice + deliveryCharge - globalDiscount
+                          : totalPrice + deliveryCharge}
+                        BDT
+                      </h5>
+                    </div>
+                    <div>
+
+                      {address == null && phone == null ? (
+                        <button
+                          type="button"
+                          className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
+                          disabled
+                        >
+                          Checkout
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
+                          onClick={() => {
+                            checkoutOrder();
+                          }}
+                        >
+                          Checkout
+                        </button>
+                      )}
+
+                    </div>
                   </div>
                 </div>
-              ))}
-            </>
-          )}
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Address
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            value={newAdressBook.address}
-            onChange={(e) =>
-              setnewAdressBook({ ...newAdressBook, address: e.target.value })
-            }
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Phone Number{" "}
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            value={newAdressBook.phone}
-            onChange={(e) =>
-              setnewAdressBook({ ...newAdressBook, phone: e.target.value })
-            }
-          />
-        </div>
-        <select
-          className="form-select"
-          aria-label="Default select example"
-          onChange={(e) =>
-            setnewAdressBook({ ...newAdressBook, place: e.target.value })
-          }
-        >
-          <option selected>Select Place</option>
-          <option value="Home">Home</option>
-          <option value="Office">Office</option>
-          <option value="Others">Others</option>
-        </select>
-        {newAdressBook.place &&
-          newAdressBook.phone &&
-          newAdressBook.address &&
-          newAdressBook.userID ? (
-          <>
-            {allAdress.length >= 3 ? (
-              <>
-                <p>Please delete one adress inorder to add new adress</p>
-                <button
-                  type="button"
-                  disabled
-                  className="btn btn-primary btn-lg mt-2"
-                >
-                  Create
-                </button>
-              </>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-primary btn-lg mt-2"
-                onClick={createAdress}
-              >
-                Create
-              </button>
-            )}
-          </>
-        ) : (
-          <>
-            {allAdress.length >= 3 ? (
-              <>
-                <p>Please delete one adress inorder to add new adress</p>
-                <button
-                  type="button"
-                  disabled
-                  className="btn btn-primary btn-lg  mt-2"
-                >
-                  Create
-                </button>
-              </>
-            ) : (
-              <button
-                type="button"
-                disabled
-                className="btn btn-primary btn-lg  mt-2"
-              >
-                Create
-              </button>
-            )}
-          </>
-        )}
-      </div>
-      <div className={styles.containerBill}>
-        <h5 className={styles.headline}>Your Order </h5>
-        <div className={` ${ styles.containeritems }`}>
-          <div className={styles.itemCheck}>
-            <h5>Quantity </h5>
-            <h5> {quantity}</h5>
-          </div>
-          <div className={styles.itemCheck}>
-            <h5>Price </h5>
-            <h5> {totalPrice} BDT</h5>
-          </div>
-          <div className={styles.itemCheck}>
-            <h5>Delivery Charge </h5>
-            <h5> {deliveryCharge}BDT</h5>
-          </div>
-          {globalDiscount ? (
-            <div className={styles.itemCheck}>
-              <h5>Voucher Discount </h5>
-              <h5> {globalDiscount}BDT</h5>
-            </div>
-          ) : null}
-          <div className={styles.itemCheck}></div>
-          <div className={styles.itemCheck}>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter Promo code"
-              aria-label="Enter Promo code"
-              aria-describedby="basic-addon2"
-              value={promo}
-              onChange={(e) => setpromo(e.target.value)}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-primary"
-                type="button"
-                onClick={() => {
-                  setPromoDiscount();
-                }}
-              >
-                check
-              </button>
-            </div>
-            {globalDiscount ? (
-              <div className={styles.itemCheck}>
-                <h5>Voucher Discount </h5>
-                <h5> {globalDiscount}BDT</h5>
               </div>
-            ) : null}
-            <div className={styles.itemCheck}></div>
-            {promoMsg && <p className="text-danger text-center fw-bold">{promoMsg}</p>}
-            <div className={styles.itemCheck}>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter Promo code"
-                aria-label="Enter Promo code"
-                aria-describedby="basic-addon2"
-                value={promo}
-                onChange={(e) => setpromo(e.target.value)}
-              />
-              <div className="input-group-append">
+            </div>
           </div>
-          <div className={styles.itemCheck}>
-            <h5 className={styles.headline}>Total </h5>
-            <h5 className={styles.headline}>
-              {globalDiscount
-                ? totalPrice + deliveryCharge - globalDiscount
-                : totalPrice + deliveryCharge}
-              BDT
-            </h5>
-          </div>
-          <div>
-       
-              {address == null && phone == null ? (
-                <button
-                  type="button"
-                  className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
-                  disabled
-                >
-                  Checkout
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className={`btn btn-lg btn-primary ${ styles.btnGhor }`}
-                  onClick={() => {
-                    checkoutOrder();
-                  }}
-                >
-                  Checkout
-                </button>
-              )}
-        
-          </div>
-        </div>
-      </div>
-    </div>
       }
-     
-    </div>
+    </>
   );
 };
 
 
 const orderSuccess = () => {
   return (
-    <div className={ styles.success}>
-      <h1 className={ styles.successH1}>Your Order is Confirmed!</h1>
+    <div className={styles.success}>
+      <h1 className={styles.successH1}>Your Order is Confirmed!</h1>
       <p>Thanks for Your Order</p>
       <Image
-          width={400}
-          height={250}
-          src="https://res.cloudinary.com/lakhrifood/image/upload/v1628753092/assests/Group_2043_ghdm2g.png"
+        width={400}
+        height={250}
+        src="https://res.cloudinary.com/lakhrifood/image/upload/v1628753092/assests/Group_2043_ghdm2g.png"
       />
       <br />
       <Link href="/orders">
-      <button className="btn btn-primary">Done</button>
+        <button className="btn btn-primary">Done</button>
       </Link>
     </div>
   )
