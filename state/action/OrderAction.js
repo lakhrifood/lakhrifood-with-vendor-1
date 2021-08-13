@@ -5,13 +5,16 @@ import {
   getOrderByUserID,
   getOrderDiscountByPromoCode,
 } from "../Api/order";
-import { setDiscount, removeDiscount } from "../reducers/FoodSlice";
+import { setDiscount, removeDiscount, setPromoMsg } from "../reducers/FoodSlice";
 
-export const setDiscountbyPromoCode = (promoCode) => {
+export const setDiscountbyPromoCode = (promoCode, userID) => {
   return async (dispatch, getState) => {
-    const { data } = await getOrderDiscountByPromoCode(promoCode);
+    const { data } = await getOrderDiscountByPromoCode(promoCode, userID);
     console.log(data, "distrpppp");
-    if (data) {
+    if (data.massage) {
+      dispatch(setPromoMsg(data.massage));
+    }
+    if (data.discount) {
       dispatch(setDiscount(data.discount));
     }
   };

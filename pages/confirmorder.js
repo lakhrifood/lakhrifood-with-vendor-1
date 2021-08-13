@@ -18,7 +18,7 @@ const Confirmorder = () => {
   const [promo, setpromo] = useState("");
   const cartList = useSelector((state) => state.order);
   const [allAdress, setallAdress] = useState([]);
-  const { globalDiscount } = useSelector((state) => state.food);
+  const { globalDiscount, promoMsg } = useSelector((state) => state.food);
   let quantity = 0;
   let totalPrice = 0;
   let deliveryCharge = 25;
@@ -67,7 +67,7 @@ const Confirmorder = () => {
   };
   const setPromoDiscount = () => {
     if (promo) {
-      dispatch(setDiscountbyPromoCode(promo));
+      dispatch(setDiscountbyPromoCode(promo, localStorage.getItem("userId")));
     }
   };
   const checkoutOrder = async () => {
@@ -284,6 +284,7 @@ const Confirmorder = () => {
               </div>
             ) : null}
             <div className={styles.itemCheck}></div>
+            {promoMsg && <p className="text-danger text-center fw-bold">{promoMsg}</p>}
             <div className={styles.itemCheck}>
               <input
                 type="text"

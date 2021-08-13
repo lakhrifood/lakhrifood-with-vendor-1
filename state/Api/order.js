@@ -12,8 +12,8 @@ export const getOrderByID = async (ID) =>
   await axios.get(`${ baseUrl }/by/order/${ ID }`);
 
 
-export const getOrderDiscountByPromoCode = async (promoCode) =>
-  await axios.get(`https://peaceful-citadel-48843.herokuapp.com/promo/get/byid/${ promoCode }`);
+export const getOrderDiscountByPromoCode = async (promoCode, userID) =>
+  await axios.get(`https://peaceful-citadel-48843.herokuapp.com/promo/get/promo?promoCode=${ promoCode }&userID=${ userID }`);
 
 export const getTotalSales = async (vendorID) =>
   await axios.get(`https://peaceful-citadel-48843.herokuapp.com/payment/total/sales?vendorID=${ vendorID }`);
