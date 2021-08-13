@@ -12,10 +12,63 @@
   justify-content: center;
   margin-left: 80px;
 }
+.infosec {
+  margin-top: -178px;
+  padding: 10px;
+}
+.infosec > h1 {
+  color: white;
+  font-size: 29px;
+  font-weight: 700;
+}
+.infosec > p {
+  color: rgb(201, 201, 201);
+  font-size: 13px;
+  font-weight: 400;
+}
+.imageChar {
+  height: 292px;
+  display: table;
+  width: 100%;
+  background-position: center top;
+
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+}
+.imageChar1 {
+  height: 292px;
+  display: table;
+  width: 100%;
+  background-position: center top;
+
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1607083206203-821b1f96c7f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=791&q=80");
+}
+.imageChar2 {
+  height: 292px;
+  display: table;
+  width: 100%;
+  background-position: center top;
+
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/lakhrifood/image/upload/v1628140425/assests/10-Coupon-Vector_rz2qmv.png");
+}
+
 .textCon > h1 {
   font-size: 42px;
   width: 60%;
   font-weight: 600;
+}
+.btnChar {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.542);
+  font-size: 18px;
+  font-weight: 400;
+  padding: 4px;
+  margin-top: 10px;
 }
 .textCon > p {
   font-size: 19px;
@@ -52,14 +105,14 @@
 
 /* Track */
 .cataCon::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 10px;
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 0px;
 }
 
 /* Handle */
 .cataCon::-webkit-scrollbar-thumb {
   background: #179bd7;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 /* Handle on hover */
@@ -81,7 +134,7 @@
   flex-direction: column;
 }
 .item {
-  height: 180px;
+  height: 163px;
   width: 70%;
   background-color: #b2d6e7;
   display: flex;
@@ -105,15 +158,13 @@
   justify-content: center;
 }
 .Proitem {
-  height: 390px;
   width: 280px;
   display: flex;
   text-align: left;
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
-  box-shadow: 5px 3px 7px 2px #e8e8e8;
-  border-radius: 5px;
+  /* box-shadow: 5px 3px 7px 2px #e8e8e8; */
 }
 .Proitem > h1 {
   text-align: left !important;
