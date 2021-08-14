@@ -5,9 +5,9 @@ import Link from "next/link";
 const Promotion = () => {
   return (
     <div className="pt-5">
-      <h1 className={`${ styles.headingpro } fw-bold`}>Promotion</h1>
+      <h1 className={`${styles.headingpro} fw-bold`}>Promotion</h1>
       <div className={styles.promotionsContainer}>
-        <div className={styles.Proitems}>
+        {/* <div className={styles.Proitems}>
           <div className={styles.Proitem}>
             <Image
               src="https://res.cloudinary.com/lakhrifood/image/upload/v1628140425/assests/maxresdefault_mfmbnz.png"
@@ -42,24 +42,54 @@ const Promotion = () => {
               </button>
             </Link>
           </div>
+        </div> */}
+        <div className={styles.Proitems}>
+          <div className={styles.Proitem}>
+            <div className={styles.imageChar}></div>
+            <div className={styles.infosec}>
+              <h1>CHARITY AND DONATION</h1>
+              <p>
+                will be distracted by the readable content of a page when
+                looking{" "}
+              </p>
+              <Link href="/charity">
+                <button type="button" className={styles.btnChar}>
+                  Donate Food at Charity
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
         <div className={styles.Proitems}>
           <div className={styles.Proitem}>
-            <Image
-              src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139276/assests/wordpress-donation-plugins_mynevj.png"
-              alt="Picture of the author"
-              width={350}
-              height={210}
-            />
-            <h1>CHARITY AND DONATION</h1>
-            <p>
-              will be distracted by the readable content of a page when looking{" "}
-            </p>
-            <Link href="/charity">
-              <button type="button" className="btn btn-bg ms-2">
+            <div className={styles.imageChar1}></div>
+            <div className={styles.infosec}>
+              <h1>APPLY PROMO CODE</h1>
+              <p>
+                will be distracted by the readable content of a page when
+                looking{" "}
+              </p>
+
+              <button type="button" className={styles.btnChar}>
                 Donate Food at Charity
               </button>
-            </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.Proitems}>
+          <div className={styles.Proitem}>
+            <div className={styles.imageChar2}></div>
+            <div className={styles.infosec}>
+              <h1>APPLY PROMO CODE</h1>
+              <p>
+                will be distracted by the readable content of a page when
+                looking{" "}
+              </p>
+
+              <button type="button" className={styles.btnChar}>
+                Donate Food at Charity
+              </button>
+            </div>
           </div>
         </div>
       </div>

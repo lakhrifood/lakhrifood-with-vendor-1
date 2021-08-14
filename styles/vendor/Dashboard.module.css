@@ -46,3 +46,17 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 1002px) {
+  .header {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+}
+
+@media screen and (max-width: 459px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
