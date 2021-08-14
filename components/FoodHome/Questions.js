@@ -34,10 +34,10 @@ Compared to Food From Restaurants or Takeways ? "
           que="Do you Provide Delivery Services? "
           ans="Yes. All meals are delivered to the address you provide when placing your order, which might be your home, business, or any other location within our service region."
         />
-        <CollapsQue
+        {/* <CollapsQue
           que="Which Regions Lakhri Foods Delivered to?"
           ans="Lakhri Foods, currently, is only serving within Dhaka city limits."
-        />
+        /> */}
 
         {/* <CollapsQue
           que="What is the procedure for filing a complaint?"
