@@ -19,8 +19,8 @@ function Menu() {
   return (
     <Layout>
       <Navbar></Navbar>
-      <div className="container pt-5">
-        <Catagories />
+      <div className="container">
+        {/* <Catagories />   */}
         <Promotion />
       </div>
       <div className={`container ${ styles.contentWrapper }`}>

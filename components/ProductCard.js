@@ -6,6 +6,7 @@ import { AddOrderCartAction } from "../state/action/OrderAction";
 import { useDispatch, useSelector } from "react-redux";
 import { addQuantity, reduceQuantity, removeOrder } from "../state/reducers/OrderSlice";
 function ProductCard({ product }) {
+  console.log(product)
   const dispatch = useDispatch();
   const cartList = useSelector((state) => state.order);
 
@@ -44,6 +45,7 @@ function ProductCard({ product }) {
         <>
           <Link
             href={`/product/${ product && product._id }`}
+            as={`/product/${ product && product._id }`}
           >
             <Image
               src={
@@ -59,6 +61,7 @@ function ProductCard({ product }) {
           <div className="card-body">
             <Link
               href={`/product/${ product && product._id }`}
+              as={`/product/${ product && product._id }`}
             >
               <h5 className="pb-1"> {product && product.name}</h5>
             </Link>
@@ -90,7 +93,7 @@ function ProductCard({ product }) {
               ></span>
               ({product && product.allRatings.length})
             </h5>
-            <p>{product && product.description.slice(0, 60)}...</p>
+            <p className="fw-bold text-secondary">{product && product.category}</p>
 
             {product?.discountPrice ? (
               <>

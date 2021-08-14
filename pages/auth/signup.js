@@ -10,6 +10,8 @@ const Signup = () => {
   const router = useRouter();
   const [error, setError] = useState(null);
   const [successSignUs, setSuccessSignUs] = useState(false);
+  const [password, setPassword] = useState('')
+  const [Cpassword, setCPassword] = useState('')
   const dispatch = useDispatch();
   const [cred, setcred] = useState({
     name: "",
@@ -17,11 +19,6 @@ const Signup = () => {
     password: "",
     phoneNumber: "",
     authenticationType: "normal",
-    address: "",
-    gender: "",
-    division: "",
-    city: "",
-    country: "bangladesh",
   });
   const handleSignup = async () => {
     try {
@@ -35,7 +32,7 @@ const Signup = () => {
   return (
     <div className={styles.containerSignup}>
       {successSignUs ? (
-        <div className={`card ${styles.cardSuccessSignup}`}>
+        <div className={`card ${ styles.cardSuccessSignup }`}>
           <h1 className="fs-2">
             <i className="fas text-success fa-check-circle"></i> Successfully
             Signed Up!
@@ -49,7 +46,7 @@ const Signup = () => {
           </h1>
         </div>
       ) : (
-        <div className={`card ${styles.cardLogSignup}`}>
+        <div className={`card ${ styles.cardLogSignup }`}>
           <div className={styles.cardInput}>
             <div className="form-group">
               <label className={styles.labels} htmlFor="exampleInputEmail1">
@@ -68,20 +65,40 @@ const Signup = () => {
               />
             </div>
             <div className="form-group">
-              <label className={styles.labels} htmlFor="exampleInputPassword1">
+              <label className={styles.labels} htmlFor="password">
                 Password
               </label>
               <input
                 type="password"
                 className="form-control"
-                id="exampleInputPassword1"
+                id="password"
                 placeholder="Password"
                 value={cred.password}
                 onChange={(e) => {
                   setcred({ ...cred, password: e.target.value });
+                  setPassword(e.target.value);
                 }}
               />
             </div>
+            <div className="form-group">
+              <label className={styles.labels} htmlFor="confirmPassword">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="confirmPassword"
+                placeholder="Confirmed Password"
+                onChange={(e) => {
+                  setCPassword(e.target.value);
+                }}
+              />
+            </div>
+
+            {password === Cpassword ? ("") : (
+              <p className="text-danger fw-normal">Your password is not same!</p>
+            )}
+
             <div className="form-group">
               <label className={styles.labels} htmlFor="exampleInputEmail1">
                 Name
@@ -115,7 +132,7 @@ const Signup = () => {
               />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label className={styles.labels} htmlFor="exampleInputEmail1">
                 Address
               </label>
@@ -186,17 +203,32 @@ const Signup = () => {
                 <option value="Dhaka">Dhaka</option>
                 <option value="Rajshahi">Rajshahi</option>
               </select>
-            </div>
+            </div> */}
 
-            <button
-              type="submit"
-              className="btn btn-primary mt-3"
-              onClick={() => {
-                handleSignup();
-              }}
-            >
-              Submit
-            </button>
+            {password === Cpassword ? (
+              <button
+                type="submit"
+                className="btn btn-primary mt-3"
+                onClick={() => {
+                  handleSignup();
+                }}
+              >
+                Submit
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="btn btn-primary mt-3"
+                disabled
+                onClick={() => {
+                  handleSignup();
+                }}
+              >
+                Submit
+              </button>
+            )}
+
+
             <div className="mt-3 text-center">
               {error ? <p className={styles.error}>{error}</p> : null}
               <p>

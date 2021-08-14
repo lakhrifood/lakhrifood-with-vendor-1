@@ -11,7 +11,7 @@ function JoinAsVendorOrRider() {
                         <div className={styles.riderWrapper}>
                             <div className={styles.rider}>
                                 <h2 className="text-start text-dark">Become a <br /> Rider</h2>
-                                <button className="btn btn-dark">Signup As a Rider</button>
+                                <button className="btn btn-bg">Signup As a Rider</button>
                             </div>
                             <Image className="mt-4" src="https://res.cloudinary.com/lakhrifood/image/upload/v1628139832/assests/undraw_On_the_way_re_swjt_vngjv8.svg" width={100} height={100} />
                         </div>
@@ -22,7 +22,7 @@ function JoinAsVendorOrRider() {
                             <div className={styles.homechef}>
                                 <h2 className="text-end text-dark">Become a <br /> Homechef</h2>
                                 <Link href="/vendor">
-                                    <button className="btn btn-dark">Signup As a Homechef</button>
+                                    <button className="btn btn-bg">Signup As a Homechef</button>
                                 </Link>
                             </div>
                         </div>

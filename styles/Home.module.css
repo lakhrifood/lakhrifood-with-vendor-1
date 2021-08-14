@@ -13,7 +13,7 @@
   margin-left: 80px;
 }
 .infosec {
-  margin-top: -178px;
+  margin-top: -195px;
   padding: 10px;
 }
 .infosec > h1 {
@@ -27,7 +27,8 @@
   font-weight: 400;
 }
 .imageChar {
-  height: 292px;
+  height: 236px;
+  border-radius: 15px;
   display: table;
   width: 100%;
   background-position: center top;
@@ -37,7 +38,8 @@
     url("https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
 }
 .imageChar1 {
-  height: 292px;
+  height: 236px;
+  border-radius: 15px;
   display: table;
   width: 100%;
   background-position: center top;
@@ -47,7 +49,8 @@
     url("https://images.unsplash.com/photo-1607083206203-821b1f96c7f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=791&q=80");
 }
 .imageChar2 {
-  height: 292px;
+  height: 236px;
+  border-radius: 15px;
   display: table;
   width: 100%;
   background-position: center top;
@@ -96,28 +99,47 @@
 .cataCon {
   overflow: auto;
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 /* width */
 .cataCon::-webkit-scrollbar {
-  width: 20px;
+  display: none;
 }
 
 /* Track */
 .cataCon::-webkit-scrollbar-track {
   /* box-shadow: inset 0 0 2px grey; */
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 /* Handle */
 .cataCon::-webkit-scrollbar-thumb {
   background: #179bd7;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 /* Handle on hover */
 .cataCon::-webkit-scrollbar-thumb:hover {
   background: #179bd7;
+}
+
+.scrollBtn {
+  height: 50px;
+  background-color: transparent;
+  font-size: 40px;
+}
+
+.scrollBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.categoryWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .pizzaIn {
@@ -127,15 +149,16 @@
 .Items {
   height: fit-content;
   padding: 20px 0px;
-  width: 255px;
+  width: 158px;
+  margin-right: 50px;
   display: inline-block;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 .item {
-  height: 163px;
-  width: 70%;
+  height: 137px;
+  width: 95%;
   background-color: #b2d6e7;
   display: flex;
   align-items: center;
@@ -159,6 +182,7 @@
 }
 .Proitem {
   width: 280px;
+  border-radius: 15px;
   display: flex;
   text-align: left;
   align-items: flex-start;
@@ -191,7 +215,7 @@
 }
 .mostORderTitle {
   font-size: 32px;
-  margin-left: 50px;
+  margin-left: 10px;
   margin-bottom: 40px;
   font-weight: 700;
 }
