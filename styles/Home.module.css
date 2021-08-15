@@ -149,16 +149,20 @@
 .Items {
   height: fit-content;
   padding: 20px 0px;
-  width: 158px;
+  width: 143px;
   margin-right: 50px;
   display: inline-block;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+.Items:last-child {
+  margin-right: 0px;
+}
+
 .item {
   height: 137px;
-  width: 95%;
+  width: 100%;
   background-color: #b2d6e7;
   display: flex;
   align-items: center;
@@ -262,8 +266,9 @@
     height: fit-content;
   }
   .Proitem {
-    height: 390px;
     width: 250px;
+    height: fit-content;
+    margin-bottom: 36px;
     display: flex;
     align-items: center;
     flex-direction: column;

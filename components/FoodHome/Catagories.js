@@ -11,10 +11,10 @@ const Catagories = () => {
 
   // }
   function scrollCategoriesPrev() {
-    document.getElementById("categories").scrollBy(-160, -0);
+    document.getElementById("categories").scrollBy(-193, -0);
   }
   function scrollCategoriesNext() {
-    document.getElementById("categories").scrollBy(160, 0);
+    document.getElementById("categories").scrollBy(193, 0);
   }
   return (
     <div className={styles.cataContainer}>
